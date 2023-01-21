@@ -1,1 +1,20 @@
 // Here you can add other styles
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+//TODO: CUSTOMIZE STYLE
+.nav-item {
+  .linkFlag {
+    padding: 3px;
+    overflow: hidden;
+
+    .flagVN {
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50%;
+      // background-color: red;
+    }
+  }
+}
