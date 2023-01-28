@@ -20,115 +20,172 @@
 }
 
 //* Login
-.login__OverContainer {
-  @include size(100%, 100vh);
-  // background-color: red;
+// .login__OverContainer {
+//   @include size(100%, 100vh);
+//   // background-color: red;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   // align-items: center;
+//   align-content: center;
+
+//   .login {
+//     @include size(440px, 400px);
+//     border-radius: 30px;
+//     box-shadow: 0px 0px 35px 1px #f46e6e inset;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-content: center;
+
+//     &__title {
+//       @include size(100%, auto);
+//       padding: 0px 50px;
+//       text-align: center;
+//       font-size: 2em;
+//       font-weight: bold;
+//       font-family: 'Times New Roman', Times, sans-serif;
+//       // background-color: green;
+//     }
+
+//     p {
+//       padding: 0px 50px;
+//       text-align: center;
+//     }
+
+//     form {
+//       @include size(350px, auto);
+//       padding: 0px 20px;
+//       display: flex;
+//       flex-wrap: wrap;
+//       justify-content: center;
+//       align-items: center;
+//       // background-color: rebeccapurple;
+
+//       label {
+//         @include size(100%, auto);
+//         padding: 10px;
+
+//         p {
+//           font-size: 1em;
+//           font-weight: bold;
+//           margin-bottom: 0px;
+//         }
+
+//         input {
+//           @include size(100%, auto);
+//           outline: none;
+//           border: 2px solid $colorGrey;
+//           border-radius: 5px;
+//           padding: 5px 10px;
+//         }
+//       }
+
+//       .rememberMe {
+//         @include size(100%, 30px);
+//         padding: 0px 10px;
+//         display: flex;
+//         align-items: center;
+//         // background-color: antiquewhite;
+
+//         input {
+//           @include size(15px, 15px);
+//           margin-right: 5px;
+//         }
+
+//         p {
+//           @include size(50%, auto);
+//         }
+//       }
+
+//       .sumnitLogin {
+//         @include size(100%, auto);
+//         text-align: center;
+
+//         button {
+//           border: none;
+//           padding: 5px 10px;
+//           margin: 20px 0px 10px 0px;
+//           border-radius: 10px;
+//           color: white;
+//           background-color: $colorSecond;
+
+//           &:hover {
+//             opacity: 0.7;
+//           }
+//         }
+
+//         p {
+//           color: #f46e6e;
+
+//           &:hover {
+//             text-decoration: underline;
+//             opacity: 0.7;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+//* List user
+.control {
+  @include size(100%, auto);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  // align-items: center;
-  align-content: center;
+  justify-content: space-between;
 
-  .login {
-    @include size(440px, 400px);
-    border-radius: 30px;
-    box-shadow: 0px 0px 35px 1px #f46e6e inset;
+  .select {
+    @include size(30%, auto);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
 
-    &__title {
-      @include size(100%, auto);
-      padding: 0px 50px;
-      text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      font-family: 'Times New Roman', Times, sans-serif;
-      // background-color: green;
+    .btn {
+      padding-top: 5px;
+      margin: -3px 0px 0px 0px;
+      color: white;
     }
 
-    p {
-      padding: 0px 50px;
-      text-align: center;
+    .formSelect {
+      &__form {
+        option {
+          height: 50px;
+        }
+      }
     }
+  }
 
-    form {
-      @include size(350px, auto);
-      padding: 0px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      // background-color: rebeccapurple;
+  .search {
+    @include size(20%, auto);
+  }
+}
 
-      label {
-        @include size(100%, auto);
-        padding: 10px;
+.tableParent {
+  overflow: scroll;
 
-        p {
-          font-size: 1em;
-          font-weight: bold;
-          margin-bottom: 0px;
-        }
+  .table {
+    thead {
+      height: 50px !important;
 
-        input {
-          @include size(100%, auto);
-          outline: none;
-          border: 2px solid $colorGrey;
-          border-radius: 5px;
-          padding: 5px 10px;
-        }
-      }
+      tr {
+        // display: flex;
 
-      .rememberMe {
-        @include size(100%, 30px);
-        padding: 0px 10px;
-        display: flex;
-        align-items: center;
-        // background-color: antiquewhite;
-
-        input {
-          @include size(15px, 15px);
-          margin-right: 5px;
-        }
-
-        p {
-          @include size(50%, auto);
-        }
-      }
-
-      .sumnitLogin {
-        @include size(100%, auto);
-        text-align: center;
-
-        button {
+        th {
           border: none;
-          padding: 5px 10px;
-          margin: 20px 0px 10px 0px;
-          border-radius: 10px;
-          color: white;
-          background-color: $colorSecond;
-
-          &:hover {
-            opacity: 0.7;
-          }
+          padding: 10px;
         }
+      }
+    }
 
-        p {
-          color: #f46e6e;
-
-          &:hover {
-            text-decoration: underline;
-            opacity: 0.7;
-          }
+    tbody {
+      tr {
+        td {
+          // border: none;
+          padding: 10px 10px 0px 10px;
         }
       }
     }
   }
 }
 
-//* List user
 .tdRole {
   .role {
     display: inline-block;
@@ -256,34 +313,4 @@ td {
 
 .termOfService ul {
   margin: 0px 0px 0px 40px;
-}
-
-//* User
-.control {
-  @include size(100%, auto);
-  display: flex;
-  justify-content: space-between;
-
-  .select {
-    @include size(30%, auto);
-    display: flex;
-
-    .btn {
-      padding-top: 5px;
-      margin: -3px 0px 0px 0px;
-      color: white;
-    }
-
-    .formSelect {
-      &__form {
-        option {
-          height: 50px;
-        }
-      }
-    }
-  }
-
-  .search {
-    @include size(20%, auto);
-  }
 }

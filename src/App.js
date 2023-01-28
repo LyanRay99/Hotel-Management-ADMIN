@@ -7,8 +7,8 @@ import './scss/Other/other.scss'
 // import Register from './views/pages/register/Register'
 
 //* Login *********************************************************************************
-import { Login } from './admin/Login'
-import useToken from './admin/useToken'
+// import { Login } from './admin/Login'
+// import useToken from './admin/useToken'
 //****************************************************************************************/
 
 const loading = (
@@ -29,10 +29,10 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
 function App() {
   //TODO: Login
-  const { token, setToken } = useToken()
-  if (!token) {
-    return <Login setToken={setToken} />
-  }
+  // const { token, setToken } = useToken()
+  // if (!token) {
+  //   return <Login setToken={setToken} />
+  // }
 
   return (
     <HashRouter>
