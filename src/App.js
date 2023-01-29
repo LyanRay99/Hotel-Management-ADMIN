@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
 import './scss/Other/other.scss'
+import './scss/Other/button.scss'
 
 // import LoginAdmin from './views/pages/login/Login'
 // import Register from './views/pages/register/Register'

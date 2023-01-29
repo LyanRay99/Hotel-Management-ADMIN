@@ -3,35 +3,10 @@ import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
 import { Accordion, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import careersData from '../../Data/careers.json'
 
-const TipsAndTrips = (props) => {
-  const [helpCenter, setHelpCenter] = useState([])
-  useEffect(() => {
-    var myHeaders = new Headers()
-    var token = JSON.parse(localStorage.getItem('token'))
-    myHeaders.append('Authorization', 'Bearer ' + token.token)
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow',
-    }
-
-    fetch('/api/v1/help-centers?type=2&page=undefined', requestOptions)
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw new Error(response.status)
-      })
-      .then((result) => {
-        setHelpCenter(result.data.data)
-        console.log(helpCenter)
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
-  }, [])
+const Careers = (props) => {
+  const [careers, setCareers] = useState(careersData)
 
   return (
     <>
@@ -39,7 +14,7 @@ const TipsAndTrips = (props) => {
         <CCardHeader
           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
         >
-          Tips & Trips
+          Help Center
           <Button variant="info" style={{ color: 'white' }}>
             Add
             <FontAwesomeIcon icon={faPlus} style={{ margin: '0px 0px 0px 5px' }} />
@@ -48,7 +23,7 @@ const TipsAndTrips = (props) => {
         <CCardBody>
           <CRow>
             <Accordion defaultActiveKey="0">
-              {helpCenter.map((content, index) => (
+              {/* {helpCenter.map((content, index) => (
                 <Accordion.Item eventKey={index} key={content.id}>
                   <Accordion.Header>
                     {content.questionEn}
@@ -65,7 +40,7 @@ const TipsAndTrips = (props) => {
                     dangerouslySetInnerHTML={{ __html: content.answerEn }}
                   ></Accordion.Body>
                 </Accordion.Item>
-              ))}
+              ))} */}
             </Accordion>
           </CRow>
         </CCardBody>
@@ -74,4 +49,4 @@ const TipsAndTrips = (props) => {
   )
 }
 
-export default TipsAndTrips
+export default Careers

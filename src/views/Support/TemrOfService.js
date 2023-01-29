@@ -3,34 +3,10 @@ import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
+import termData from '../../Data/term.json'
 
 const TermsOfService = (props) => {
-  const [termsOfService, setTermsOfService] = useState({})
-  useEffect(() => {
-    var myHeaders = new Headers()
-    var token = JSON.parse(localStorage.getItem('token'))
-    myHeaders.append('Authorization', 'Bearer ' + token.token)
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow',
-    }
-
-    fetch('/api/v1/terms-policies/1', requestOptions)
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw new Error(response.status)
-      })
-      .then((result) => {
-        setTermsOfService(result.data)
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
-  }, [])
+  const [termsOfService, setTermsOfService] = useState(termData)
 
   return (
     <>
@@ -46,7 +22,7 @@ const TermsOfService = (props) => {
         </CCardHeader>
         <CCardBody>
           <CRow className="termOfService">
-            <div dangerouslySetInnerHTML={{ __html: termsOfService.bodyEn }}></div>
+            {/* <div dangerouslySetInnerHTML={{ __html: termsOfService.bodyEn }}></div> */}
           </CRow>
         </CCardBody>
       </CCard>

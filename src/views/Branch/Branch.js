@@ -1,28 +1,25 @@
 //* Library
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-
-//* Data
-import listUserData from '../../Data/list_users.json'
+import React, { useState } from 'react'
 
 //* CORE UI + React Bootstrap
 import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
-// import { cilArrowTop } from '@coreui/icons'
 import { Table, Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
+
+//* Data
+import branchData from '../../Data/list_room.json'
 
 //* Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const ListUser = () => {
-  const [user, setUser] = useState(listUserData)
+const Branch = () => {
+  const [branch, setBranch] = useState(branchData)
 
   return (
     <>
       <CCard className="mb-4">
-        <CCardHeader>List User</CCardHeader>
+        <CCardHeader>List Branch</CCardHeader>
         <CCardBody>
           <CRow>
             <div className="control">
@@ -33,20 +30,20 @@ const ListUser = () => {
                   </Button>
                 </div>
 
-                <div className="formSelect">
+                {/* <div className="formSelect">
                   <Form.Select aria-label="Default select example" className="formSelect__form">
                     <option>Select All</option>
                     <option value="1">Admin</option>
                     <option value="2">Super Admin</option>
                   </Form.Select>
-                </div>
+                </div> */}
               </div>
 
               <div className="input-group mb-3 search">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Username"
+                  placeholder="Branch"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
                 />
@@ -59,36 +56,25 @@ const ListUser = () => {
                   <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Sex</th>
-                    <th>Date of birth</th>
-                    <th>Identity Card</th>
-                    {/* <th>Nationality</th>
-                    <th>Address</th> */}
                     <th>Phone</th>
+                    <th>Address</th>
                     <th>Email</th>
-                    <th>Branch</th>
-                    <th>
-                      {/* <CIcon icon={cilArrowTop} style={{ marginRight: '10px' }}></CIcon> */}
-                      Role
-                    </th>
+                    <th>Manager</th>
+                    <th>Total room</th>
                     <th>Active</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {user.map((user, index) => (
-                    <tr key={user.id}>
+                  {branch.map((branch, index) => (
+                    <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{user.fullname}</td>
-                      <td>{user.sex}</td>
-                      <td>{user.date}</td>
-                      {/* <td>{user.identityCard}</td>
-                      <td>{user.nationality}</td> */}
-                      <td>{user.address}</td>
-                      <td>{user.phone}</td>
-                      <td>{user.email}</td>
-                      <td>{user.branch}</td>
-                      <td>{user.role}</td>
+                      <td>{branch.nameBranchEN}</td>
+                      <td>{branch.phone}</td>
+                      <td>{branch.addressEN}</td>
+                      <td>{branch.email}</td>
+                      <td>{branch.manager}</td>
+                      <td>{branch.roomTotal}</td>
                       <td>
                         <span className="tdAction__active">
                           <label className="container">
@@ -120,4 +106,4 @@ const ListUser = () => {
   )
 }
 
-export default ListUser
+export default Branch

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 
 //* Data
-import sliderData from '../../Data/slider.json'
+import listNews from '../../Data/new&Event.json'
 
 //* CORE UI + React Bootstrap
 import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
@@ -13,13 +13,13 @@ import Form from 'react-bootstrap/Form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const Banner = () => {
-  const [slider, setSlider] = useState(sliderData)
+const News = () => {
+  const [news, setNews] = useState(listNews.news_recent)
 
   return (
     <>
       <CCard className="mb-4">
-        <CCardHeader>Banner</CCardHeader>
+        <CCardHeader>List News & Events</CCardHeader>
         <CCardBody>
           <CRow>
             <CRow>
@@ -49,27 +49,26 @@ const Banner = () => {
                     <tr>
                       <th>No</th>
                       <th>Name</th>
-                      <th>Image</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                      <th>Author</th>
+                      <th>Tags</th>
                       <th>Content</th>
-                      <th>Active</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {slider.map((slider, index) => (
+                    {news.map((news, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{slider.name}</td>
-                        <td>{slider.image}</td>
-                        <td>{slider.content}</td>
+                        <td>{news.name}</td>
+                        <td>{news.time.slice(0, 8)}</td>
                         <td>
-                          <span className="tdAction__active">
-                            <label className="container">
-                              <input type="checkbox" id="check" />
-                              <span></span>
-                            </label>
-                          </span>
+                          {news.date}/{news.monthNumber}/{news.year}
                         </td>
+                        <td>{news.author}</td>
+                        <td>{news.tags}</td>
+                        <td>{news.content[0]}</td>
                         <td className="tdAction">
                           <span>
                             <FontAwesomeIcon icon={faKey} className="icon key" />
@@ -94,4 +93,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default News

@@ -135,7 +135,7 @@
   justify-content: space-between;
 
   .select {
-    @include size(30%, auto);
+    @include size(auto, auto);
     display: flex;
 
     .btn {
@@ -154,7 +154,7 @@
   }
 
   .search {
-    @include size(20%, auto);
+    @include size(auto, auto);
   }
 }
 
