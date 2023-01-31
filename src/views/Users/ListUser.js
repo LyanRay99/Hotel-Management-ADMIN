@@ -48,7 +48,7 @@ const ListUser = () => {
   //* Completed: Add User
   //* 1 - Create Object empty to add
   const [objUser, setObjUser] = useState({
-    id: '',
+    id: 0,
     fullName: '',
     date: '',
     sex: '',
@@ -66,54 +66,35 @@ const ListUser = () => {
     role: '',
     branch: '',
   })
-  // var objUser = {
-  //   id: '',
-  //   fullName: '',
-  //   date: '',
-  //   sex: '',
-  //   avatar: 'URL',
-  //   identityCard: '',
-  //   nationality: '',
-  //   phone: '',
-  //   email: '',
-  //   address: '',
-  //   dateCreated: '',
-  //   dateUpdated: '',
-  //   actived: true,
-  //   userName: '',
-  //   password: '',
-  //   role: '',
-  //   branch: '',
-  // }
 
   //* 2 - Get info user
   const getInfo = (e) => {
     if (e.target.name === 'fullName') {
-      objUser.fullName = e.target.value
+      setObjUser({ ...objUser, fullName: e.target.value })
     } else if (e.target.name === 'birth') {
-      objUser.date = e.target.value
+      setObjUser({ ...objUser, date: e.target.value })
     } else if (e.target.name === 'sex') {
-      objUser.sex = e.target.value
+      setObjUser({ ...objUser, sex: e.target.value })
     } else if (e.target.name === 'identityCard') {
-      objUser.identityCard = e.target.value
+      setObjUser({ ...objUser, identityCard: e.target.value })
     } else if (e.target.name === 'nationality') {
-      objUser.nationality = e.target.value
+      setObjUser({ ...objUser, nationality: e.target.value })
     } else if (e.target.name === 'email') {
-      objUser.email = e.target.value
+      setObjUser({ ...objUser, email: e.target.value })
     } else if (e.target.name === 'address') {
-      objUser.address = e.target.value
+      setObjUser({ ...objUser, address: e.target.value })
     } else if (e.target.name === 'role') {
-      objUser.role = e.target.value
+      setObjUser({ ...objUser, role: e.target.value })
     } else if (e.target.name === 'branch') {
-      objUser.branch = e.target.value
+      setObjUser({ ...objUser, branch: e.target.value })
     } else if (e.target.name === 'userName') {
-      objUser.userName = e.target.value
+      setObjUser({ ...objUser, userName: e.target.value })
     } else if (e.target.name === 'password') {
-      objUser.password = e.target.value
+      setObjUser({ ...objUser, password: e.target.value })
     } else if (e.target.name === 'phone') {
-      objUser.phone = e.target.value
+      setObjUser({ ...objUser, phone: e.target.value })
     }
-    // console.log(objUser)
+    console.log(objUser)
   }
 
   //* Check Text Empty ?
@@ -155,23 +136,25 @@ const ListUser = () => {
     var minutes = today.getMinutes()
     today = `${hour}h${minutes} ${day}-${month}-${year}`
 
-    objUser.dateCreated = today
-    objUser.dateUpdated = today
-    objUser.id = user.length + 1
+    setObjUser({ ...objUser, dateCreated: today, dateUpdated: today })
 
     checkTextEmpty()
     checkTextSpace()
 
     //* Push into Array + Reset objUser
     if (checkEmpty && checkSpace) {
+      //* Bây giờ mới set ID để thay đổi UI button trong Modal
+      setObjUser({ ...objUser, id: user.length + 1 })
+
+      //* Add objUser into User
       setUser([...user, objUser])
 
       //* Close Modal
       setAddVisible(false)
 
       //* Reset objUser
-      objUser = {
-        id: '',
+      setObjUser({
+        id: 0,
         fullName: '',
         date: '',
         sex: '',
@@ -188,13 +171,75 @@ const ListUser = () => {
         password: '',
         role: '',
         branch: '',
-      }
+      })
     } else {
       console.log('error')
     }
   }
 
   //* Completed: Edit User
+  const getInfoEdit = (user) => {
+    //* Open Modal
+    setAddVisible(true)
+
+    //* Binding data of user to edit
+    setObjUser({
+      id: user.id,
+      fullName: user.fullName,
+      date: user.date,
+      sex: user.sex,
+      avatar: user.avatar,
+      identityCard: user.identityCard,
+      nationality: user.nationality,
+      phone: user.phone,
+      email: user.email,
+      address: user.address,
+      dateCreated: user.dateCreated,
+      dateUpdated: user.dateUpdated,
+      actived: user.actived,
+      userName: user.userName,
+      password: user.password,
+      role: user.role,
+      branch: user.branch,
+    })
+  }
+
+  const editUser = () => {
+    //* set item editted
+
+    setUser(
+      user.map((item) => {
+        if (item.id === objUser.id) {
+          item = objUser
+        }
+        return item
+      }),
+    )
+
+    //* Reset objUser
+    setObjUser({
+      id: 0,
+      fullName: '',
+      date: '',
+      sex: '',
+      avatar: 'URL',
+      identityCard: '',
+      nationality: '',
+      phone: '',
+      email: '',
+      address: '',
+      dateCreated: '',
+      dateUpdated: '',
+      actived: true,
+      userName: '',
+      password: '',
+      role: '',
+      branch: '',
+    })
+
+    //* Close Modal
+    setAddVisible(false)
+  }
 
   //* Completed: Delete User
   const deleteUser = (indexS) => {
@@ -283,7 +328,7 @@ const ListUser = () => {
                         <span>
                           <FontAwesomeIcon icon={faKey} className="icon key" />
                         </span>
-                        <span>
+                        <span onClick={() => getInfoEdit(user)}>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
                         <span
@@ -323,13 +368,20 @@ const ListUser = () => {
               />
             </CCol>
             <CCol md={4}>
-              <CFormInput type="date" label="Birth" name="birth" onChange={getInfo} />
+              <CFormInput
+                type="date"
+                label="Birth"
+                name="birth"
+                value={objUser.date}
+                onChange={getInfo}
+              />
             </CCol>
             <CCol md={4}>
               <CFormSelect
                 label="Sex"
                 aria-label="Default select example"
                 name="sex"
+                value={objUser.sex}
                 onChange={getInfo}
                 options={[
                   'Choose',
@@ -343,6 +395,7 @@ const ListUser = () => {
                 type="number"
                 label="Identity Card"
                 name="identityCard"
+                value={objUser.identityCard}
                 onChange={getInfo}
               />
             </CCol>
@@ -351,6 +404,7 @@ const ListUser = () => {
                 label="Nationality"
                 aria-label="Default select example"
                 name="nationality"
+                value={objUser.nationality}
                 onChange={getInfo}
                 options={[
                   'Choose',
@@ -362,19 +416,38 @@ const ListUser = () => {
               />
             </CCol>
             <CCol md={4}>
-              <CFormInput type="email" label="Email" name="email" onChange={getInfo} />
+              <CFormInput
+                type="email"
+                label="Email"
+                name="email"
+                value={objUser.email}
+                onChange={getInfo}
+              />
             </CCol>
             <CCol md={6}>
-              <CFormInput type="text" label="Address" name="address" onChange={getInfo} />
+              <CFormInput
+                type="text"
+                label="Address"
+                name="address"
+                value={objUser.address}
+                onChange={getInfo}
+              />
             </CCol>
             <CCol md={6}>
-              <CFormInput type="number" label="Phone Number" name="phone" onChange={getInfo} />
+              <CFormInput
+                type="number"
+                label="Phone Number"
+                name="phone"
+                value={objUser.phone}
+                onChange={getInfo}
+              />
             </CCol>
             <CCol md={6}>
               <CFormSelect
                 label="Role"
                 aria-label="Default select example"
                 name="role"
+                value={objUser.role}
                 onChange={getInfo}
                 options={[
                   'Choose',
@@ -388,15 +461,28 @@ const ListUser = () => {
                 label="Branch"
                 aria-label="Default select example"
                 name="branch"
+                value={objUser.branch}
                 onChange={getInfo}
                 options={branchName}
               />
             </CCol>
             <CCol md={6}>
-              <CFormInput type="text" label="Username" name="userName" onChange={getInfo} />
+              <CFormInput
+                type="text"
+                label="Username"
+                name="userName"
+                value={objUser.userName}
+                onChange={getInfo}
+              />
             </CCol>
             <CCol md={6}>
-              <CFormInput type="password" label="Password" name="password" onChange={getInfo} />
+              <CFormInput
+                type="password"
+                label="Password"
+                name="password"
+                value={objUser.password}
+                onChange={getInfo}
+              />
             </CCol>
           </CForm>
         </CModalBody>
@@ -404,15 +490,21 @@ const ListUser = () => {
           <CButton className="btnCancel" onClick={() => setAddVisible(false)}>
             Cancel
           </CButton>
-          <CButton
-            color="primary"
-            className="btnAdd"
-            onClick={() => {
-              addUser()
-            }}
-          >
-            Aplly
-          </CButton>
+          {objUser.id == false ? (
+            <CButton
+              color="primary"
+              className="btnAdd"
+              onClick={() => {
+                addUser()
+              }}
+            >
+              Aplly
+            </CButton>
+          ) : (
+            <CButton className="btnEdit" onClick={() => editUser()}>
+              Edit
+            </CButton>
+          )}
         </CModalFooter>
       </CModal>
     </>

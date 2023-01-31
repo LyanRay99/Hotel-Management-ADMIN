@@ -2,12 +2,12 @@
   {
     "id": 1,
     "fullName": "Nguyen A",
-    "date": "01-10-1991",
+    "date": "1991-01-10",
     "sex": "male",
     "avatar": "URL",
     "identityCard": "201793356",
     "nationality": "Viet Nam",
-    "phone": "0905.234.234",
+    "phone": "0905234234",
     "email": "nva@gmail.com",
     "address": "abc strees",
     "dateCreated": "13h30 23-02-2022",
@@ -21,12 +21,12 @@
   {
     "id": 2,
     "fullName": "Nguyen B",
-    "date": "23-10-1992",
+    "date": "1992-10-23",
     "sex": "female",
     "avatar": "URL",
     "identityCard": "201793356",
     "nationality": "Viet Nam",
-    "phone": "0905.234.234",
+    "phone": "0905234234",
     "email": "nvb@gmail.com",
     "address": "abc strees",
     "dateCreated": "13h30 23-02-2022",
@@ -35,17 +35,17 @@
     "userName": "nguyenb123",
     "password": "nguyenb123",
     "role": "Admin",
-    "branch": "Nha Trang"
+    "branch": "Panorama Nha Trang"
   },
   {
     "id": 3,
     "fullName": "Nguyen C",
-    "date": "19-11-1991",
+    "date": "1991-11-19",
     "sex": "male",
     "avatar": "URL",
     "identityCard": "201793356",
     "nationality": "Viet Nam",
-    "phone": "0905.234.234",
+    "phone": "0905234234",
     "email": "nvc@gmail.com",
     "address": "abc strees",
     "dateCreated": "13h30 23-02-2022",
@@ -54,6 +54,6 @@
     "userName": "nguyenc123",
     "password": "nguyenc123",
     "role": "Super Admin",
-    "branch": "Nha Trang"
+    "branch": "Panorama Nha Trang"
   }
 ]
