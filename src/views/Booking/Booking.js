@@ -43,7 +43,7 @@ const ListBooking = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Username"
+                  placeholder="Booking"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
                 />

@@ -250,6 +250,7 @@ input[type='checkbox']:checked ~ span {
 
 .tdAction {
   span {
+    cursor: pointer;
     // background-color: #f46e6e;
 
     .icon {

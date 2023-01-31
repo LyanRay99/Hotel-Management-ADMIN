@@ -36,7 +36,7 @@ const News = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="News..."
                     aria-label="Type String..."
                     aria-describedby="basic-addon1"
                   />

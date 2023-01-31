@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "fullname": "Nguyen A",
+    "fullName": "Nguyen A",
     "date": "01-10-1991",
     "sex": "male",
     "avatar": "URL",
@@ -20,7 +20,7 @@
   },
   {
     "id": 2,
-    "fullname": "Nguyen B",
+    "fullName": "Nguyen B",
     "date": "23-10-1992",
     "sex": "female",
     "avatar": "URL",
@@ -39,7 +39,7 @@
   },
   {
     "id": 3,
-    "fullname": "Nguyen C",
+    "fullName": "Nguyen C",
     "date": "19-11-1991",
     "sex": "male",
     "avatar": "URL",

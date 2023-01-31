@@ -28,18 +28,6 @@ const _nav = [
     to: '/Users',
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
-  // {
-  //   component: CNavItem,
-  //   name: 'Role',
-  //   to: '/Role',
-  //   icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
-  // },
-  // {
-  //   component: CNavItem,
-  //   name: 'Permission',
-  //   to: '/Permission',
-  //   icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
-  // },
 
   //TODO: HOTEL MANAGEMENT
   {
@@ -70,24 +58,6 @@ const _nav = [
     to: '/ReportRating',
     icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
   },
-  // {
-  //   component: CNavItem,
-  //   name: 'Album Featured Resport',
-  //   to: '/AlbumFeaturedRequest',
-  //   icon: <CIcon icon={cilLayers} customClassName="nav-icon" />,
-  // },
-  // {
-  //   component: CNavItem,
-  //   name: 'Business Registration',
-  //   to: '/BusinessRegistration',
-  //   icon: <CIcon icon={cilTask} customClassName="nav-icon" />,
-  // },
-  // {
-  //   component: CNavItem,
-  //   name: 'Statistic',
-  //   to: '/Statistic',
-  //   icon: <CIcon icon={cilBarChart} customClassName="nav-icon" />,
-  // },\
 
   // TODO: MANAGE NEWS
   {
@@ -144,11 +114,6 @@ const _nav = [
         component: CNavItem,
         name: 'Terms Of Service',
         to: '/Terms-of-service',
-      },
-      {
-        component: CNavItem,
-        name: 'Careers',
-        to: '/Careers',
       },
     ],
   },
