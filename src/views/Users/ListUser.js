@@ -5,6 +5,9 @@ import React, { useEffect, useState } from 'react'
 import userData from '../../Data/list_users.json'
 import roomData from '../../Data/list_room'
 
+//* Component
+import { Abc } from './Abc'
+
 //* CORE UI + React Bootstrap
 import {
   CRow,
@@ -19,10 +22,8 @@ import {
   CCol,
   CFormInput,
   CFormSelect,
-  CFormCheck,
+  CFormSwitch,
 } from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
-// import { cilArrowTop } from '@coreui/icons'
 import { Table, Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 
@@ -92,15 +93,21 @@ const ListUser = () => {
     } else if (e.target.name === 'password') {
       setObjUser({ ...objUser, password: e.target.value })
     } else if (e.target.name === 'phone') {
-      setObjUser({ ...objUser, phone: e.target.value })
+      //* Create dateCreated + dateUpdated luôn tại đây
+      var today = new Date()
+      var day = String(today.getDate()).padStart(2, '0')
+      var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+      var year = today.getFullYear()
+      var hour = today.getHours()
+      var minutes = today.getMinutes()
+      today = `${hour}h${minutes} ${day}-${month}-${year}`
+      setObjUser({ ...objUser, dateCreated: today, dateUpdated: today, phone: e.target.value })
     }
-    console.log(objUser)
   }
 
   //* Check Text Empty ?
   var checkEmpty = true
   const checkTextEmpty = () => {
-    console.log(objUser)
     for (const key in objUser) {
       if (objUser[key] === '') {
         // console.log(objUser[key])
@@ -127,17 +134,7 @@ const ListUser = () => {
 
   //* 3 - Add User
   const addUser = () => {
-    //* Hoàn thiện data của objUser
-    var today = new Date()
-    var day = String(today.getDate()).padStart(2, '0')
-    var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    var year = today.getFullYear()
-    var hour = today.getHours()
-    var minutes = today.getMinutes()
-    today = `${hour}h${minutes} ${day}-${month}-${year}`
-
-    setObjUser({ ...objUser, dateCreated: today, dateUpdated: today })
-
+    //* Run function check
     checkTextEmpty()
     checkTextSpace()
 
@@ -172,12 +169,14 @@ const ListUser = () => {
         role: '',
         branch: '',
       })
-    } else {
-      console.log('error')
+    } else if (!checkEmpty) {
+      alert('input khônng được trống')
+    } else if (!checkSpace) {
+      alert('input chứa toàn khoảng trắng')
     }
   }
 
-  //* Completed: Edit User
+  //* Completed: Open modal Edit User
   const getInfoEdit = (user) => {
     //* Open Modal
     setAddVisible(true)
@@ -204,9 +203,9 @@ const ListUser = () => {
     })
   }
 
+  //* Update state
   const editUser = () => {
     //* set item editted
-
     setUser(
       user.map((item) => {
         if (item.id === objUser.id) {
@@ -241,6 +240,33 @@ const ListUser = () => {
     setAddVisible(false)
   }
 
+  //* Reset ObjUser khi click Cancel
+  const cancelEdit = () => {
+    //* Reset objUser
+    setObjUser({
+      id: 0,
+      fullName: '',
+      date: '',
+      sex: '',
+      avatar: 'URL',
+      identityCard: '',
+      nationality: '',
+      phone: '',
+      email: '',
+      address: '',
+      dateCreated: '',
+      dateUpdated: '',
+      actived: true,
+      userName: '',
+      password: '',
+      role: '',
+      branch: '',
+    })
+
+    //* Close Modal
+    setAddVisible(false)
+  }
+
   //* Completed: Delete User
   const deleteUser = (indexS) => {
     setUser([
@@ -248,6 +274,53 @@ const ListUser = () => {
         return index !== indexS
       }),
     ])
+  }
+
+  //* Completed: Sort Role
+  const sortRole = (e) => {
+    if (e.target.value !== 'Select All') {
+      setUser(() => userData)
+      setUser((users) => [
+        ...users.filter((Users, index) => {
+          return Users.role === e.target.value
+        }),
+      ])
+    } else {
+      setUser(userData)
+    }
+  }
+
+  //* Completed: Search User Name
+  const [searchFullName, setSearchFullName] = useState('')
+  const getInfoFullName = (e) => {
+    setSearchFullName(() => e.target.value)
+    if (e.target.value == '') {
+      setUser(userData)
+    } else {
+      var searchUser = user.filter((item) => {
+        if (item.fullName.toLowerCase().includes(e.target.value.toLowerCase())) {
+          // console.log(user[index].actived)
+          return item
+        }
+      })
+      console.log(searchUser)
+      setUser(searchUser)
+      console.log(e.target.value)
+    }
+  }
+
+  //* Completed: Active User
+  const activeUser = (USER, e) => {
+    setUser(
+      user.filter((item) => {
+        if (item.id === USER.id) {
+          // console.log(user[index].actived)
+          item.actived = e.target.checked
+          // console.log(item.id + ' ' + USER.id)
+        }
+        return item
+      }),
+    )
   }
 
   return (
@@ -265,10 +338,15 @@ const ListUser = () => {
                 </div>
 
                 <div className="formSelect">
-                  <Form.Select aria-label="Default select example" className="formSelect__form">
+                  <Form.Select
+                    aria-label="Default select example"
+                    className="formSelect__form"
+                    // name="role"
+                    onChange={sortRole}
+                  >
                     <option>Select All</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Super Admin</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Super Admin">Super Admin</option>
                   </Form.Select>
                 </div>
               </div>
@@ -280,6 +358,8 @@ const ListUser = () => {
                   placeholder="Username"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  value={searchFullName}
+                  onChange={getInfoFullName}
                 />
               </div>
             </div>
@@ -317,12 +397,18 @@ const ListUser = () => {
                       <td>{user.branch}</td>
                       <td>{user.role}</td>
                       <td>
-                        <span className="tdAction__active">
+                        <CFormSwitch checked={user.actived} onChange={(e) => activeUser(user, e)} />
+                        {/* <span className="tdAction__active">
                           <label className="container">
-                            <input type="checkbox" id="check" />
+                            <input
+                              type="checkbox"
+                              id="check"
+                              checked={!user.actived}
+                              onChange={(e) => activeUser(user, e)}
+                            />
                             <span></span>
                           </label>
-                        </span>
+                        </span> */}
                       </td>
                       <td className="tdAction">
                         <span>
@@ -348,7 +434,7 @@ const ListUser = () => {
         </CCardBody>
       </CCard>
 
-      {/* Completed: Modal to get info and Add User */}
+      {/* Completed: Modal to get info, Add and Edit User */}
       <CModal
         scrollable
         visible={addVisible}
@@ -464,6 +550,7 @@ const ListUser = () => {
                 value={objUser.branch}
                 onChange={getInfo}
                 options={branchName}
+                disabled={objUser.role === '' ? true : false}
               />
             </CCol>
             <CCol md={6}>
@@ -487,7 +574,7 @@ const ListUser = () => {
           </CForm>
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnCancel" onClick={() => setAddVisible(false)}>
+          <CButton className="btnCancel" onClick={() => cancelEdit()}>
             Cancel
           </CButton>
           {objUser.id == false ? (
@@ -507,6 +594,8 @@ const ListUser = () => {
           )}
         </CModalFooter>
       </CModal>
+
+      <Abc>abc</Abc>
     </>
   )
 }

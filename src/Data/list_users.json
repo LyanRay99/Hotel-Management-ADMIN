@@ -20,7 +20,7 @@
   },
   {
     "id": 2,
-    "fullName": "Nguyen B",
+    "fullName": "Phan B",
     "date": "1992-10-23",
     "sex": "female",
     "avatar": "URL",
@@ -31,7 +31,7 @@
     "address": "abc strees",
     "dateCreated": "13h30 23-02-2022",
     "dateUpdated": "13h30 23-02-2022",
-    "actived": true,
+    "actived": false,
     "userName": "nguyenb123",
     "password": "nguyenb123",
     "role": "Admin",
@@ -39,7 +39,7 @@
   },
   {
     "id": 3,
-    "fullName": "Nguyen C",
+    "fullName": "Tran C",
     "date": "1991-11-19",
     "sex": "male",
     "avatar": "URL",

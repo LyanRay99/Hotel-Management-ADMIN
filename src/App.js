@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
+
+//* Style
 import './scss/style.scss'
 import './scss/Other/other.scss'
 import './scss/Other/button.scss'

@@ -4,18 +4,42 @@ import React, { useState } from 'react'
 //* CORE UI + React Bootstrap
 import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
 import { Table, Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+// import Form from 'react-bootstrap/Form'
 
 //* Data
 import branchData from '../../Data/list_room.json'
 
 //* Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const Branch = () => {
   const [branch, setBranch] = useState(branchData)
 
+  //TODO: Edit Branch
+  //* Completed: Delete Branch
+  const deleteBranch = (indexS) => {
+    setBranch([
+      ...branch.filter((branch, index) => {
+        return index !== indexS
+      }),
+    ])
+  }
+
+  //* Completed: Active Branch
+  const activeBranch = (BRANCH, e) => {
+    setBranch(
+      branch.filter((item) => {
+        if (item.id === BRANCH.id) {
+          // console.log(user[index].actived)
+          item.actived = !e.target.checked
+        }
+        return item
+      }),
+    )
+  }
+
+  //* TODO: Search Branch
   return (
     <>
       <CCard className="mb-4">
@@ -78,20 +102,25 @@ const Branch = () => {
                       <td>
                         <span className="tdAction__active">
                           <label className="container">
-                            <input type="checkbox" id="check" />
+                            <input
+                              type="checkbox"
+                              id="check"
+                              onChange={(e) => activeBranch(branch, e)}
+                            />
                             <span></span>
                           </label>
                         </span>
                       </td>
                       <td className="tdAction">
                         <span>
-                          <FontAwesomeIcon icon={faKey} className="icon key" />
-                        </span>
-                        <span>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
                         <span>
-                          <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="icon trash"
+                            onClick={() => deleteBranch(index)}
+                          />
                         </span>
                       </td>
                     </tr>

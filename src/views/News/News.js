@@ -53,6 +53,7 @@ const News = () => {
                       <th>Date</th>
                       <th>Author</th>
                       <th>Tags</th>
+                      <th>Image</th>
                       <th>Content</th>
                       <th>Action</th>
                     </tr>
@@ -68,6 +69,7 @@ const News = () => {
                         </td>
                         <td>{news.author}</td>
                         <td>{news.tags}</td>
+                        <td>{news.image}</td>
                         <td>{news.content[0]}</td>
                         <td className="tdAction">
                           <span>
