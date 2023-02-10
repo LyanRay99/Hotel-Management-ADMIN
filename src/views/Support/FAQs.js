@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import {
   CRow,
   CCard,
@@ -14,50 +14,54 @@ import {
   CModalBody,
   CModalFooter,
   CButton,
-} from '@coreui/react'
-import { Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
-import faqsData from '../../Data/faqs.json'
+} from "@coreui/react";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPenToSquare,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
+import faqsData from "../../Data/faqs.json";
 
 const FAQs = (props) => {
   //* Binding data
-  const [faqs, setFaqs] = useState(faqsData)
+  const [faqs, setFaqs] = useState(faqsData.listFaqs);
 
   //* Open + Close Modal
-  const [addVisible, setAddVisible] = useState(false)
-  const [editVisible, setEditVisible] = useState(false)
-  const [renameVisible, setRenameVisible] = useState(false)
+  const [addVisible, setAddVisible] = useState(false);
+  const [editVisible, setEditVisible] = useState(false);
+  const [renameVisible, setRenameVisible] = useState(false);
   // const [editVisible, setEditVisible] = useState(false)
 
   //* Completed: Add UI input to write Question + Answer
-  const [addQuestion, setAddQuesTion] = useState([{}])
+  const [addQuestion, setAddQuesTion] = useState([{}]);
 
   const AddQuestion = () => {
-    var Question = {}
-    setAddQuesTion([...addQuestion, Question])
+    var Question = {};
+    setAddQuesTion([...addQuestion, Question]);
     // console.log(addQuestion)
-  }
+  };
 
   //* Completed: Add
   //* Create state
   const [addData, setAddData] = useState({
-    title: '',
+    title: "",
     content: [
       {
-        question: '',
-        answer: '',
+        question: "",
+        answer: "",
       },
     ],
-  })
+  });
 
   //* Get info to Add title
   const getInfo = (e) => {
     setAddData({
       title: e.target.value,
       content: addData.content,
-    })
-  }
+    });
+  };
 
   const getInfoQuesTion = (e) => {
     setAddData({
@@ -68,8 +72,8 @@ const FAQs = (props) => {
           answer: addData.content[0].answer,
         },
       ],
-    })
-  }
+    });
+  };
 
   const getInfoAnswer = (e) => {
     setAddData({
@@ -80,69 +84,80 @@ const FAQs = (props) => {
           answer: e.target.value,
         },
       ],
-    })
-  }
+    });
+  };
 
   //* Add title
   const addTitle = () => {
     //* check text input có bị trùng với 1 trong các todo đã có hay ko
-    var checkTodoText = true
-    var SttTodo = 0
+    var checkTodoText = true;
+    var SttTodo = 0;
     faqs.map((faqs, index) => {
       if (faqs.title === addData.title) {
-        checkTodoText = false
-        SttTodo = index + 1
+        checkTodoText = false;
+        SttTodo = index + 1;
       }
-    })
+    });
 
-    console.log(addData)
+    console.log(addData);
     //* Check text input có phải toàn space hay ko
-    var checkSpaceText = addData.title.replace(/\s/g, '').length
-    var checkQuestion = addData.content[0].question.replace(/\s/g, '').length
-    var checkAnswer = addData.content[0].answer.replace(/\s/g, '').length
+    var checkSpaceText = addData.title.replace(/\s/g, "").length;
+    var checkQuestion = addData.content[0].question.replace(/\s/g, "").length;
+    var checkAnswer = addData.content[0].answer.replace(/\s/g, "").length;
 
-    if (addData.title !== '' && checkTodoText && checkSpaceText && checkQuestion && checkAnswer) {
-      setFaqs([...faqs, addData])
+    if (
+      addData.title !== "" &&
+      checkTodoText &&
+      checkSpaceText &&
+      checkQuestion &&
+      checkAnswer
+    ) {
+      setFaqs([...faqs, addData]);
 
       //* Reset state
       setAddData({
-        title: '',
+        title: "",
         content: [
           {
-            question: '',
-            answer: '',
+            question: "",
+            answer: "",
           },
         ],
-      })
+      });
 
       //* Close Modal Add
-      setAddVisible(false)
+      setAddVisible(false);
     }
 
     //* Hiển thị thông báo khi User thêm title todo bị trùng hoặc chỉ chứa toàn dấu space
-    if (addData.title === '' || checkSpaceText === 0 || checkQuestion === 0 || checkAnswer === 0) {
-      alert('Vui lòng nhập title bạn cần làm vào ô dưới')
+    if (
+      addData.title === "" ||
+      checkSpaceText === 0 ||
+      checkQuestion === 0 ||
+      checkAnswer === 0
+    ) {
+      alert("Vui lòng nhập title bạn cần làm vào ô dưới");
     } else if (checkTodoText === false) {
-      alert(`Tiêu đề của bạn hiện đang bị trùng tại dòng thứ ${SttTodo}`)
+      alert(`Tiêu đề của bạn hiện đang bị trùng tại dòng thứ ${SttTodo}`);
     }
-  }
+  };
 
   //TODO: Edit
   const [editContent, setEditContent] = useState({
-    id: '',
-    title: '',
+    id: "",
+    title: "",
     content: [],
-  })
+  });
 
   //* Open modal Edit + setstate editTitle
   const editTitle = (item, index) => {
-    setEditVisible(!editVisible)
+    setEditVisible(!editVisible);
     setEditContent({
       id: index,
       title: item.title,
       content: item.content,
-    })
-  }
+    });
+  };
 
   //* Get title
   const getTitle = (e) => {
@@ -150,37 +165,41 @@ const FAQs = (props) => {
       id: editContent.id,
       title: e.target.value,
       content: editContent.content,
-    })
-  }
+    });
+  };
 
   //* Rename Title
   const renameTitle = () => {
     setFaqs(
       faqs.filter((item, index) => {
         if (index === editContent.id) {
-          item.title = editContent.title
+          item.title = editContent.title;
         }
-        return faqs
-      }),
-    )
+        return faqs;
+      })
+    );
 
-    setEditVisible(false)
-  }
+    setEditVisible(false);
+  };
 
   //* Completed: Delete
   const deleteTitle = (itemIndex) => {
     setFaqs([
       ...faqs.filter((title, index) => {
-        return index !== itemIndex
+        return index !== itemIndex;
       }),
-    ])
-  }
+    ]);
+  };
 
   return (
     <>
       <CCard className="mb-4">
         <CCardHeader
-          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
           FAQs
           <Button className="btnAdd" onClick={() => setAddVisible(!addVisible)}>
@@ -199,10 +218,16 @@ const FAQs = (props) => {
                     </CAccordionHeader>
 
                     <div className="termOfService__header__custom">
-                      <Button className="btnEdit" onClick={() => editTitle(item, index)}>
+                      <Button
+                        className="btnEdit"
+                        onClick={() => editTitle(item, index)}
+                      >
                         Edit Title <FontAwesomeIcon icon={faPenToSquare} />
-                      </Button>{' '}
-                      <Button className="btnDelete" onClick={() => deleteTitle(index)}>
+                      </Button>{" "}
+                      <Button
+                        className="btnDelete"
+                        onClick={() => deleteTitle(index)}
+                      >
                         Delete Title <FontAwesomeIcon icon={faTrash} />
                       </Button>
                     </div>
@@ -238,7 +263,11 @@ const FAQs = (props) => {
           <div className="FAQs__add">
             <div className="FAQs__add__title">
               <label>TITLE</label>
-              <input type="text" value={addData.title} onChange={getInfo}></input>
+              <input
+                type="text"
+                value={addData.title}
+                onChange={getInfo}
+              ></input>
             </div>
 
             {addQuestion.map((question, index) => (
@@ -258,10 +287,18 @@ const FAQs = (props) => {
           </div>
         </CModalBody>
         <CModalFooter>
-          <CButton color="secondary" className="btnCancel" onClick={() => setAddVisible(false)}>
+          <CButton
+            color="secondary"
+            className="btnCancel"
+            onClick={() => setAddVisible(false)}
+          >
             Cancel
           </CButton>
-          <CButton color="primary" className="btnAdd" onClick={() => addTitle()}>
+          <CButton
+            color="primary"
+            className="btnAdd"
+            onClick={() => addTitle()}
+          >
             Add
           </CButton>
         </CModalFooter>
@@ -284,9 +321,12 @@ const FAQs = (props) => {
               <p className="faqs__header__title">{editContent.title}</p>
 
               <div>
-                <CButton className="btnCancel" onClick={() => setRenameVisible(true)}>
+                <CButton
+                  className="btnCancel"
+                  onClick={() => setRenameVisible(true)}
+                >
                   Rename
-                </CButton>{' '}
+                </CButton>{" "}
                 <CButton className="btnAdd">Add Question</CButton>
               </div>
             </div>
@@ -300,8 +340,8 @@ const FAQs = (props) => {
                 </p>
                 <p>- {item.answer}</p>
 
-                <div style={{ margin: '0px 0px 3% 0px' }}>
-                  <CButton className="btnEdit">Edit</CButton>{' '}
+                <div style={{ margin: "0px 0px 3% 0px" }}>
+                  <CButton className="btnEdit">Edit</CButton>{" "}
                   <CButton className="btnDelete">Delete</CButton>
                 </div>
               </React.Fragment>
@@ -309,10 +349,18 @@ const FAQs = (props) => {
           </div>
         </CModalBody>
         <CModalFooter>
-          <CButton color="secondary" className="btnCancel" onClick={() => setEditVisible(false)}>
+          <CButton
+            color="secondary"
+            className="btnCancel"
+            onClick={() => setEditVisible(false)}
+          >
             Cancel
           </CButton>
-          <CButton color="primary" className="btnAdd" onClick={() => renameTitle()}>
+          <CButton
+            color="primary"
+            className="btnAdd"
+            onClick={() => renameTitle()}
+          >
             Aplly
           </CButton>
         </CModalFooter>
@@ -330,20 +378,24 @@ const FAQs = (props) => {
           <div>
             <input
               type="text"
-              style={{ width: '100%' }}
+              style={{ width: "100%" }}
               value={editContent.title}
               onChange={getTitle}
             ></input>
           </div>
         </CModalBody>
         <CModalFooter>
-          <CButton color="primary" className="btnAdd" onClick={() => setRenameVisible(false)}>
+          <CButton
+            color="primary"
+            className="btnAdd"
+            onClick={() => setRenameVisible(false)}
+          >
             Aplly
           </CButton>
         </CModalFooter>
       </CModal>
     </>
-  )
-}
+  );
+};
 
-export default FAQs
+export default FAQs;

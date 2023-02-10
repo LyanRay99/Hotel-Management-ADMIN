@@ -1,30 +1,30 @@
 //* Library
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { Table, Button } from 'react-bootstrap'
+import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
 // import Form from 'react-bootstrap/Form'
 
 //* Data
-import branchData from '../../Data/list_room.json'
+import branchData from "../../Data/list_room.json";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Branch = () => {
-  const [branch, setBranch] = useState(branchData)
+  const [branch, setBranch] = useState(branchData.listRooms);
 
   //TODO: Edit Branch
   //* Completed: Delete Branch
   const deleteBranch = (indexS) => {
     setBranch([
       ...branch.filter((branch, index) => {
-        return index !== indexS
+        return index !== indexS;
       }),
-    ])
-  }
+    ]);
+  };
 
   //* Completed: Active Branch
   const activeBranch = (BRANCH, e) => {
@@ -32,12 +32,12 @@ const Branch = () => {
       branch.filter((item) => {
         if (item.id === BRANCH.id) {
           // console.log(user[index].actived)
-          item.actived = !e.target.checked
+          item.actived = !e.target.checked;
         }
-        return item
-      }),
-    )
-  }
+        return item;
+      })
+    );
+  };
 
   //* TODO: Search Branch
   return (
@@ -76,7 +76,7 @@ const Branch = () => {
 
             <div className="tableParent">
               <Table responsive="sm">
-                <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                   <tr>
                     <th>No</th>
                     <th>Name</th>
@@ -132,7 +132,7 @@ const Branch = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default Branch
+export default Branch;

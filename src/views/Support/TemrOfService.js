@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import {
   CRow,
   CCard,
@@ -14,25 +14,36 @@ import {
   CModalBody,
   CModalFooter,
   CButton,
-} from '@coreui/react'
-import { Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import termData from '../../Data/term.json'
+} from "@coreui/react";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPen,
+  faTrash,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import termData from "../../Data/term.json";
 
 const TermsOfService = (props) => {
-  const [termsOfService, setTermsOfService] = useState(termData)
+  const [termsOfService, setTermsOfService] = useState(termData.listTerm);
 
   return (
     <>
       <CCard className="mb-4">
         <CCardHeader
-          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
           Terms Of Service
-          <Button variant="info" style={{ color: 'white' }}>
+          <Button variant="info" style={{ color: "white" }}>
             Edit
-            <FontAwesomeIcon icon={faPen} style={{ margin: '0px 0px 0px 5px' }} />
+            <FontAwesomeIcon
+              icon={faPen}
+              style={{ margin: "0px 0px 0px 5px" }}
+            />
           </Button>
         </CCardHeader>
         <CCardBody>
@@ -48,7 +59,7 @@ const TermsOfService = (props) => {
                     <div className="termOfService__header__custom">
                       <Button className="btnEdit">
                         Edit Title <FontAwesomeIcon icon={faPenToSquare} />
-                      </Button>{' '}
+                      </Button>{" "}
                       <Button className="btnDelete">
                         Delete Title <FontAwesomeIcon icon={faTrash} />
                       </Button>
@@ -74,7 +85,7 @@ const TermsOfService = (props) => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default TermsOfService
+export default TermsOfService;

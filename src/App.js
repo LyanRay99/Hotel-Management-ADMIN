@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import React, { Suspense } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 //* Style
-import './scss/style.scss'
-import './scss/Other/other.scss'
-import './scss/Other/button.scss'
+import "./scss/style.scss";
+import "./scss/Other/other.scss";
+import "./scss/Other/button.scss";
 
 // import LoginAdmin from './views/pages/login/Login'
 // import Register from './views/pages/register/Register'
@@ -18,17 +18,17 @@ const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
-)
+);
 
 //* Containers
-const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
+const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
 
 // Pages
 // const Login = React.lazy(() => import('./views/pages/login/Login'))
 // const Register = React.lazy(() => import('./views/pages/register/Register'))
 // const ForgetPassword = React.lazy(() => import('./admin/ForgetPassword'))
-const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
-const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
+const Page404 = React.lazy(() => import("./views/pages/page404/Page404"));
+const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 
 function App() {
   //TODO: Login
@@ -50,7 +50,7 @@ function App() {
         </Routes>
       </Suspense>
     </HashRouter>
-  )
+  );
 }
 
-export default App
+export default App;

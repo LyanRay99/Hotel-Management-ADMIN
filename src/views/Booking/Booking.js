@@ -1,9 +1,10 @@
 //* Library
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 //* Data
-import listBookData from '../../Data/list_booking.json'
-import roomData from '../../Data/list_room'
+import listBookData from "../../Data/list_booking.json";
+import roomData from "../../Data/list_room";
 
 //* CORE UI + React Bootstrap
 import {
@@ -20,162 +21,174 @@ import {
   CFormInput,
   CFormSelect,
   CFormCheck,
-} from '@coreui/react'
-import { Table, Button } from 'react-bootstrap'
+} from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ListBooking = () => {
   //* Get + binding data
-  const [booking, setBooking] = useState(listBookData)
+  const [booking, setBooking] = useState(listBookData.listBooking);
 
   //* Setup to binding data for Select Branch + roomType + roomKind
-  const [room, setRoom] = useState(roomData)
+  const [room, setRoom] = useState(roomData.listRooms);
   const branchName = room.map((item) => ({
     label: item.nameBranchVN,
     value: item.nameBranchVN,
-  }))
+  }));
 
   const roomTypes = room[0].roomType.map((item) => ({
     label: item.type,
     value: item.type,
-  }))
+  }));
 
   const roomKinds = room[0].roomType[0].typeR.map((item) => ({
     label: item.name,
     value: item.name,
-  }))
+  }));
 
-  branchName.unshift('choose')
-  roomTypes.unshift('choose')
-  roomKinds.unshift('choose')
+  branchName.unshift("choose");
+  roomTypes.unshift("choose");
+  roomKinds.unshift("choose");
 
   //* Open + Close Modal
-  const [addVisible, setAddVisible] = useState(false)
+  const [addVisible, setAddVisible] = useState(false);
 
   //* Completed: Add User
   //* 1 - Create Object empty to add
   var [objBooking, setObjBooking] = useState({
     id: 0,
-    fullName: '',
-    date: '',
-    sex: '',
-    identityCard: '',
-    nationality: '',
-    phone: '',
-    email: '',
-    address: '',
-    dateCreated: '',
-    dateUpdated: '',
-    nameBranchVN: '',
-    roomType: '',
-    typeR: '',
+    fullName: "",
+    date: "",
+    sex: "",
+    identityCard: "",
+    nationality: "",
+    phone: "",
+    email: "",
+    address: "",
+    dateCreated: "",
+    dateUpdated: "",
+    nameBranchVN: "",
+    roomType: "",
+    typeR: "",
     numberRoom: 310,
-    checkIn: '',
-    checkOut: '',
+    checkIn: "",
+    checkOut: "",
     confirm: true,
     paied: true,
     cancel: false,
-  })
+  });
 
   //* Custom data checkin + checkout
   var [checkIn, setCheckIn] = useState({
     date: objBooking.checkIn.slice(6, 16),
     time: `${objBooking.checkIn.slice(0, 2)}:${objBooking.checkIn.slice(3, 5)}`,
-  })
+  });
 
   var [checkOut, setCheckOut] = useState({
     date: objBooking.checkOut.slice(6, 16),
-    time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(3, 5)}`,
-  })
+    time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(
+      3,
+      5
+    )}`,
+  });
 
   //* 2 - Get info user
   const getInfo = (e) => {
-    if (e.target.name === 'fullName') {
-      setObjBooking({ ...objBooking, fullName: e.target.value })
-    } else if (e.target.name === 'birth') {
-      setObjBooking({ ...objBooking, date: e.target.value })
-    } else if (e.target.name === 'sex') {
-      setObjBooking({ ...objBooking, sex: e.target.value })
-    } else if (e.target.name === 'identityCard') {
-      setObjBooking({ ...objBooking, identityCard: e.target.value })
-    } else if (e.target.name === 'nationality') {
-      setObjBooking({ ...objBooking, nationality: e.target.value })
-    } else if (e.target.name === 'email') {
-      setObjBooking({ ...objBooking, email: e.target.value })
-    } else if (e.target.name === 'address') {
-      setObjBooking({ ...objBooking, address: e.target.value })
-    } else if (e.target.name === 'phone') {
-      setObjBooking({ ...objBooking, phone: e.target.value })
-    } else if (e.target.name === 'branch') {
-      setObjBooking({ ...objBooking, nameBranchVN: e.target.value })
-    } else if (e.target.name === 'type') {
-      setObjBooking({ ...objBooking, roomType: e.target.value })
-    } else if (e.target.name === 'kind') {
-      setObjBooking({ ...objBooking, typeR: e.target.value })
-    } else if (e.target.name === 'date check in') {
-      setCheckIn({ ...checkIn, date: e.target.value })
-    } else if (e.target.name === 'time check in') {
-      setCheckIn({ ...checkIn, time: e.target.value })
-    } else if (e.target.name === 'date check out') {
-      setCheckOut({ ...checkOut, date: e.target.value })
-    } else if (e.target.name === 'time check out') {
-      setCheckOut({ ...checkOut, time: e.target.value })
+    if (e.target.name === "fullName") {
+      setObjBooking({ ...objBooking, fullName: e.target.value });
+    } else if (e.target.name === "birth") {
+      setObjBooking({ ...objBooking, date: e.target.value });
+    } else if (e.target.name === "sex") {
+      setObjBooking({ ...objBooking, sex: e.target.value });
+    } else if (e.target.name === "identityCard") {
+      setObjBooking({ ...objBooking, identityCard: e.target.value });
+    } else if (e.target.name === "nationality") {
+      setObjBooking({ ...objBooking, nationality: e.target.value });
+    } else if (e.target.name === "email") {
+      setObjBooking({ ...objBooking, email: e.target.value });
+    } else if (e.target.name === "address") {
+      setObjBooking({ ...objBooking, address: e.target.value });
+    } else if (e.target.name === "phone") {
+      setObjBooking({ ...objBooking, phone: e.target.value });
+    } else if (e.target.name === "branch") {
+      setObjBooking({ ...objBooking, nameBranchVN: e.target.value });
+    } else if (e.target.name === "type") {
+      setObjBooking({ ...objBooking, roomType: e.target.value });
+    } else if (e.target.name === "kind") {
+      setObjBooking({ ...objBooking, typeR: e.target.value });
+    } else if (e.target.name === "date check in") {
+      setCheckIn({ ...checkIn, date: e.target.value });
+    } else if (e.target.name === "time check in") {
+      setCheckIn({ ...checkIn, time: e.target.value });
+    } else if (e.target.name === "date check out") {
+      setCheckOut({ ...checkOut, date: e.target.value });
+    } else if (e.target.name === "time check out") {
+      setCheckOut({ ...checkOut, time: e.target.value });
     }
 
     // console.log(objBooking)
-  }
+  };
 
   //* Check Text Empty ?
-  var checkEmpty = true
+  var checkEmpty = true;
   const checkTextEmpty = () => {
     for (const key in objBooking) {
-      if (objBooking[key] === '') {
-        return (checkEmpty = false)
+      if (objBooking[key] === "") {
+        return (checkEmpty = false);
       } else {
-        checkEmpty = true
+        checkEmpty = true;
       }
     }
-  }
+  };
 
   //* Check text chứa toàn khoảng trắng
-  var checkSpace = true
+  var checkSpace = true;
   const checkTextSpace = () => {
     for (const key in objBooking) {
-      var check = String(objBooking[key]).replace(/\s/g, '').length
+      var check = String(objBooking[key]).replace(/\s/g, "").length;
       if (!check) {
-        console.log('loi')
-        return (checkSpace = false)
+        console.log("loi");
+        return (checkSpace = false);
       } else {
-        checkSpace = true
+        checkSpace = true;
       }
     }
-  }
+  };
 
   //* 3 - Add User
   const addBooking = () => {
     //* Hoàn thiện data của objUser
-    var today = new Date()
-    var day = String(today.getDate()).padStart(2, '0')
-    var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    var year = today.getFullYear()
-    var hour = today.getHours()
-    var minutes = today.getMinutes()
-    today = `${hour}h${minutes} ${day}-${month}-${year}`
+    var today = new Date();
+    var day = String(today.getDate()).padStart(2, "0");
+    var month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var year = today.getFullYear();
+    var hour = today.getHours();
+    var minutes = today.getMinutes();
+    today = `${hour}h${minutes} ${day}-${month}-${year}`;
 
     setObjBooking({
       ...objBooking,
       dateCreated: today,
       dateUpdated: today,
-      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${checkIn.date}`,
-      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${checkOut.date}`,
-    })
+      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${
+        checkIn.date
+      }`,
+      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${
+        checkOut.date
+      }`,
+    });
 
     // console.log(objBooking)
-    checkTextEmpty()
-    checkTextSpace()
+    checkTextEmpty();
+    checkTextSpace();
 
     //* Push into Array + Reset objUser
     if (checkEmpty && checkSpace) {
@@ -189,46 +202,46 @@ const ListBooking = () => {
       // })
 
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
-      setObjBooking({ ...objBooking, id: booking.length + 1 })
+      setObjBooking({ ...objBooking, id: booking.length + 1 });
 
       //* Add objUser into User
-      setBooking([...booking, objBooking])
+      setBooking([...booking, objBooking]);
 
       //* Close Modal
-      setAddVisible(false)
+      setAddVisible(false);
 
       //* Reset objUser
       setObjBooking({
         id: 0,
-        fullName: '',
-        date: '',
-        sex: '',
-        identityCard: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        address: '',
-        dateCreated: '',
-        dateUpdated: '',
-        nameBranchVN: '',
-        roomType: '',
-        typeR: '',
+        fullName: "",
+        date: "",
+        sex: "",
+        identityCard: "",
+        nationality: "",
+        phone: "",
+        email: "",
+        address: "",
+        dateCreated: "",
+        dateUpdated: "",
+        nameBranchVN: "",
+        roomType: "",
+        typeR: "",
         numberRoom: 310,
-        checkIn: '',
-        checkOut: '',
+        checkIn: "",
+        checkOut: "",
         confirm: true,
         paied: true,
         cancel: false,
-      })
+      });
     } else {
-      console.log('error')
+      console.log("error");
     }
-  }
+  };
 
   //* Completed: Edit User
   const getInfoEdit = (booking) => {
     //* Open Modal
-    setAddVisible(true)
+    setAddVisible(true);
 
     //* Binding data of user to edit
     setObjBooking({
@@ -252,121 +265,131 @@ const ListBooking = () => {
       confirm: booking.confirm,
       paied: booking.paied,
       cancel: booking.cancel,
-    })
+    });
 
     setCheckIn({
       date: booking.checkIn.slice(6, 16),
       time: `${booking.checkIn.slice(0, 2)}:${booking.checkIn.slice(3, 5)}`,
-    })
+    });
 
     setCheckOut({
       date: booking.checkOut.slice(6, 16),
       time: `${booking.checkOut.slice(0, 2)}:${booking.checkOut.slice(3, 5)}`,
-    })
-  }
+    });
+  };
 
   const editBooking = () => {
     //* set lại checkin + checkout
     setObjBooking({
       ...objBooking,
-      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${checkIn.date}`,
-      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${checkOut.date}`,
-    })
+      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${
+        checkIn.date
+      }`,
+      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${
+        checkOut.date
+      }`,
+    });
 
-    console.log(objBooking.checkIn)
+    console.log(objBooking.checkIn);
 
     //* set item sau khi editted
     setBooking(
       booking.map((item) => {
         if (item.id === objBooking.id) {
-          console.log(item)
-          item = objBooking
+          console.log(item);
+          item = objBooking;
         }
-        return item
-      }),
-    )
+        return item;
+      })
+    );
 
     //* Reset objUser
     setObjBooking({
       id: 0,
-      fullName: '',
-      date: '',
-      sex: '',
-      identityCard: '',
-      nationality: '',
-      phone: '',
-      email: '',
-      address: '',
-      dateCreated: '',
-      dateUpdated: '',
-      nameBranchVN: '',
-      roomType: '',
-      typeR: '',
+      fullName: "",
+      date: "",
+      sex: "",
+      identityCard: "",
+      nationality: "",
+      phone: "",
+      email: "",
+      address: "",
+      dateCreated: "",
+      dateUpdated: "",
+      nameBranchVN: "",
+      roomType: "",
+      typeR: "",
       numberRoom: 310,
-      checkIn: '',
-      checkOut: '',
+      checkIn: "",
+      checkOut: "",
       confirm: true,
       paied: true,
       cancel: false,
-    })
+    });
 
     //* Close Modal
-    setAddVisible(false)
-  }
+    setAddVisible(false);
+  };
 
   const resetCheckIn_Out = () => {
-    console.log(objBooking.checkIn)
+    console.log(objBooking.checkIn);
     //* Reset state Checkin + checkout
     setCheckIn({
       date: objBooking.checkIn.slice(6, 16),
-      time: `${objBooking.checkIn.slice(0, 2)}:${objBooking.checkIn.slice(3, 5)}`,
-    })
+      time: `${objBooking.checkIn.slice(0, 2)}:${objBooking.checkIn.slice(
+        3,
+        5
+      )}`,
+    });
 
     setCheckOut({
       date: objBooking.checkOut.slice(6, 16),
-      time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(3, 5)}`,
-    })
-    console.log(objBooking.checkIn)
-  }
+      time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(
+        3,
+        5
+      )}`,
+    });
+    console.log(objBooking.checkIn);
+  };
 
   //* Reset Modal khi click Cancel
   const cancelEdit = () => {
     //* Reset objUser
     setObjBooking({
       id: 0,
-      fullName: '',
-      date: '',
-      sex: '',
-      identityCard: '',
-      nationality: '',
-      phone: '',
-      email: '',
-      address: '',
-      dateCreated: '',
-      dateUpdated: '',
-      nameBranchVN: '',
-      roomType: '',
-      typeR: '',
+      fullName: "",
+      date: "",
+      sex: "",
+      identityCard: "",
+      nationality: "",
+      phone: "",
+      email: "",
+      address: "",
+      dateCreated: "",
+      dateUpdated: "",
+      nameBranchVN: "",
+      roomType: "",
+      typeR: "",
       numberRoom: 310,
-      checkIn: '',
-      checkOut: '',
+      checkIn: "",
+      checkOut: "",
       confirm: true,
       paied: true,
       cancel: false,
-    })
+    });
 
     //* Close Modal
-    setAddVisible(false)
-  }
+    setAddVisible(false);
+  };
 
   //* Completed: Delete User
   const deleteBooking = (indexS) => {
     setBooking([
       ...booking.filter((booking, index) => {
-        return index !== indexS
+        return index !== indexS;
       }),
-    ])
-  }
+    ]);
+  };
 
   return (
     <>
@@ -396,7 +419,7 @@ const ListBooking = () => {
 
             <div className="tableParent">
               <Table responsive="sm">
-                <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                   <tr>
                     <th>No</th>
                     <th>Name</th>
@@ -454,7 +477,10 @@ const ListBooking = () => {
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
                         <span onClick={() => deleteBooking(index)}>
-                          <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="icon trash"
+                          />
                         </span>
                       </td>
                     </tr>
@@ -502,9 +528,9 @@ const ListBooking = () => {
                 value={objBooking.sex}
                 onChange={getInfo}
                 options={[
-                  'Choose',
-                  { label: 'Male', value: 'male' },
-                  { label: 'Female', value: 'female' },
+                  "Choose",
+                  { label: "Male", value: "male" },
+                  { label: "Female", value: "female" },
                 ]}
               />
             </CCol>
@@ -525,11 +551,11 @@ const ListBooking = () => {
                 value={objBooking.nationality}
                 onChange={getInfo}
                 options={[
-                  'Choose',
-                  { label: 'Viet Nam', value: 'Viet Nam' },
-                  { label: 'USA', value: 'USA' },
-                  { label: 'France', value: 'France' },
-                  { label: 'Italia', value: 'Italia' },
+                  "Choose",
+                  { label: "Viet Nam", value: "Viet Nam" },
+                  { label: "USA", value: "USA" },
+                  { label: "France", value: "France" },
+                  { label: "Italia", value: "Italia" },
                 ]}
               />
             </CCol>
@@ -632,8 +658,8 @@ const ListBooking = () => {
           <CButton
             className="btnCancel"
             onClick={() => {
-              cancelEdit()
-              resetCheckIn_Out()
+              cancelEdit();
+              resetCheckIn_Out();
             }}
           >
             Cancel
@@ -643,7 +669,7 @@ const ListBooking = () => {
               color="primary"
               className="btnAdd"
               onClick={() => {
-                addBooking()
+                addBooking();
               }}
             >
               Aplly
@@ -656,7 +682,7 @@ const ListBooking = () => {
         </CModalFooter>
       </CModal>
     </>
-  )
-}
+  );
+};
 
-export default ListBooking
+export default ListBooking;

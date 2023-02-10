@@ -1,20 +1,25 @@
 //* Library
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 //* Data
-import roomTypeData from '../../Data/list_room.json'
+import roomTypeData from "../../Data/list_room.json";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { Table, Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const RoomType = () => {
-  const [roomType, setRoomType] = useState(roomTypeData[0].roomType)
+  const [roomType, setRoomType] = useState(roomTypeData.listRooms[0].roomType);
 
   return (
     <>
@@ -52,7 +57,7 @@ const RoomType = () => {
 
             <div className="tableParent">
               <Table responsive="sm">
-                <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                   <tr>
                     <th>No</th>
                     <th>Name</th>
@@ -87,7 +92,10 @@ const RoomType = () => {
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
                         <span>
-                          <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="icon trash"
+                          />
                         </span>
                       </td>
                     </tr>
@@ -99,7 +107,7 @@ const RoomType = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default RoomType
+export default RoomType;

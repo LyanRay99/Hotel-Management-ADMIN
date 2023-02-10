@@ -1,6 +1,6 @@
-@import '../settings/mixin.scss';
-@import '../settings/reset.scss';
-@import '../settings/variable.scss';
+@import "../settings/mixin.scss";
+@import "../settings/reset.scss";
+@import "../settings/variable.scss";
 
 //* Completed: FAQs
 .termOfService__header {
@@ -103,6 +103,17 @@
 
 .btnCancel {
   background-color: grey;
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.btnSubmit {
+  background-color: rgb(126, 51, 232);
   color: white;
   border: none;
   font-size: 0.8em;

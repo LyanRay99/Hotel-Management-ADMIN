@@ -1,20 +1,25 @@
 //* Library
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 //* Data
-import sliderData from '../../Data/slider.json'
+import sliderData from "../../Data/slider.json";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { Table, Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Banner = () => {
-  const [slider, setSlider] = useState(sliderData)
+  const [slider, setSlider] = useState(sliderData.listSlider);
 
   return (
     <>
@@ -45,7 +50,7 @@ const Banner = () => {
 
               <div className="tableParent">
                 <Table responsive="sm">
-                  <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                  <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                     <tr>
                       <th>No</th>
                       <th>Name</th>
@@ -72,13 +77,22 @@ const Banner = () => {
                         </td>
                         <td className="tdAction">
                           <span>
-                            <FontAwesomeIcon icon={faKey} className="icon key" />
+                            <FontAwesomeIcon
+                              icon={faKey}
+                              className="icon key"
+                            />
                           </span>
                           <span>
-                            <FontAwesomeIcon icon={faPen} className="icon pen" />
+                            <FontAwesomeIcon
+                              icon={faPen}
+                              className="icon pen"
+                            />
                           </span>
                           <span>
-                            <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                            <FontAwesomeIcon
+                              icon={faTrash}
+                              className="icon trash"
+                            />
                           </span>
                         </td>
                       </tr>
@@ -91,7 +105,7 @@ const Banner = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

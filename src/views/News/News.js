@@ -1,20 +1,25 @@
 //* Library
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 //* Data
-import listNews from '../../Data/new&Event.json'
+import listNews from "../../Data/new&Event.json";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { Table, Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const News = () => {
-  const [news, setNews] = useState(listNews.news_recent)
+  const [news, setNews] = useState(listNews.news_recent);
 
   return (
     <>
@@ -45,7 +50,7 @@ const News = () => {
 
               <div className="tableParent">
                 <Table responsive="sm">
-                  <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                  <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                     <tr>
                       <th>No</th>
                       <th>Name</th>
@@ -73,13 +78,22 @@ const News = () => {
                         <td>{news.content[0]}</td>
                         <td className="tdAction">
                           <span>
-                            <FontAwesomeIcon icon={faKey} className="icon key" />
+                            <FontAwesomeIcon
+                              icon={faKey}
+                              className="icon key"
+                            />
                           </span>
                           <span>
-                            <FontAwesomeIcon icon={faPen} className="icon pen" />
+                            <FontAwesomeIcon
+                              icon={faPen}
+                              className="icon pen"
+                            />
                           </span>
                           <span>
-                            <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                            <FontAwesomeIcon
+                              icon={faTrash}
+                              className="icon trash"
+                            />
                           </span>
                         </td>
                       </tr>
@@ -92,7 +106,7 @@ const News = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default News
+export default News;
