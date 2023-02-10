@@ -1,53 +1,92 @@
-import React, { useEffect, useState } from 'react'
+//* Library
+import React, { useState } from 'react'
+
+//* Data
+import aboutData from '../../Data/about.json'
+
+//* CORE UI + React Bootstrap
 import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { Button } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
+// import Form from 'react-bootstrap/Form'
+
+//* Icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const AboutUs = (props) => {
-  const [aboutUs, setAboutUs] = useState({})
-  useEffect(() => {
-    var myHeaders = new Headers()
-    var token = JSON.parse(localStorage.getItem('token'))
-    myHeaders.append('Authorization', 'Bearer ' + token.token)
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow',
-    }
-
-    fetch('/api/v1/terms-policies/3', requestOptions)
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw new Error(response.status)
-      })
-      .then((result) => {
-        setAboutUs(result.data)
-        console.log(aboutUs)
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
-  }, [])
+const AboutUs = () => {
+  const [about, setAbout] = useState(aboutData.aboutUs_Page)
 
   return (
     <>
       <CCard className="mb-4">
-        <CCardHeader
-          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-        >
-          About Us
-          <Button variant="info" style={{ color: 'white' }}>
-            Edit
-            <FontAwesomeIcon icon={faPen} style={{ margin: '0px 0px 0px 5px' }} />
-          </Button>
-        </CCardHeader>
+        <CCardHeader>List album request featured</CCardHeader>
         <CCardBody>
           <CRow>
-            <div dangerouslySetInnerHTML={{ __html: aboutUs.bodyEn }}></div>
+            <CRow>
+              <div className="control">
+                <div className="select">
+                  <div className="btn">
+                    <Button variant="info">
+                      Add <FontAwesomeIcon icon={faPlus} />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="input-group mb-3 search">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Content"
+                    aria-label="Type String..."
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+              </div>
+
+              <div className="tableParent">
+                <Table responsive="sm">
+                  <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                    <tr>
+                      <th>No</th>
+                      <th>Title</th>
+                      <th>Content</th>
+                      <th>Image</th>
+                      <th>Active</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {about.map((item, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.title}</td>
+                        <td>{item.content}</td>
+                        <td>{item.image}</td>
+                        <td>
+                          <span className="tdAction__active">
+                            <label className="container">
+                              <input type="checkbox" id="check" />
+                              <span></span>
+                            </label>
+                          </span>
+                        </td>
+                        <td className="tdAction">
+                          <span>
+                            <FontAwesomeIcon icon={faKey} className="icon key" />
+                          </span>
+                          <span>
+                            <FontAwesomeIcon icon={faPen} className="icon pen" />
+                          </span>
+                          <span>
+                            <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            </CRow>
           </CRow>
         </CCardBody>
       </CCard>

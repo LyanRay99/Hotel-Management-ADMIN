@@ -1,75 +1,208 @@
 //* Library
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 //* Data
-import listUserData from '../../Data/list_users.json'
+import userData from "../../Data/list_users.json";
+
+//* Components
+import { AddAndEdit } from "./Modal/Add&Edit_Modal";
+import { ChangePassword } from "./Modal/changePassword.js.js";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilArrowTop } from '@coreui/icons'
-import { Table, Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+import {
+  CRow,
+  CCard,
+  CCardHeader,
+  CCardBody,
+  CFormSwitch,
+} from "@coreui/react";
+import { Table, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 //* Icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
+import { json } from "react-router-dom";
 
 const ListUser = () => {
-  const [user, setUser] = useState(listUserData)
+  //* Get + binding data
+  const [user, setUser] = useState(userData.listUser);
 
-  // useEffect(() => {
-  //   var myHeaders = new Headers()
-  //   var token = JSON.parse(localStorage.getItem('token'))
-  //   // console.log(token)
-  //   myHeaders.append('Authorization', 'Bearer ' + token.token)
+  //* Call Api
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/listUser")
+      .then((response) => response.data)
+      .then((data) => {
+        setUser(data);
+        // console.log(data);
+      });
+  }, []);
 
-  //   var requestOptions = {
-  //     method: 'GET',
-  //     headers: myHeaders,
-  //     redirect: 'follow',
-  //   }
+  const check = () => {
+    axios
+      .delete("http://localhost:8000/listUser/3")
+      .then((response) => response.data)
+      .then((data) => {
+        setUser(data);
+        console.log(data);
+      });
+  };
+  //* Modal Add and Edit User
+  const [addVisible, setAddVisible] = useState(false);
 
-  //   fetch('/api/v1/users?page=1&per_page=10&keyword=&sortBy=&field=', requestOptions)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json()
-  //       }
-  //       throw new Error(response.status)
-  //     })
-  //     .then((result) => {
-  //       setUser(result.data.users.data)
-  //     })
-  //     .catch((error) => {
-  //       console.log('error', error)
-  //       // logout()
-  //     })
-  // }, [])
+  //* Completed: Create Object empty to handle Add + Edit User
+  const [objUser, setObjUser] = useState({
+    id: 0,
+    fullName: "",
+    date: "",
+    sex: "",
+    avatar: "URL",
+    identityCard: "",
+    nationality: "",
+    phone: "",
+    email: "",
+    address: "",
+    dateCreated: "",
+    dateUpdated: "",
+    actived: true,
+    userName: "",
+    password: "",
+    role: "",
+    branch: "",
+  });
 
-  // const logout = () => {
-  //   localStorage.removeItem('token')
-  // }
+  //* Completed: Get info to Edit User
+  const getInfoEdit = (user) => {
+    //* Open Modal
+    setAddVisible(true);
+
+    //* Binding data of user to edit
+    setObjUser({
+      id: user.id,
+      fullName: user.fullName,
+      date: user.date,
+      sex: user.sex,
+      avatar: user.avatar,
+      identityCard: user.identityCard,
+      nationality: user.nationality,
+      phone: user.phone,
+      email: user.email,
+      address: user.address,
+      dateCreated: user.dateCreated,
+      dateUpdated: user.dateUpdated,
+      actived: user.actived,
+      userName: user.userName,
+      password: user.password,
+      role: user.role,
+      branch: user.branch,
+    });
+  };
+
+  //* Completed: Delete User
+  const deleteUser = (indexS) => {
+    setUser([
+      ...user.filter((Users, index) => {
+        return index !== indexS;
+      }),
+    ]);
+  };
+
+  //* Completed: Sort Role
+  const sortRole = (e) => {
+    if (e.target.value !== "Select All") {
+      setUser(() => userData);
+      setUser((users) => [
+        ...users.filter((Users, index) => {
+          return Users.role === e.target.value;
+        }),
+      ]);
+    } else {
+      setUser(userData);
+    }
+  };
+
+  //* Completed: Search User Name
+  const [searchFullName, setSearchFullName] = useState("");
+  const getInfoFullName = (e) => {
+    setSearchFullName(() => e.target.value);
+    if (e.target.value == "") {
+      setUser(userData);
+    } else {
+      var searchUser = user.filter((item) => {
+        if (
+          item.fullName.toLowerCase().includes(e.target.value.toLowerCase())
+        ) {
+          // console.log(user[index].actived)
+          return item;
+        }
+      });
+      console.log(searchUser);
+      setUser(searchUser);
+      console.log(e.target.value);
+    }
+  };
+
+  //* Completed: Active User
+  const activeUser = (USER, e) => {
+    setUser(
+      user.filter((item) => {
+        if (item.id === USER.id) {
+          // console.log(user[index].actived)
+          item.actived = e.target.checked;
+          // console.log(item.id + ' ' + USER.id)
+        }
+        return item;
+      })
+    );
+  };
+
+  //* Completed: Change password
+  //* Modal change password
+  const [showCP, setShowCP] = useState(false);
+  const [indexUser, setindexUser] = useState(0);
+
+  //* Get info change password
+  const getInfoCP = (index) => {
+    //* Open modal
+    setShowCP(true);
+
+    //* Get index item
+    setindexUser(index);
+  };
 
   return (
     <>
       <CCard className="mb-4">
+        <button onClick={() => check()}>check</button>
+
         <CCardHeader>List User</CCardHeader>
         <CCardBody>
           <CRow>
             <div className="control">
               <div className="select">
                 <div className="btn">
-                  <Button variant="info">
+                  <Button variant="info" onClick={() => setAddVisible(true)}>
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
 
                 <div className="formSelect">
-                  <Form.Select aria-label="Default select example" className="formSelect__form">
+                  <Form.Select
+                    aria-label="Default select example"
+                    className="formSelect__form"
+                    // name="role"
+                    onChange={sortRole}
+                  >
                     <option>Select All</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Super Admin</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Super Admin">Super Admin</option>
                   </Form.Select>
                 </div>
               </div>
@@ -81,28 +214,25 @@ const ListUser = () => {
                   placeholder="Username"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  value={searchFullName}
+                  onChange={getInfoFullName}
                 />
               </div>
             </div>
 
             <div className="tableParent">
               <Table responsive="sm">
-                <thead style={{ backgroundColor: 'rgba(60, 75, 100,0.5)' }}>
+                <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                   <tr>
                     <th>No</th>
                     <th>Name</th>
                     <th>Sex</th>
                     <th>Date of birth</th>
                     <th>Identity Card</th>
-                    {/* <th>Nationality</th>
-                    <th>Address</th> */}
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Branch</th>
-                    <th>
-                      {/* <CIcon icon={cilArrowTop} style={{ marginRight: '10px' }}></CIcon> */}
-                      Role
-                    </th>
+                    <th>Role</th>
                     <th>Active</th>
                     <th>Actions</th>
                   </tr>
@@ -111,33 +241,40 @@ const ListUser = () => {
                   {user.map((user, index) => (
                     <tr key={user.id}>
                       <td>{index + 1}</td>
-                      <td>{user.fullname}</td>
+                      <td>{user.fullName}</td>
                       <td>{user.sex}</td>
                       <td>{user.date}</td>
-                      {/* <td>{user.identityCard}</td>
-                      <td>{user.nationality}</td> */}
                       <td>{user.address}</td>
                       <td>{user.phone}</td>
                       <td>{user.email}</td>
                       <td>{user.branch}</td>
                       <td>{user.role}</td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input type="checkbox" id="check" />
-                            <span></span>
-                          </label>
-                        </span>
+                        <CFormSwitch
+                          checked={user.actived}
+                          onChange={(e) => activeUser(user, e)}
+                        />
                       </td>
                       <td className="tdAction">
                         <span>
-                          <FontAwesomeIcon icon={faKey} className="icon key" />
+                          <FontAwesomeIcon
+                            icon={faKey}
+                            className="icon key"
+                            onClick={() => getInfoCP(index)}
+                          />
                         </span>
-                        <span>
+                        <span onClick={() => getInfoEdit(user)}>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
-                        <span>
-                          <FontAwesomeIcon icon={faTrash} className="icon trash" />
+                        <span
+                          onClick={() => {
+                            deleteUser(index);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="icon trash"
+                          />
                         </span>
                       </td>
                     </tr>
@@ -148,8 +285,27 @@ const ListUser = () => {
           </CRow>
         </CCardBody>
       </CCard>
-    </>
-  )
-}
 
-export default ListUser
+      {/* Completed: Modal Add + Edit User*/}
+      <AddAndEdit
+        addVisible={addVisible}
+        setAddVisible={setAddVisible}
+        user={user}
+        setUser={setUser}
+        objUser={objUser}
+        setObjUser={setObjUser}
+      />
+
+      {/* Completed: Modal Change Password */}
+      <ChangePassword
+        showCP={showCP}
+        setShowCP={setShowCP}
+        indexUser={indexUser}
+        user={user}
+        setUser={setUser}
+      />
+    </>
+  );
+};
+
+export default ListUser;

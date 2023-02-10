@@ -1,0 +1,124 @@
+@import "../settings/mixin.scss";
+@import "../settings/reset.scss";
+@import "../settings/variable.scss";
+
+//* Completed: FAQs
+.termOfService__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    display: flex;
+    // width: 100%;
+
+    .accordion-button:focus {
+      border: none;
+      box-shadow: none;
+      background-color: white;
+    }
+  }
+
+  &__custom {
+    // width: 20%;
+    padding-right: 1%;
+  }
+}
+
+.faqs__header {
+  @extend .termOfService__header;
+  padding: 2% 0px;
+  align-items: center;
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0px;
+  }
+}
+
+//* Completed: Custom Button
+.FAQs__add {
+  @include size(100%, auto);
+
+  &__title {
+    label {
+      @include size(15%, auto);
+      padding: 1% 2%;
+      font-weight: bold;
+    }
+
+    input {
+      @include size(85%, auto);
+      padding: 0.5%;
+    }
+  }
+
+  &__content {
+    label {
+      @include size(15%, auto);
+      padding: 1% 2%;
+    }
+
+    input {
+      @include size(85%, auto);
+      padding: 0.5%;
+    }
+  }
+}
+
+//* Completed: Custom Button
+.btnAdd {
+  background-color: rgb(55, 221, 221);
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.btnEdit {
+  background-color: orange;
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.btnDelete {
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.btnCancel {
+  background-color: grey;
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.btnSubmit {
+  background-color: rgb(126, 51, 232);
+  color: white;
+  border: none;
+  font-size: 0.8em;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

@@ -6,13 +6,13 @@ const AppFooter = () => {
     <CFooter>
       <div>
         <a href="" target="_blank" rel="">
-          Photo-AZ Management
+          Hotel Management
         </a>
       </div>
       <div className="ms-auto">
         <span className="me-1">Powered by</span>
         <a href="" target="_blank" rel="">
-          MTTai
+          Mai Tan Tai
         </a>
       </div>
     </CFooter>

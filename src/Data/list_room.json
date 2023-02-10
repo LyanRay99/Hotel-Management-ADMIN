@@ -1,463 +1,465 @@
-[
-  {
-    "id": 1,
-    "nameBranchEN": "Panorama Da Nang",
-    "nameBranchVN": "Panorama Đà Nẵng",
-    "phone": "(+84) 28. 38 12 17 19",
-    "addressVN": "99 Ngô Quyền, An Hải Bắc, Sơn Trà, TP Đà Nẵng, Việt Nam",
-    "addressEN": "99 Ngo Quyen, An Hai Bac, Son Tra, TP Da Nang, VietNam",
-    "email": "info-danang@panoramacorp.vn",
-    "roomTotal": 100,
-    "manager": "Nguyen Van A",
-    "actived": true,
-    "dateCreated": "13h30 23-02-2022",
-    "dateUpdated": "13h30 23-02-2022",
-    "numberOfMember": [],
-    "roomType": [
-      {
-        "id": 1,
-        "type": "Normal",
-        "price": "$1000",
-        "image": "Room type/rooms/room-1.jpg",
-        "imageOurRoom": "Room type/rooms-1.jpg",
-        "imageDetail": [
-          "Room type/rooms/room-1.jpg",
-          "Room type/detail/Normal/roomDetail-2.jpg"
-        ],
-        "max_person": 3,
-        "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
-        "roomTotal": 50,
-        "dateCreated": "13h30 23-02-2022",
-        "dateUpdated": "13h30 23-02-2022",
-        "actived": true,
-        "typeR": [
-          {
-            "id": 1,
-            "name": "single bed room",
-            "roomTotal": 30,
-            "emptyRooms": 10,
-            "price": "1050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 101,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 102,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "name": "twin bed room",
-            "roomTotal": 20,
-            "emptyRooms": 0,
-            "price": "2050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 201,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 202,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "name": "double bed room",
-            "roomTotal": 10,
-            "emptyRooms": 20,
-            "price": "3050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 301,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": false
-              },
-              {
-                "id": 2,
-                "numberRoom": 302,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "type": "Vip",
-        "price": "$2000",
-        "image": "Room type/rooms/room-2.jpg",
-        "imageOurRoom": "Room type/rooms-2.jpg",
-        "imageDetail": [
-          "Room type/rooms/room-2.jpg",
-          "Room type/detail/Vip/vip-2.jpg"
-        ],
-        "max_person": 2,
-        "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
-        "roomTotal": 25,
-        "dateCreated": "13h30 23-02-2022",
-        "dateUpdated": "13h30 23-02-2022",
-        "actived": true,
-        "typeR": [
-          {
-            "id": 1,
-            "name": "single bed room",
-            "roomTotal": 30,
-            "emptyRooms": 10,
-            "price": "1050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 101,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 102,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "name": "twin bed room",
-            "roomTotal": 20,
-            "emptyRooms": 0,
-            "price": "2050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 201,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 202,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "name": "double bed room",
-            "roomTotal": 10,
-            "emptyRooms": 20,
-            "price": "3050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 301,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": false
-              },
-              {
-                "id": 2,
-                "numberRoom": 302,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "type": "Luxury",
-        "price": "$3000",
-        "image": "Room type/rooms/room-3.jpg",
-        "imageOurRoom": "Room type/rooms-3.jpg",
-        "imageDetail": [
-          "Room type/rooms/room-3.jpg",
-          "Room type/detail/Luxury/luxury-2.jpg"
-        ],
-        "max_person": 2,
-        "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
-        "roomTotal": 25,
-        "dateCreated": "13h30 23-02-2022",
-        "dateUpdated": "13h30 23-02-2022",
-        "actived": true,
-        "typeR": [
-          {
-            "id": 1,
-            "name": "single bed room",
-            "roomTotal": 30,
-            "emptyRooms": 10,
-            "price": "1050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 101,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 102,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "name": "twin bed room",
-            "roomTotal": 20,
-            "emptyRooms": 0,
-            "price": "2050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 201,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 202,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "name": "double bed room",
-            "roomTotal": 10,
-            "emptyRooms": 20,
-            "price": "3050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 301,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": false
-              },
-              {
-                "id": 2,
-                "numberRoom": 302,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "type": "Family",
-        "price": "$2500",
-        "image": "Room type/rooms/room-4.jpg",
-        "imageOurRoom": "Room type/rooms-4.jpg",
-        "imageDetail": [
-          "Room type/rooms/room-4.jpg",
-          "Room type/detail/Family/family-2.jpg"
-        ],
-        "max_person": 6,
-        "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
-        "roomTotal": 25,
-        "dateCreated": "13h30 23-02-2022",
-        "dateUpdated": "13h30 23-02-2022",
-        "actived": true,
-        "typeR": [
-          {
-            "id": 1,
-            "name": "single bed room",
-            "roomTotal": 30,
-            "emptyRooms": 10,
-            "price": "1050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 101,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 102,
-                "price": "1050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "name": "twin bed room",
-            "roomTotal": 20,
-            "emptyRooms": 0,
-            "price": "2050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 201,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              },
-              {
-                "id": 2,
-                "numberRoom": 202,
-                "price": "2050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "name": "double bed room",
-            "roomTotal": 10,
-            "emptyRooms": 20,
-            "price": "3050",
-            "dateCreated": "13h30 23-02-2022",
-            "dateUpdated": "13h30 23-02-2022",
-            "actived": true,
-            "numberOfRoom": [
-              {
-                "id": 1,
-                "numberRoom": 301,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": false
-              },
-              {
-                "id": 2,
-                "numberRoom": 302,
-                "price": "3050",
-                "dateCreated": "13h30 23-02-2022",
-                "dateUpdated": "13h30 23-02-2022",
-                "actived": true
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "nameBranchEN": "Panorama Phu Quoc",
-    "nameBranchVN": "Panorama Phú Quốc",
-    "phone": "(+84) 28. 38 12 17 20",
-    "addressVN": "9 Búng Gội, Gành Gió, Phú Quốc, Kiên Giang, Việt Nam",
-    "addressEN": "9 Bung Goi, Ganh Gio, Phu Quoc, Kien Giang, Vietnam",
-    "email": "info-phuquoc@panoramacorp.vn",
-    "roomTotal": 100,
-    "manager": "Nguyen Van B",
-    "actived": true,
-    "dateCreated": "13h30 23-02-2022",
-    "dateUpdated": "13h30 23-02-2022",
-    "numberOfMember": [],
-    "roomType": []
-  },
-  {
-    "id": 1,
-    "nameBranchEN": "Panorama Nha Trang",
-    "nameBranchVN": "Panorama Nha Trang",
-    "phone": "(+84) 28. 38 12 17 21",
-    "addressVN": "10 Trần Phú, Xương Huân, Nha Trang, Khánh Hòa, Việt Nam",
-    "addressEN": "10 Tran Phu, Xuong Huan, Nha Trang, Khanh Hoa, VietNam",
-    "email": "info-nhatrang@panoramacorp.vn",
-    "roomTotal": 100,
-    "manager": "Nguyen Van C",
-    "actived": false,
-    "dateCreated": "13h30 23-02-2022",
-    "dateUpdated": "13h30 23-02-2022",
-    "numberOfMember": [],
-    "roomType": []
-  }
-]
+{
+  "listRooms": [
+    {
+      "id": 1,
+      "nameBranchEN": "Panorama Da Nang",
+      "nameBranchVN": "Panorama Đà Nẵng",
+      "phone": "(+84) 28. 38 12 17 19",
+      "addressVN": "99 Ngô Quyền, An Hải Bắc, Sơn Trà, TP Đà Nẵng, Việt Nam",
+      "addressEN": "99 Ngo Quyen, An Hai Bac, Son Tra, TP Da Nang, VietNam",
+      "email": "info-danang@panoramacorp.vn",
+      "roomTotal": 100,
+      "manager": "Nguyen Van A",
+      "actived": true,
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "numberOfMember": [],
+      "roomType": [
+        {
+          "id": 1,
+          "type": "Normal",
+          "price": "$1000",
+          "image": "Room type/rooms/room-1.jpg",
+          "imageOurRoom": "Room type/rooms-1.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-1.jpg",
+            "Room type/detail/Normal/roomDetail-2.jpg"
+          ],
+          "max_person": 3,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 50,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "type": "Vip",
+          "price": "$2000",
+          "image": "Room type/rooms/room-2.jpg",
+          "imageOurRoom": "Room type/rooms-2.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-2.jpg",
+            "Room type/detail/Vip/vip-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "type": "Luxury",
+          "price": "$3000",
+          "image": "Room type/rooms/room-3.jpg",
+          "imageOurRoom": "Room type/rooms-3.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-3.jpg",
+            "Room type/detail/Luxury/luxury-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "type": "Family",
+          "price": "$2500",
+          "image": "Room type/rooms/room-4.jpg",
+          "imageOurRoom": "Room type/rooms-4.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-4.jpg",
+            "Room type/detail/Family/family-2.jpg"
+          ],
+          "max_person": 6,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nameBranchEN": "Panorama Phu Quoc",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "phone": "(+84) 28. 38 12 17 20",
+      "addressVN": "9 Búng Gội, Gành Gió, Phú Quốc, Kiên Giang, Việt Nam",
+      "addressEN": "9 Bung Goi, Ganh Gio, Phu Quoc, Kien Giang, Vietnam",
+      "email": "info-phuquoc@panoramacorp.vn",
+      "roomTotal": 100,
+      "manager": "Nguyen Van B",
+      "actived": true,
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "numberOfMember": [],
+      "roomType": []
+    },
+    {
+      "id": 3,
+      "nameBranchEN": "Panorama Nha Trang",
+      "nameBranchVN": "Panorama Nha Trang",
+      "phone": "(+84) 28. 38 12 17 21",
+      "addressVN": "10 Trần Phú, Xương Huân, Nha Trang, Khánh Hòa, Việt Nam",
+      "addressEN": "10 Tran Phu, Xuong Huan, Nha Trang, Khanh Hoa, VietNam",
+      "email": "info-nhatrang@panoramacorp.vn",
+      "roomTotal": 100,
+      "manager": "Nguyen Van C",
+      "actived": true,
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "numberOfMember": [],
+      "roomType": []
+    }
+  ]
+}

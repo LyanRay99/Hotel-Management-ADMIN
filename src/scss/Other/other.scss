@@ -1,6 +1,6 @@
-@import '../settings/mixin.scss';
-@import '../settings/reset.scss';
-@import '../settings/variable.scss';
+@import "../settings/mixin.scss";
+@import "../settings/reset.scss";
+@import "../settings/variable.scss";
 
 .arrowGoTop {
   @include size(50px, 50px);
@@ -135,7 +135,7 @@
   justify-content: space-between;
 
   .select {
-    @include size(30%, auto);
+    @include size(auto, auto);
     display: flex;
 
     .btn {
@@ -147,14 +147,16 @@
     .formSelect {
       &__form {
         option {
-          height: 50px;
+          padding: 5px;
+          margin: 10px;
+          font-size: 2em;
         }
       }
     }
   }
 
   .search {
-    @include size(20%, auto);
+    @include size(auto, auto);
   }
 }
 
@@ -202,54 +204,14 @@
   }
 }
 
-input[type='checkbox'] {
-  visibility: hidden;
-  display: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-label.container {
-  width: 30px;
-  height: 15px;
-  background: #d3d3d3;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  box-shadow: 9px 9px 29px #969696, -9px -9px 29px #ffffff;
-}
-
-.container span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: rgb(90, 172, 255);
-  margin: 5px;
-  border-radius: 50px;
-  font-size: 20px;
-  transition: all 0.3s ease-in;
-  position: relative;
-  left: -13px;
-  top: -3px;
-  z-index: 1;
-}
-
-.container span::after {
-  position: absolute;
-  top: 6px;
-  left: 4px;
-  transition-delay: 5s;
-}
-
-input[type='checkbox']:checked ~ span {
-  left: 0.8px;
-  transition: 0.3s ease-in;
-  background: #0a100d;
-  transform: rotate(220deg);
+input[type="checkbox"] {
+  visibility: none;
+  display: block;
 }
 
 .tdAction {
   span {
+    cursor: pointer;
     // background-color: #f46e6e;
 
     .icon {
@@ -284,6 +246,21 @@ input[type='checkbox']:checked ~ span {
 
 td {
   font-size: 0.8em;
+}
+
+.inputChangePassword {
+  position: relative;
+
+  .form-control {
+    padding-right: 40px;
+  }
+
+  .showPassword {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 20px;
+  }
 }
 
 //* Footer
