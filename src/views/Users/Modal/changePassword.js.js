@@ -13,8 +13,6 @@ import {
   CCol,
   CFormInput,
 } from "@coreui/react";
-import { Table, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 

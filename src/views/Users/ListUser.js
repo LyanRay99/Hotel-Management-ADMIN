@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-//* Data
-import userData from "../../Data/list_users.json";
-
 //* Components
 import { AddAndEdit } from "./Modal/Add&Edit_Modal";
 import { ChangePassword } from "./Modal/changePassword.js.js";
+import { ConfirmDelete } from "./Modal/confirmDelete";
 
 //* CORE UI + React Bootstrap
 import {
@@ -28,32 +26,24 @@ import {
   faPlus,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import { json } from "react-router-dom";
 
 const ListUser = () => {
   //* Get + binding data
-  const [user, setUser] = useState(userData.listUser);
+  const [user, setUser] = useState([]);
 
-  //* Call Api
+  //* Call Api to binding data
   useEffect(() => {
     axios
       .get("http://localhost:8000/listUser")
       .then((response) => response.data)
       .then((data) => {
         setUser(data);
-        // console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
       });
   }, []);
 
-  const check = () => {
-    axios
-      .delete("http://localhost:8000/listUser/3")
-      .then((response) => response.data)
-      .then((data) => {
-        setUser(data);
-        console.log(data);
-      });
-  };
   //* Modal Add and Edit User
   const [addVisible, setAddVisible] = useState(false);
 
@@ -79,9 +69,12 @@ const ListUser = () => {
   });
 
   //* Completed: Get info to Edit User
-  const getInfoEdit = (user) => {
+  const getInfoEdit = (user, index) => {
     //* Open Modal
     setAddVisible(true);
+
+    //* Get index item
+    setindexUser(index);
 
     //* Binding data of user to edit
     setObjUser({
@@ -105,14 +98,18 @@ const ListUser = () => {
     });
   };
 
-  //* Completed: Delete User
-  const deleteUser = (indexS) => {
-    setUser([
-      ...user.filter((Users, index) => {
-        return index !== indexS;
-      }),
-    ]);
+  //* Completed: Get info to Delete User
+  const [showDlt, setShowDlt] = useState(false);
+  const getInfoDelete = (userID) => {
+    setindexUser(userID);
+    setShowDlt(true);
   };
+
+  // const deleteUser = (userID) => {
+  //   axios.delete(`http://localhost:8000/listUser/${userID}`).catch((err) => {
+  //     console.error(err);
+  //   });
+  // };
 
   //* Completed: Sort Role
   const sortRole = (e) => {
@@ -180,8 +177,6 @@ const ListUser = () => {
   return (
     <>
       <CCard className="mb-4">
-        <button onClick={() => check()}>check</button>
-
         <CCardHeader>List User</CCardHeader>
         <CCardBody>
           <CRow>
@@ -263,12 +258,12 @@ const ListUser = () => {
                             onClick={() => getInfoCP(index)}
                           />
                         </span>
-                        <span onClick={() => getInfoEdit(user)}>
+                        <span onClick={() => getInfoEdit(user, index)}>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
                         <span
                           onClick={() => {
-                            deleteUser(index);
+                            getInfoDelete(user.id);
                           }}
                         >
                           <FontAwesomeIcon
@@ -294,6 +289,7 @@ const ListUser = () => {
         setUser={setUser}
         objUser={objUser}
         setObjUser={setObjUser}
+        indexUser={indexUser}
       />
 
       {/* Completed: Modal Change Password */}
@@ -303,6 +299,14 @@ const ListUser = () => {
         indexUser={indexUser}
         user={user}
         setUser={setUser}
+      />
+
+      {/* Completed: Modal Confirm Delete */}
+      <ConfirmDelete
+        showDlt={showDlt}
+        setShowDlt={setShowDlt}
+        indexUser={indexUser}
+        user={user}
       />
     </>
   );

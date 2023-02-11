@@ -1,5 +1,6 @@
 //* Library
 import React, { useState } from "react";
+import axios from "axios";
 
 //* Data
 import roomData from "../../../Data/list_room.json";
@@ -30,6 +31,7 @@ export const AddAndEdit = ({
   setUser,
   objUser,
   setObjUser,
+  indexUser,
 }) => {
   //* Setup to binding data for Select Branch
   const [room, setRoom] = useState(roomData.listRooms);
@@ -40,8 +42,7 @@ export const AddAndEdit = ({
   branchName.unshift("choose");
 
   //* Completed: Add User
-
-  //* 2 - Get info user
+  //* 1 - Get info user
   const getInfo = (e) => {
     if (e.target.name === "fullName") {
       setObjUser({ ...objUser, fullName: e.target.value });
@@ -121,8 +122,12 @@ export const AddAndEdit = ({
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
       setObjUser({ ...objUser, id: user.length + 1 });
 
+      console.log(objUser);
+
       //* Add objUser into User
-      setUser([...user, objUser]);
+      axios.post("http://localhost:8000/listUser", objUser).catch((err) => {
+        console.error(err);
+      });
 
       //* Close Modal
       setAddVisible(false);
@@ -157,15 +162,13 @@ export const AddAndEdit = ({
   //* Completed: Edit User
   //* Update state
   const editUser = () => {
+    console.log(objUser);
     //* set item editted
-    setUser(
-      user.map((item) => {
-        if (item.id === objUser.id) {
-          item = objUser;
-        }
-        return item;
-      })
-    );
+    axios
+      .put(`http://localhost:8000/listUser/${user[indexUser].id}`, objUser)
+      .catch((err) => {
+        console.error(err);
+      });
 
     //* Reset objUser
     setObjUser({
@@ -192,7 +195,7 @@ export const AddAndEdit = ({
     setAddVisible(false);
   };
 
-  //* Reset ObjUser khi click Cancel
+  //* Reset ObjUser khi click Cancel (phòng khi user click change password nhưng lại đổi ý nhấn close)
   const cancelEdit = () => {
     //* Reset objUser
     setObjUser({
