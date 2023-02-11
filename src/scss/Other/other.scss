@@ -145,13 +145,7 @@
     }
 
     .formSelect {
-      &__form {
-        option {
-          padding: 5px;
-          margin: 10px;
-          font-size: 2em;
-        }
-      }
+      width: 150px;
     }
   }
 

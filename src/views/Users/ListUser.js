@@ -1,6 +1,7 @@
 //* Library
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Select from "react-select";
 
 //* Components
 import { AddAndEdit } from "./Modal/Add&Edit_Modal";
@@ -120,15 +121,26 @@ const ListUser = () => {
   };
 
   //* Completed: Sort Role
-  const sortRole = (e) => {
-    if (e.target.value !== "Select All") {
+  const options = [
+    { value: "Select All", label: "Select All" },
+    { value: "Admin", label: "Admin" },
+    { value: "Super Admin", label: "Super Admin" },
+  ];
+
+  const [selectRole, setSelectRole] = useState(options[0]);
+
+  const sortRole = (selectedOption) => {
+    if (selectedOption.value !== "Select All") {
       axios
         .get("http://localhost:8000/listUser")
         .then((response) => response.data)
+        .then(() => {
+          setSelectRole(selectedOption);
+        })
         .then((user) => {
           setUser([
             ...user.filter((item) => {
-              return item.role === e.target.value;
+              return item.role === selectRole;
             }),
           ]);
         })
@@ -267,7 +279,7 @@ const ListUser = () => {
                 </div>
 
                 <div className="formSelect">
-                  <Form.Select
+                  {/* <Form.Select
                     aria-label="Default select example"
                     className="formSelect__form"
                     onChange={sortRole}
@@ -275,7 +287,13 @@ const ListUser = () => {
                     <option>Select All</option>
                     <option value="Admin">Admin</option>
                     <option value="Super Admin">Super Admin</option>
-                  </Form.Select>
+                  </Form.Select> */}
+
+                  <Select
+                    value={selectRole}
+                    onChange={sortRole}
+                    options={options}
+                  />
                 </div>
               </div>
 
