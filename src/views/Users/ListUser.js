@@ -15,6 +15,8 @@ import {
   CCardBody,
   CFormSwitch,
 } from "@coreui/react";
+import CIcon from "@coreui/icons-react";
+import { cilArrowBottom, cilArrowTop } from "@coreui/icons";
 import { Table, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
@@ -43,6 +45,18 @@ const ListUser = () => {
         console.error(err);
       });
   }, []);
+
+  const getDataUser = () => {
+    axios
+      .get("http://localhost:8000/listUser")
+      .then((response) => response.data)
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   //* Modal Add and Edit User
   const [addVisible, setAddVisible] = useState(false);
@@ -108,14 +122,21 @@ const ListUser = () => {
   //* Completed: Sort Role
   const sortRole = (e) => {
     if (e.target.value !== "Select All") {
-      setUser(() => userData);
-      setUser((users) => [
-        ...users.filter((Users, index) => {
-          return Users.role === e.target.value;
-        }),
-      ]);
+      axios
+        .get("http://localhost:8000/listUser")
+        .then((response) => response.data)
+        .then((user) => {
+          setUser([
+            ...user.filter((item) => {
+              return item.role === e.target.value;
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
-      setUser(userData);
+      getDataUser();
     }
   };
 
@@ -123,20 +144,29 @@ const ListUser = () => {
   const [searchFullName, setSearchFullName] = useState("");
   const getInfoFullName = (e) => {
     setSearchFullName(() => e.target.value);
+
     if (e.target.value == "") {
-      setUser(userData);
+      getDataUser();
     } else {
-      var searchUser = user.filter((item) => {
-        if (
-          item.fullName.toLowerCase().includes(e.target.value.toLowerCase())
-        ) {
-          // console.log(user[index].actived)
-          return item;
-        }
-      });
-      console.log(searchUser);
-      setUser(searchUser);
-      console.log(e.target.value);
+      axios
+        .get("http://localhost:8000/listUser")
+        .then((response) => response.data)
+        .then((user) => {
+          setUser([
+            ...user.filter((item) => {
+              if (
+                item.fullName
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   };
 
@@ -149,6 +179,63 @@ const ListUser = () => {
       .catch((err) => {
         console.error(err);
       });
+  };
+
+  //* Completed: Sort fullName of User
+  //* State to set UI Sort fullName
+  const [sortAZ, setSortAZ] = useState(true);
+  //* Sort A-Z
+  const sortNameAZ = () => {
+    axios
+      .get("http://localhost:8000/listUser")
+      .then((response) => response.data)
+      .then((user) => {
+        setUser([
+          ...user.sort(function (a, b) {
+            var nameA = a.fullName.toUpperCase();
+            var nameB = b.fullName.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          }),
+        ]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setSortAZ(!sortAZ);
+  };
+
+  //* Sort Z-A
+  const sortNameZA = () => {
+    axios
+      .get("http://localhost:8000/listUser")
+      .then((response) => response.data)
+      .then((user) => {
+        setUser([
+          ...user.sort(function (a, b) {
+            var nameA = a.fullName.toUpperCase();
+            var nameB = b.fullName.toUpperCase();
+            if (nameA < nameB) {
+              return 1;
+            }
+            if (nameA > nameB) {
+              return -1;
+            }
+            return 0;
+          }),
+        ]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setSortAZ(!sortAZ);
   };
 
   //* Completed: Change password
@@ -183,7 +270,6 @@ const ListUser = () => {
                   <Form.Select
                     aria-label="Default select example"
                     className="formSelect__form"
-                    // name="role"
                     onChange={sortRole}
                   >
                     <option>Select All</option>
@@ -211,7 +297,24 @@ const ListUser = () => {
                 <thead style={{ backgroundColor: "rgba(60, 75, 100,0.5)" }}>
                   <tr>
                     <th>No</th>
-                    <th>Name</th>
+                    <th>
+                      {sortAZ ? (
+                        <CIcon
+                          className="sort"
+                          icon={cilArrowTop}
+                          style={{ marginRight: "5px" }}
+                          onClick={() => sortNameAZ()}
+                        ></CIcon>
+                      ) : (
+                        <CIcon
+                          className="sort"
+                          icon={cilArrowBottom}
+                          style={{ marginRight: "5px" }}
+                          onClick={() => sortNameZA()}
+                        ></CIcon>
+                      )}
+                      Name
+                    </th>
                     <th>Sex</th>
                     <th>Date of birth</th>
                     <th>Identity Card</th>
