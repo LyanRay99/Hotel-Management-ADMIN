@@ -1,5 +1,6 @@
 //* Library
 import React, { useState } from "react";
+import axios from "axios";
 
 //* CORE UI + React Bootstrap
 import {
@@ -51,14 +52,17 @@ export const ChangePassword = ({
       !/\s/.test(password) &&
       password.length > 9
     ) {
-      setUser(
-        user.map((item, index) => {
-          if (index === indexUser) {
-            item.password = password;
-          }
-          return item;
-        })
-      );
+      const updatedData = [...user];
+      updatedData[indexUser].password = password;
+
+      axios
+        .put(
+          `http://localhost:8000/listUser/${user[indexUser].id}`,
+          updatedData[indexUser]
+        )
+        .catch((err) => {
+          console.error(err);
+        });
 
       setShowCP(false);
       setPassword("");

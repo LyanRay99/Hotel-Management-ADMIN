@@ -22,7 +22,6 @@ export const ConfirmDelete = ({ showDlt, setShowDlt, indexUser, user }) => {
 
   //* Get fullName of user
   var user_fullName = "";
-  console.log(indexUser);
   user.map((item) => {
     if (item.id === indexUser) {
       return (user_fullName = item.fullName);

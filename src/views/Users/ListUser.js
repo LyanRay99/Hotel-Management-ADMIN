@@ -105,12 +105,6 @@ const ListUser = () => {
     setShowDlt(true);
   };
 
-  // const deleteUser = (userID) => {
-  //   axios.delete(`http://localhost:8000/listUser/${userID}`).catch((err) => {
-  //     console.error(err);
-  //   });
-  // };
-
   //* Completed: Sort Role
   const sortRole = (e) => {
     if (e.target.value !== "Select All") {
@@ -148,16 +142,13 @@ const ListUser = () => {
 
   //* Completed: Active User
   const activeUser = (USER, e) => {
-    setUser(
-      user.filter((item) => {
-        if (item.id === USER.id) {
-          // console.log(user[index].actived)
-          item.actived = e.target.checked;
-          // console.log(item.id + ' ' + USER.id)
-        }
-        return item;
-      })
-    );
+    USER.actived = e.target.checked;
+
+    axios
+      .put(`http://localhost:8000/listUser/${USER.id}`, USER)
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   //* Completed: Change password
