@@ -1,6 +1,7 @@
 //* Library
 import React from "react";
 import axios from "axios";
+import Api from "src/Api/axiosConfig";
 
 //* CORE UI
 import {
@@ -15,7 +16,7 @@ import {
 export const ConfirmDelete = ({ showDlt, setShowDlt, indexUser, user }) => {
   //* Completed: Delete User
   const deleteUser = () => {
-    axios.delete(`http://localhost:8000/listUser/${indexUser}`).catch((err) => {
+    Api.delete(`/listUser/${indexUser}`).catch((err) => {
       console.error(err);
     });
   };

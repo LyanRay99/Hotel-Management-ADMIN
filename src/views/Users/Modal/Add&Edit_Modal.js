@@ -1,6 +1,7 @@
 //* Library
 import React, { useState } from "react";
 import axios from "axios";
+import Api from "src/Api/axiosConfig";
 
 //* Data
 import roomData from "../../../Data/list_room.json";
@@ -125,7 +126,7 @@ export const AddAndEdit = ({
       console.log(objUser);
 
       //* Add objUser into User
-      axios.post("http://localhost:8000/listUser", objUser).catch((err) => {
+      Api.post("/listUser", objUser).catch((err) => {
         console.error(err);
       });
 
@@ -164,11 +165,9 @@ export const AddAndEdit = ({
   const editUser = () => {
     console.log(objUser);
     //* set item editted
-    axios
-      .put(`http://localhost:8000/listUser/${user[indexUser].id}`, objUser)
-      .catch((err) => {
-        console.error(err);
-      });
+    Api.put(`/listUser/${user[indexUser].id}`, objUser).catch((err) => {
+      console.error(err);
+    });
 
     //* Reset objUser
     setObjUser({

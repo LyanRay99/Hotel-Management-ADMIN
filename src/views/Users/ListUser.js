@@ -1,6 +1,7 @@
 //* Library
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Api from "src/Api/axiosConfig";
 import Select from "react-select";
 
 //* Components
@@ -19,7 +20,6 @@ import {
 import CIcon from "@coreui/icons-react";
 import { cilArrowBottom, cilArrowTop } from "@coreui/icons";
 import { Table, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 
 //* Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,8 +36,7 @@ const ListUser = () => {
 
   //* Call Api to binding data
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/listUser")
+    Api.get("/listUser")
       .then((response) => response.data)
       .then((data) => {
         setUser(data);
@@ -48,8 +47,7 @@ const ListUser = () => {
   }, []);
 
   const getDataUser = () => {
-    axios
-      .get("http://localhost:8000/listUser")
+    Api.get("/listUser")
       .then((response) => response.data)
       .then((data) => {
         setUser(data);
@@ -133,14 +131,12 @@ const ListUser = () => {
     if (selectedOption.value !== "Select All") {
       axios
         .get("http://localhost:8000/listUser")
-        .then((response) => response.data)
-        .then(() => {
-          setSelectRole(selectedOption);
-        })
-        .then((user) => {
+        .then((response) => {
+          console.log(response.data);
+          response.data;
           setUser([
-            ...user.filter((item) => {
-              return item.role === selectRole;
+            ...response.data.filter((item) => {
+              return item.role === selectedOption.label;
             }),
           ]);
         })
@@ -160,8 +156,7 @@ const ListUser = () => {
     if (e.target.value == "") {
       getDataUser();
     } else {
-      axios
-        .get("http://localhost:8000/listUser")
+      Api.get("/listUser")
         .then((response) => response.data)
         .then((user) => {
           setUser([
@@ -186,11 +181,9 @@ const ListUser = () => {
   const activeUser = (USER, e) => {
     USER.actived = e.target.checked;
 
-    axios
-      .put(`http://localhost:8000/listUser/${USER.id}`, USER)
-      .catch((err) => {
-        console.error(err);
-      });
+    Api.put(`/listUser/${USER.id}`, USER).catch((err) => {
+      console.error(err);
+    });
   };
 
   //* Completed: Sort fullName of User
@@ -198,8 +191,7 @@ const ListUser = () => {
   const [sortAZ, setSortAZ] = useState(true);
   //* Sort A-Z
   const sortNameAZ = () => {
-    axios
-      .get("http://localhost:8000/listUser")
+    Api.get("/listUser")
       .then((response) => response.data)
       .then((user) => {
         setUser([
@@ -225,8 +217,7 @@ const ListUser = () => {
 
   //* Sort Z-A
   const sortNameZA = () => {
-    axios
-      .get("http://localhost:8000/listUser")
+    Api.get("/listUser")
       .then((response) => response.data)
       .then((user) => {
         setUser([

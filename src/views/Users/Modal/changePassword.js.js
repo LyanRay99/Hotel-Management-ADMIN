@@ -1,6 +1,7 @@
 //* Library
 import React, { useState } from "react";
 import axios from "axios";
+import Api from "src/Api/axiosConfig";
 
 //* CORE UI + React Bootstrap
 import {
@@ -55,14 +56,12 @@ export const ChangePassword = ({
       const updatedData = [...user];
       updatedData[indexUser].password = password;
 
-      axios
-        .put(
-          `http://localhost:8000/listUser/${user[indexUser].id}`,
-          updatedData[indexUser]
-        )
-        .catch((err) => {
-          console.error(err);
-        });
+      Api.put(
+        `http://localhost:8000/listUser/${user[indexUser].id}`,
+        updatedData[indexUser]
+      ).catch((err) => {
+        console.error(err);
+      });
 
       setShowCP(false);
       setPassword("");
