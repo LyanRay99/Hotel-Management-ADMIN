@@ -35,6 +35,7 @@ import {
 
 const ListBooking = () => {
   //* Get + binding data
+  // const [booking, setBooking] = useState([]);
   const [booking, setBooking] = useState(listBookData.listBooking);
 
   //* Setup to binding data for Select Branch + roomType + roomKind

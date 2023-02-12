@@ -39,6 +39,7 @@ const ListUser = () => {
     Api.get("/listUser")
       .then((response) => response.data)
       .then((data) => {
+        console.log(data);
         setUser(data);
       })
       .catch((err) => {
@@ -128,9 +129,9 @@ const ListUser = () => {
   const [selectRole, setSelectRole] = useState(options[0]);
 
   const sortRole = (selectedOption) => {
+    setSelectRole(selectedOption);
     if (selectedOption.value !== "Select All") {
-      axios
-        .get("http://localhost:8000/listUser")
+      Api.get("/listUser")
         .then((response) => {
           console.log(response.data);
           response.data;
@@ -184,6 +185,8 @@ const ListUser = () => {
     Api.put(`/listUser/${USER.id}`, USER).catch((err) => {
       console.error(err);
     });
+
+    getDataUser();
   };
 
   //* Completed: Sort fullName of User
@@ -270,16 +273,6 @@ const ListUser = () => {
                 </div>
 
                 <div className="formSelect">
-                  {/* <Form.Select
-                    aria-label="Default select example"
-                    className="formSelect__form"
-                    onChange={sortRole}
-                  >
-                    <option>Select All</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Super Admin">Super Admin</option>
-                  </Form.Select> */}
-
                   <Select
                     value={selectRole}
                     onChange={sortRole}
@@ -393,6 +386,7 @@ const ListUser = () => {
         objUser={objUser}
         setObjUser={setObjUser}
         indexUser={indexUser}
+        getDataUser={getDataUser}
       />
 
       {/* Completed: Modal Change Password */}
@@ -402,6 +396,7 @@ const ListUser = () => {
         indexUser={indexUser}
         user={user}
         setUser={setUser}
+        getDataUser={getDataUser}
       />
 
       {/* Completed: Modal Confirm Delete */}
@@ -410,6 +405,8 @@ const ListUser = () => {
         setShowDlt={setShowDlt}
         indexUser={indexUser}
         user={user}
+        setUser={setUser}
+        getDataUser={getDataUser}
       />
     </>
   );

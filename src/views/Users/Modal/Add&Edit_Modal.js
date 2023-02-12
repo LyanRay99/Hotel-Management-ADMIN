@@ -33,6 +33,7 @@ export const AddAndEdit = ({
   objUser,
   setObjUser,
   indexUser,
+  getDataUser,
 }) => {
   //* Setup to binding data for Select Branch
   const [room, setRoom] = useState(roomData.listRooms);
@@ -123,12 +124,13 @@ export const AddAndEdit = ({
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
       setObjUser({ ...objUser, id: user.length + 1 });
 
-      console.log(objUser);
-
       //* Add objUser into User
       Api.post("/listUser", objUser).catch((err) => {
         console.error(err);
       });
+
+      //* Get lại data
+      getDataUser();
 
       //* Close Modal
       setAddVisible(false);
@@ -168,6 +170,9 @@ export const AddAndEdit = ({
     Api.put(`/listUser/${user[indexUser].id}`, objUser).catch((err) => {
       console.error(err);
     });
+
+    //* Get lại data
+    getDataUser();
 
     //* Reset objUser
     setObjUser({

@@ -24,6 +24,7 @@ export const ChangePassword = ({
   indexUser,
   user,
   setUser,
+  getDataUser,
 }) => {
   const [password, setPassword] = useState("");
   const [changePasswordUI, setChangePasswordUI] = useState(true);
@@ -63,6 +64,10 @@ export const ChangePassword = ({
         console.error(err);
       });
 
+      //* Get lại data
+      getDataUser();
+
+      //* Close modal + reset state password
       setShowCP(false);
       setPassword("");
     } else {

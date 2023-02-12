@@ -1,6 +1,5 @@
 //* Library
 import React from "react";
-import axios from "axios";
 import Api from "src/Api/axiosConfig";
 
 //* CORE UI
@@ -13,12 +12,25 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const ConfirmDelete = ({ showDlt, setShowDlt, indexUser, user }) => {
+export const ConfirmDelete = ({
+  showDlt,
+  setShowDlt,
+  indexUser,
+  user,
+  setUser,
+  getDataUser,
+}) => {
   //* Completed: Delete User
   const deleteUser = () => {
     Api.delete(`/listUser/${indexUser}`).catch((err) => {
       console.error(err);
     });
+
+    //* Get lại data
+    getDataUser();
+
+    //* close modal
+    setShowDlt(false);
   };
 
   //* Get fullName of user
