@@ -1,45 +1,100 @@
 //* Library
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Api from "src/Api/axiosConfig";
+
+//* Components
+import { DeleteBranch } from "./Modal/delete_Branch";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import {
+  CRow,
+  CCard,
+  CCardHeader,
+  CCardBody,
+  CFormSwitch,
+} from "@coreui/react";
 import { Table, Button } from "react-bootstrap";
-// import Form from 'react-bootstrap/Form'
-
-//* Data
-import branchData from "../../Data/list_room.json";
 
 //* Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Branch = () => {
-  const [branch, setBranch] = useState(branchData.listRooms);
+  const [branch, setBranch] = useState([]);
+
+  //* Call Api to binding data
+  useEffect(() => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setBranch(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  //* Function GET data Branchs
+  const getDataBranch = () => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setBranch(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   //TODO: Edit Branch
-  //* Completed: Delete Branch
-  const deleteBranch = (indexS) => {
-    setBranch([
-      ...branch.filter((branch, index) => {
-        return index !== indexS;
-      }),
-    ]);
+  //* Completed: Get info to Delete Branch
+  const [showDlt, setShowDlt] = useState(false);
+  const [idBranch, setIdBranch] = useState(0);
+  const showDeleteBranch = (branchID) => {
+    setShowDlt(true);
+    setIdBranch(branchID);
   };
 
   //* Completed: Active Branch
   const activeBranch = (BRANCH, e) => {
-    setBranch(
-      branch.filter((item) => {
-        if (item.id === BRANCH.id) {
-          // console.log(user[index].actived)
-          item.actived = !e.target.checked;
-        }
-        return item;
-      })
-    );
+    BRANCH.actived = e.target.checked;
+
+    Api.put(`/listRooms/${BRANCH.id}`, BRANCH).catch((err) => {
+      console.error(err);
+    });
+
+    getDataBranch();
   };
 
-  //* TODO: Search Branch
+  //* Completed: Search Branch Name
+  const [searchBranch, setSearchBranch] = useState("");
+  const getInfoFullName = (e) => {
+    setSearchBranch(() => e.target.value);
+
+    if (e.target.value == "") {
+      getDataBranch();
+    } else {
+      Api.get("/listRooms")
+        .then((response) => response.data)
+        .then((user) => {
+          setBranch([
+            ...branch.filter((item) => {
+              if (
+                item.nameBranchEN
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+
   return (
     <>
       <CCard className="mb-4">
@@ -53,14 +108,6 @@ const Branch = () => {
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
-
-                {/* <div className="formSelect">
-                  <Form.Select aria-label="Default select example" className="formSelect__form">
-                    <option>Select All</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Super Admin</option>
-                  </Form.Select>
-                </div> */}
               </div>
 
               <div className="input-group mb-3 search">
@@ -70,6 +117,8 @@ const Branch = () => {
                   placeholder="Branch"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  value={searchBranch}
+                  onChange={getInfoFullName}
                 />
               </div>
             </div>
@@ -100,16 +149,10 @@ const Branch = () => {
                       <td>{branch.manager}</td>
                       <td>{branch.roomTotal}</td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input
-                              type="checkbox"
-                              id="check"
-                              onChange={(e) => activeBranch(branch, e)}
-                            />
-                            <span></span>
-                          </label>
-                        </span>
+                        <CFormSwitch
+                          checked={branch.actived}
+                          onChange={(e) => activeBranch(branch, e)}
+                        />
                       </td>
                       <td className="tdAction">
                         <span>
@@ -119,7 +162,7 @@ const Branch = () => {
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
-                            onClick={() => deleteBranch(index)}
+                            onClick={() => showDeleteBranch(branch.id)}
                           />
                         </span>
                       </td>
@@ -131,6 +174,15 @@ const Branch = () => {
           </CRow>
         </CCardBody>
       </CCard>
+      //* Modal Delete branch
+      <DeleteBranch
+        showDlt={showDlt}
+        setShowDlt={setShowDlt}
+        branch={branch}
+        setBranch={setBranch}
+        idBranch={idBranch}
+        getDataBranch={getDataBranch}
+      />
     </>
   );
 };

@@ -2,14 +2,41 @@ const fs = require("fs");
 
 let data = {};
 
-// Đọc file JSON thứ nhất
-const file1 = JSON.parse(fs.readFileSync("./src/Data/list_users.json"));
-console.log(file1);
-data = { ...data, ...file1 };
+// Đọc từng file JSON sau đó combine hết vào data
+// const about = JSON.parse(fs.readFileSync("./src/Data/about.json"));
+// data = { ...data, ...about };
 
-// Đọc file JSON thứ hai
-const file2 = JSON.parse(fs.readFileSync("./src/Data/careers.json"));
-data = { ...data, ...file2 };
+// const careers = JSON.parse(fs.readFileSync("./src/Data/careers.json"));
+// data = { ...data, ...careers };
 
-// Ghi file JSON mới
+// const customerRating = JSON.parse(
+//   fs.readFileSync("./src/Data/customer_rating.json")
+// );
+// data = { ...data, ...customerRating };
+
+// const faqs = JSON.parse(fs.readFileSync("./src/Data/faqs.json"));
+// data = { ...data, ...faqs };
+
+// const booking = JSON.parse(fs.readFileSync("./src/Data/list_booking.json"));
+// data = { ...data, ...booking };
+
+// const customers = JSON.parse(fs.readFileSync("./src/Data/list_customers.json"));
+// data = { ...data, ...customers };
+
+const rooms = JSON.parse(fs.readFileSync("./src/Data/list_room.json"));
+data = { ...data, ...rooms };
+
+// const users = JSON.parse(fs.readFileSync("./src/Data/list_users.json"));
+// data = { ...data, ...users };
+
+// const newsAndEvents = JSON.parse(fs.readFileSync("./src/Data/new&Event.json"));
+// data = { ...data, ...newsAndEvents };
+
+// const sliders = JSON.parse(fs.readFileSync("./src/Data/slider.json"));
+// data = { ...data, ...sliders };
+
+// const terms = JSON.parse(fs.readFileSync("./src/Data/term.json"));
+// data = { ...data, ...terms };
+
+// Ghi dữ liệu data vào file JSON mới
 fs.writeFileSync("dataMain.json", JSON.stringify(data));

@@ -1,13 +1,12 @@
 //* Library
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Api from "src/Api/axiosConfig";
 import Select from "react-select";
 
 //* Components
 import { AddAndEdit } from "./Modal/Add&Edit_Modal";
 import { ChangePassword } from "./Modal/changePassword.js.js";
-import { ConfirmDelete } from "./Modal/confirmDelete";
+import { ConfirmDelete } from "./Modal/delete_Users";
 
 //* CORE UI + React Bootstrap
 import {
@@ -39,7 +38,6 @@ const ListUser = () => {
     Api.get("/listUser")
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         setUser(data);
       })
       .catch((err) => {
@@ -47,6 +45,7 @@ const ListUser = () => {
       });
   }, []);
 
+  //* Function GET data Users
   const getDataUser = () => {
     Api.get("/listUser")
       .then((response) => response.data)
@@ -176,6 +175,9 @@ const ListUser = () => {
           console.error(err);
         });
     }
+
+    //* Reset Select (Select All)
+    setSelectRole(options[0]);
   };
 
   //* Completed: Active User
@@ -285,7 +287,7 @@ const ListUser = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Username"
+                  placeholder="User Name"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
                   value={searchFullName}
