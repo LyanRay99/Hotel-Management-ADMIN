@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import Api from "src/Api/axiosConfig";
 
 //* Components
+import { AddAndEditBranch } from "./Modal/Add&Edit_Branch";
 import { DeleteBranch } from "./Modal/delete_Branch";
+
+//* Function feature
+import { toNonAccentVietnamese } from "src/components/Others/others";
 
 //* CORE UI + React Bootstrap
 import {
@@ -46,10 +50,60 @@ const Branch = () => {
       });
   };
 
-  //TODO: Edit Branch
+  //* Modal Add and Edit Branch
+  const [addVisible, setAddVisible] = useState(false);
+  const [indexBranch, setIndexBranch] = useState(0);
+
+  //* Completed: Create Object empty to handle Add + Edit Branch
+  const [objUser, setObjUser] = useState({
+    id: 0,
+    nameBranchEN: "",
+    nameBranchVN: "",
+    phone: "",
+    addressVN: "",
+    addressEN: "",
+    email: "",
+    roomTotal: 0,
+    manager: "",
+    actived: true,
+    dateCreated: "",
+    dateUpdated: "",
+    numberOfMember: [],
+    roomType: [],
+  });
+
+  //* Completed: Get info to Edit Branch
+  const getInfoEdit = (branch, index) => {
+    //* Open Modal
+    setAddVisible(true);
+
+    //* Set index of Branch
+    setIndexBranch(index);
+
+    //* Binding data of Branch to edit
+    setObjUser({
+      id: branch.id,
+      nameBranchEN: branch.nameBranchEN,
+      nameBranchVN: branch.nameBranchVN,
+      phone: branch.phone,
+      addressVN: branch.addressVN,
+      addressEN: branch.addressEN,
+      email: branch.email,
+      roomTotal: branch.roomTotal,
+      manager: branch.manager,
+      actived: branch.actived,
+      dateCreated: branch.dateCreated,
+      dateUpdated: branch.dateUpdated,
+      numberOfMember: branch.numberOfMember,
+      roomType: branch.roomType,
+    });
+  };
+
   //* Completed: Get info to Delete Branch
   const [showDlt, setShowDlt] = useState(false);
   const [idBranch, setIdBranch] = useState(0);
+
+  //* Get data to delete Branch
   const showDeleteBranch = (branchID) => {
     setShowDlt(true);
     setIdBranch(branchID);
@@ -76,7 +130,7 @@ const Branch = () => {
     } else {
       Api.get("/listRooms")
         .then((response) => response.data)
-        .then((user) => {
+        .then(() => {
           setBranch([
             ...branch.filter((item) => {
               if (
@@ -104,7 +158,7 @@ const Branch = () => {
             <div className="control">
               <div className="select">
                 <div className="btn">
-                  <Button variant="info">
+                  <Button variant="info" onClick={() => setAddVisible(true)}>
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
@@ -155,14 +209,13 @@ const Branch = () => {
                         />
                       </td>
                       <td className="tdAction">
-                        <span>
+                        <span onClick={() => getInfoEdit(branch, index)}>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
-                        <span>
+                        <span onClick={() => showDeleteBranch(branch.id)}>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
-                            onClick={() => showDeleteBranch(branch.id)}
                           />
                         </span>
                       </td>
@@ -174,7 +227,22 @@ const Branch = () => {
           </CRow>
         </CCardBody>
       </CCard>
-      //* Modal Delete branch
+
+      {/* Completed: Modal Add & Edit branch */}
+      <AddAndEditBranch
+        addVisible={addVisible}
+        setAddVisible={setAddVisible}
+        branch={branch}
+        setBranch={setBranch}
+        objUser={objUser}
+        setObjUser={setObjUser}
+        idBranch={idBranch}
+        getDataBranch={getDataBranch}
+        toNonAccentVietnamese={toNonAccentVietnamese}
+        indexBranch={indexBranch}
+      />
+
+      {/* Completed: Modal Delete branch */}
       <DeleteBranch
         showDlt={showDlt}
         setShowDlt={setShowDlt}

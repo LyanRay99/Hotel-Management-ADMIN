@@ -4,7 +4,7 @@ import Api from "src/Api/axiosConfig";
 import Select from "react-select";
 
 //* Components
-import { AddAndEdit } from "./Modal/Add&Edit_Modal";
+import { AddAndEdit } from "./Modal/Add&Edit_Users";
 import { ChangePassword } from "./Modal/changePassword.js.js";
 import { ConfirmDelete } from "./Modal/delete_Users";
 

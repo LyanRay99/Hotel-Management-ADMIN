@@ -1,6 +1,5 @@
 //* Library
 import React, { useState } from "react";
-import axios from "axios";
 import Api from "src/Api/axiosConfig";
 
 //* CORE UI + React Bootstrap
