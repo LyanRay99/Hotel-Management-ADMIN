@@ -39,9 +39,9 @@ const RoomType = () => {
   //* Function GET data RoomType
   const getDataRoomType = () => {
     Api.get("/listRooms")
-      .then((response) => response.data[0].roomType)
+      .then((response) => response.data)
       .then((data) => {
-        setRoomType(data);
+        setRoomType(data[indexBranch].roomType);
       })
       .catch((err) => {
         console.error(err);
@@ -49,27 +49,32 @@ const RoomType = () => {
   };
 
   //* Completed: Select Branch to CRUD RoomType
+  //* 1 - Create varible
   const options = [];
-  branch.map((item) => {
+  const [selectBranch, setSelectBranch] = useState([]);
+  var [indexBranch, setIndexBranch] = useState(0);
+
+  //* 2 - Get data Branch to binding in select
+  branch.map((item, index) => {
     options.push({
       value: item.nameBranchVN,
       label: item.nameBranchVN,
     });
   });
 
-  const [selectBranch, setSelectBranch] = useState(options[0]);
-
-  const sortRole = (selectedOption) => {
+  //* 3 - Set lại các state cần thiết
+  const SelectBranchs = (selectedOption) => {
     setSelectBranch(selectedOption);
 
     //* Get roomType of selected Branch
-    var indexBranch = 0;
     branch.map((item, index) => {
       if (item.nameBranchVN === selectedOption.value) {
-        return (indexBranch = index);
+        setIndexBranch(index);
       }
     });
-
+  };
+  //* 4 - Filter roomType after indexBranch changed
+  useEffect(() => {
     Api.get("/listRooms")
       .then((response) => {
         setRoomType([
@@ -81,6 +86,33 @@ const RoomType = () => {
       .catch((err) => {
         console.error(err);
       });
+  }, [indexBranch]);
+
+  //* Completed: Search RoomType
+  const [searchRoomType, setSearchRoomType] = useState("");
+  const getInfoRoomType = (e) => {
+    setSearchRoomType(() => e.target.value);
+
+    if (e.target.value == "") {
+      getDataRoomType();
+    } else {
+      Api.get("/listRooms")
+        .then((response) => response.data)
+        .then((user) => {
+          setRoomType([
+            ...roomType.filter((item) => {
+              if (
+                item.type.toLowerCase().includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   };
 
   return (
@@ -100,7 +132,7 @@ const RoomType = () => {
                 <div className="formSelect">
                   <Select
                     value={selectBranch}
-                    onChange={sortRole}
+                    onChange={SelectBranchs}
                     options={options}
                     styles={customStyles}
                   />
@@ -114,6 +146,7 @@ const RoomType = () => {
                   placeholder="Room Type"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  onChange={getInfoRoomType}
                 />
               </div>
             </div>
@@ -124,6 +157,7 @@ const RoomType = () => {
                   <tr>
                     <th>No</th>
                     <th>Name</th>
+                    <th>Branch</th>
                     <th>Image</th>
                     <th>Price</th>
                     <th>Max Person</th>
@@ -137,6 +171,7 @@ const RoomType = () => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{roomType.type}</td>
+                      <td>{branch[indexBranch].nameBranchVN}</td>
                       <td>{roomType.image}</td>
                       <td>{roomType.price}</td>
                       <td>{roomType.max_person}</td>
