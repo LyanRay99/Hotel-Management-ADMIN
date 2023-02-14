@@ -1,25 +1,87 @@
 //* Library
 import React, { useEffect, useState } from "react";
-
-//* Data
-import roomTypeData from "../../Data/list_room.json";
+import Api from "src/Api/axiosConfig";
+import Select from "react-select";
+import { customStyles } from "src/components/Others/others";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import {
+  CRow,
+  CCard,
+  CCardHeader,
+  CCardBody,
+  CFormSwitch,
+} from "@coreui/react";
 import { Table, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 
 //* Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faKey,
-  faPen,
-  faPlus,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const RoomType = () => {
-  const [roomType, setRoomType] = useState(roomTypeData.listRooms[0].roomType);
+  //* Get + binding data
+  const [roomType, setRoomType] = useState([]);
+  const [branch, setBranch] = useState([]);
+
+  //* Call Api to binding data
+  useEffect(() => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setRoomType(data[0].roomType);
+        setBranch(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  //* Function GET data RoomType
+  const getDataRoomType = () => {
+    Api.get("/listRooms")
+      .then((response) => response.data[0].roomType)
+      .then((data) => {
+        setRoomType(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  //* Completed: Select Branch to CRUD RoomType
+  const options = [];
+  branch.map((item) => {
+    options.push({
+      value: item.nameBranchVN,
+      label: item.nameBranchVN,
+    });
+  });
+
+  const [selectBranch, setSelectBranch] = useState(options[0]);
+
+  const sortRole = (selectedOption) => {
+    setSelectBranch(selectedOption);
+
+    //* Get roomType of selected Branch
+    var indexBranch = 0;
+    branch.map((item, index) => {
+      if (item.nameBranchVN === selectedOption.value) {
+        return (indexBranch = index);
+      }
+    });
+
+    Api.get("/listRooms")
+      .then((response) => {
+        setRoomType([
+          ...response.data[indexBranch].roomType.filter((item) => {
+            return item;
+          }),
+        ]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <>
@@ -35,13 +97,14 @@ const RoomType = () => {
                   </Button>
                 </div>
 
-                {/* <div className="formSelect">
-                  <Form.Select aria-label="Default select example" className="formSelect__form">
-                    <option>Select All</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Super Admin</option>
-                  </Form.Select>
-                </div> */}
+                <div className="formSelect">
+                  <Select
+                    value={selectBranch}
+                    onChange={sortRole}
+                    options={options}
+                    styles={customStyles}
+                  />
+                </div>
               </div>
 
               <div className="input-group mb-3 search">
@@ -61,6 +124,7 @@ const RoomType = () => {
                   <tr>
                     <th>No</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>Price</th>
                     <th>Max Person</th>
                     <th>Total Room</th>
@@ -73,21 +137,17 @@ const RoomType = () => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{roomType.type}</td>
+                      <td>{roomType.image}</td>
                       <td>{roomType.price}</td>
                       <td>{roomType.max_person}</td>
                       <td>{roomType.roomTotal}</td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input type="checkbox" id="check" />
-                            <span></span>
-                          </label>
-                        </span>
+                        <CFormSwitch
+                          checked={roomType.actived}
+                          onChange={(e) => activeUser(roomType, e)}
+                        />
                       </td>
                       <td className="tdAction">
-                        <span>
-                          <FontAwesomeIcon icon={faKey} className="icon key" />
-                        </span>
                         <span>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>

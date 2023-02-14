@@ -24,3 +24,26 @@ export const toNonAccentVietnamese = (str) => {
   str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
   return str;
 };
+
+//* Custom size React-Select
+export const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    width: 200, // set the desired width here
+  }),
+
+  menu: (provided) => ({
+    ...provided,
+    width: 200,
+  }),
+
+  // Option: (provided) => ({
+  //   ...provided,
+  //   width: 250,
+  // }),
+
+  // singleValue: (provided) => ({
+  //   ...provided,
+  //   fontSize: "25px", // set the font size of the selected value
+  // }),
+};
