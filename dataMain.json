@@ -620,7 +620,7 @@
           "roomTotal": 50,
           "dateCreated": "13h30 23-02-2022",
           "dateUpdated": "13h30 23-02-2022",
-          "actived": true,
+          "actived": false,
           "typeR": [
             {
               "id": 1,
@@ -1152,7 +1152,7 @@
           "roomTotal": 25,
           "dateCreated": "13h30 23-02-2022",
           "dateUpdated": "13h30 23-02-2022",
-          "actived": true,
+          "actived": false,
           "typeR": [
             {
               "id": 1,
@@ -1478,7 +1478,7 @@
           "roomTotal": 25,
           "dateCreated": "13h30 23-02-2022",
           "dateUpdated": "13h30 23-02-2022",
-          "actived": true,
+          "actived": false,
           "typeR": [
             {
               "id": 1,
@@ -1854,7 +1854,10 @@
       "imageMain": "Event/body/content/blog-1.jpg",
       "imageSup": "Event/body/content/blog-1.1.jpg",
       "author": "Jonatha Owens",
-      "tags": ["Food Dinner", "Tralvel"],
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
         "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -1909,7 +1912,10 @@
       "imageMain": "Event/body/content/blog-2.jpg",
       "imageSup": "Event/body/content/blog-2.2.jpg",
       "author": "Luis Jubica",
-      "tags": ["Food Dinner", "Tralvel"],
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
         "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -1964,7 +1970,10 @@
       "imageMain": "Event/body/content/blog-3.jpg",
       "imageSup": "Event/body/content/blog-3.3.jpg",
       "author": "David Mora",
-      "tags": ["Food Dinner", "Tralvel"],
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
         "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -2019,7 +2028,10 @@
       "imageMain": "Event/body/content/blog-4.jpg",
       "imageSup": "Event/body/content/blog-4.4.jpg",
       "author": "Philip Anato",
-      "tags": ["Food Dinner", "Tralvel"],
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
         "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -2243,5 +2255,22 @@
         }
       ]
     }
-  ]
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

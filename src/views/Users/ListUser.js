@@ -183,7 +183,6 @@ const ListUser = () => {
   //* Completed: Active User
   const activeUser = (USER, e) => {
     USER.actived = e.target.checked;
-
     Api.put(`/listUser/${USER.id}`, USER).catch((err) => {
       console.error(err);
     });

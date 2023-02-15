@@ -46,6 +46,22 @@ const RoomType = () => {
       .catch((err) => {
         console.error(err);
       });
+
+    console.log("ok");
+  };
+
+  //* Completed: Active RoomType
+  const activeRoomType = (e, indexRoomType) => {
+    branch[indexBranch].roomType[indexRoomType].actived = e.target.checked;
+    const BranchObj = branch[indexBranch];
+
+    Api.put(`/listRooms/${branch[indexBranch].id}`, BranchObj)
+      .then(() => {
+        getDataRoomType();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   //* Completed: Select Branch to CRUD RoomType
@@ -73,6 +89,7 @@ const RoomType = () => {
       }
     });
   };
+
   //* 4 - Filter roomType after indexBranch changed
   useEffect(() => {
     Api.get("/listRooms")
@@ -179,7 +196,7 @@ const RoomType = () => {
                       <td>
                         <CFormSwitch
                           checked={roomType.actived}
-                          onChange={(e) => activeUser(roomType, e)}
+                          onChange={(e) => activeRoomType(e, index)}
                         />
                       </td>
                       <td className="tdAction">
