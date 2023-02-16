@@ -1,5 +1,6 @@
 //* Library
 import React, { useState } from "react";
+import Api from "src/Api/axiosConfig";
 
 //* CORE UI + React Bootstrap
 import {
@@ -13,8 +14,6 @@ import {
   CCol,
   CFormInput,
 } from "@coreui/react";
-import { Table, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,6 +23,7 @@ export const ChangePassword = ({
   indexUser,
   user,
   setUser,
+  getDataUser,
 }) => {
   const [password, setPassword] = useState("");
   const [changePasswordUI, setChangePasswordUI] = useState(true);
@@ -53,15 +53,20 @@ export const ChangePassword = ({
       !/\s/.test(password) &&
       password.length > 9
     ) {
-      setUser(
-        user.map((item, index) => {
-          if (index === indexUser) {
-            item.password = password;
-          }
-          return item;
-        })
-      );
+      const updatedData = [...user];
+      updatedData[indexUser].password = password;
 
+      Api.put(
+        `http://localhost:8000/listUser/${user[indexUser].id}`,
+        updatedData[indexUser]
+      ).catch((err) => {
+        console.error(err);
+      });
+
+      //* Get lại data
+      getDataUser();
+
+      //* Close modal + reset state password
       setShowCP(false);
       setPassword("");
     } else {

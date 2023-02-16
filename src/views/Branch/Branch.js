@@ -1,45 +1,154 @@
 //* Library
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Api from "src/Api/axiosConfig";
+
+//* Components
+import { AddAndEditBranch } from "./Modal/Add&Edit_Branch";
+import { DeleteBranch } from "./Modal/delete_Branch";
+
+//* Function feature
+import { toNonAccentVietnamese } from "src/components/Others/others";
 
 //* CORE UI + React Bootstrap
-import { CRow, CCard, CCardHeader, CCardBody } from "@coreui/react";
+import {
+  CRow,
+  CCard,
+  CCardHeader,
+  CCardBody,
+  CFormSwitch,
+} from "@coreui/react";
 import { Table, Button } from "react-bootstrap";
-// import Form from 'react-bootstrap/Form'
-
-//* Data
-import branchData from "../../Data/list_room.json";
 
 //* Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Branch = () => {
-  const [branch, setBranch] = useState(branchData.listRooms);
+  const [branch, setBranch] = useState([]);
 
-  //TODO: Edit Branch
-  //* Completed: Delete Branch
-  const deleteBranch = (indexS) => {
-    setBranch([
-      ...branch.filter((branch, index) => {
-        return index !== indexS;
-      }),
-    ]);
+  //* Call Api to binding data
+  useEffect(() => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setBranch(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  //* Function GET data Branchs
+  const getDataBranch = () => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setBranch(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  //* Modal Add and Edit Branch
+  const [addVisible, setAddVisible] = useState(false);
+  const [indexBranch, setIndexBranch] = useState(0);
+
+  //* Completed: Create Object empty to handle Add + Edit Branch
+  const [objUser, setObjUser] = useState({
+    id: 0,
+    nameBranchEN: "",
+    nameBranchVN: "",
+    phone: "",
+    addressVN: "",
+    addressEN: "",
+    email: "",
+    roomTotal: 0,
+    manager: "",
+    actived: true,
+    dateCreated: "",
+    dateUpdated: "",
+    numberOfMember: [],
+    roomType: [],
+  });
+
+  //* Completed: Get info to Edit Branch
+  const getInfoEdit = (branch, index) => {
+    //* Open Modal
+    setAddVisible(true);
+
+    //* Set index of Branch
+    setIndexBranch(index);
+
+    //* Binding data of Branch to edit
+    setObjUser({
+      id: branch.id,
+      nameBranchEN: branch.nameBranchEN,
+      nameBranchVN: branch.nameBranchVN,
+      phone: branch.phone,
+      addressVN: branch.addressVN,
+      addressEN: branch.addressEN,
+      email: branch.email,
+      roomTotal: branch.roomTotal,
+      manager: branch.manager,
+      actived: branch.actived,
+      dateCreated: branch.dateCreated,
+      dateUpdated: branch.dateUpdated,
+      numberOfMember: branch.numberOfMember,
+      roomType: branch.roomType,
+    });
+  };
+
+  //* Completed: Get info to Delete Branch
+  const [showDlt, setShowDlt] = useState(false);
+  const [idBranch, setIdBranch] = useState(0);
+
+  //* Get data to delete Branch
+  const showDeleteBranch = (branchID) => {
+    setShowDlt(true);
+    setIdBranch(branchID);
   };
 
   //* Completed: Active Branch
   const activeBranch = (BRANCH, e) => {
-    setBranch(
-      branch.filter((item) => {
-        if (item.id === BRANCH.id) {
-          // console.log(user[index].actived)
-          item.actived = !e.target.checked;
-        }
-        return item;
-      })
-    );
+    BRANCH.actived = e.target.checked;
+
+    Api.put(`/listRooms/${BRANCH.id}`, BRANCH).catch((err) => {
+      console.error(err);
+    });
+
+    getDataBranch();
   };
 
-  //* TODO: Search Branch
+  //* Completed: Search Branch Name
+  const [searchBranch, setSearchBranch] = useState("");
+  const getInfoFullName = (e) => {
+    setSearchBranch(() => e.target.value);
+
+    if (e.target.value == "") {
+      getDataBranch();
+    } else {
+      Api.get("/listRooms")
+        .then((response) => response.data)
+        .then(() => {
+          setBranch([
+            ...branch.filter((item) => {
+              if (
+                item.nameBranchEN
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+
   return (
     <>
       <CCard className="mb-4">
@@ -49,18 +158,10 @@ const Branch = () => {
             <div className="control">
               <div className="select">
                 <div className="btn">
-                  <Button variant="info">
+                  <Button variant="info" onClick={() => setAddVisible(true)}>
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
-
-                {/* <div className="formSelect">
-                  <Form.Select aria-label="Default select example" className="formSelect__form">
-                    <option>Select All</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Super Admin</option>
-                  </Form.Select>
-                </div> */}
               </div>
 
               <div className="input-group mb-3 search">
@@ -70,6 +171,8 @@ const Branch = () => {
                   placeholder="Branch"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  value={searchBranch}
+                  onChange={getInfoFullName}
                 />
               </div>
             </div>
@@ -100,26 +203,24 @@ const Branch = () => {
                       <td>{branch.manager}</td>
                       <td>{branch.roomTotal}</td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input
-                              type="checkbox"
-                              id="check"
-                              onChange={(e) => activeBranch(branch, e)}
-                            />
-                            <span></span>
-                          </label>
-                        </span>
+                        <CFormSwitch
+                          checked={branch.actived}
+                          onChange={(e) => activeBranch(branch, e)}
+                        />
                       </td>
                       <td className="tdAction">
                         <span>
-                          <FontAwesomeIcon icon={faPen} className="icon pen" />
+                          <FontAwesomeIcon
+                            icon={faPen}
+                            className="icon pen"
+                            onClick={() => getInfoEdit(branch, index)}
+                          />
                         </span>
                         <span>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
-                            onClick={() => deleteBranch(index)}
+                            onClick={() => showDeleteBranch(branch.id)}
                           />
                         </span>
                       </td>
@@ -131,6 +232,30 @@ const Branch = () => {
           </CRow>
         </CCardBody>
       </CCard>
+
+      {/* Completed: Modal Add & Edit branch */}
+      <AddAndEditBranch
+        addVisible={addVisible}
+        setAddVisible={setAddVisible}
+        branch={branch}
+        setBranch={setBranch}
+        objUser={objUser}
+        setObjUser={setObjUser}
+        idBranch={idBranch}
+        getDataBranch={getDataBranch}
+        toNonAccentVietnamese={toNonAccentVietnamese}
+        indexBranch={indexBranch}
+      />
+
+      {/* Completed: Modal Delete branch */}
+      <DeleteBranch
+        showDlt={showDlt}
+        setShowDlt={setShowDlt}
+        branch={branch}
+        setBranch={setBranch}
+        idBranch={idBranch}
+        getDataBranch={getDataBranch}
+      />
     </>
   );
 };

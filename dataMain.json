@@ -1,0 +1,2229 @@
+{
+  "aboutUs_Home": [
+    {
+      "name": "MASTER BEDROOMS",
+      "image": "About/home/about-icon-1.png"
+    },
+    {
+      "name": "SEA VIEW BALCONY",
+      "image": "About/home/about-icon-2.png"
+    },
+    {
+      "name": "POOL & SPA",
+      "image": "About/home/about-icon-3.png"
+    },
+    {
+      "name": "WIFI COVERAGE",
+      "image": "About/home/about-icon-4.png"
+    },
+    {
+      "name": "AWESOME PACKAGES",
+      "image": "About/home/about-icon-5.png"
+    },
+    {
+      "name": "CLEANING EVERDAY",
+      "image": "About/home/about-icon-6.png"
+    },
+    {
+      "name": "BUTFFET BREAKFAST",
+      "image": "About/home/about-icon-7.png"
+    },
+    {
+      "name": "AIRPORT TAXI",
+      "image": "About/home/about-icon-8.png"
+    }
+  ],
+  "aboutUs_Page": [
+    {
+      "id": 1,
+      "title": "ABOUT US",
+      "content": "The Panorama Hotel, one of the comfortable, modern hotels located in prime locations. With its geographical location in the center of the city and 5-star service quality, the hotel is always the first choice of many tourists when coming to Panorama.",
+      "image": "About/info/page-about-1.jpg",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "WHY GUEST CHOOSE SKYLINE HOTEL?",
+      "content": "Panorama hotel chain currently has 3 branches in Da Nang, Nha Trang and Phu Quoc. Each branch has more than 500 rooms with various room types such as deluxe room, vip room, luxury room and family room. Panorama is designed in a modern, simple and not too fussy style, helping customers to feel comfortable while staying. Owning a variety of room types, from standard rooms to VIP rooms to meet different needs of customers. Rooms are fully equipped and comfortable with many other services such as 24/7 reception, parking, laundry, kitchen, motorbike rental... In addition, the hotel also has a gym. Free gym for hotel guests. That's why Panorama Hotel is perfectly suitable for customers traveling, business guests or long-term renters.",
+      "image": "About/info/page-about-2.jpg",
+      "active": true
+    }
+  ],
+  "aboutUs_Statistic": [
+    {
+      "count": 768,
+      "content": "GUEST STAY"
+    },
+    {
+      "count": 632,
+      "content": "BOOK ROOM"
+    },
+    {
+      "count": 1024,
+      "content": "MEMBER STAY"
+    },
+    {
+      "count": 256,
+      "content": "MEALS SERVED"
+    }
+  ],
+  "about_Team": [
+    {
+      "name": "JESSICA ALBA",
+      "position": "Founder Hotel",
+      "image": "About/team/member1.png",
+      "description": "Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per."
+    },
+    {
+      "name": "ROBET WILIAM",
+      "position": "Manager lotus Hotel",
+      "image": "About/team/member2.png",
+      "description": "Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per."
+    },
+    {
+      "name": "ADAM",
+      "position": "Rooms Division Manager",
+      "image": "About/team/member3.png",
+      "description": "Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per."
+    },
+    {
+      "name": "DAVID GARI",
+      "position": "F&B Manager",
+      "image": "About/team/member4.png",
+      "description": "Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per."
+    }
+  ],
+  "info": {
+    "title": "BE PART OF AN I'M-AZING TEAM",
+    "content": "Here at I’M Hotel, we believe that hospitality is a team sport. Our team is made up of well-rounded individuals who are passionate about their work and eager to learn. Whether you’re a student looking for an internship, or an experienced professional looking for a new challenge, we have the perfect opportunity for you."
+  },
+  "benefits": {
+    "title": "WORKPLACE BENEFITS",
+    "content": [
+      {
+        "image": "Carrers/carrers-1.jpg",
+        "imageTitle": "Employee discounts and special offers"
+      },
+      {
+        "image": "Carrers/carrers-2.jpg",
+        "imageTitle": "Discounted hotel room rates for you and your friends and family"
+      },
+      {
+        "image": "Carrers/carrers-3.jpg",
+        "imageTitle": "Inter-department career opportunities"
+      },
+      {
+        "image": "Carrers/carrers-4.jpg",
+        "imageTitle": "Staff meals"
+      },
+      {
+        "image": "Carrers/carrers-5.jpg",
+        "imageTitle": "Training & Development"
+      },
+      {
+        "image": "Carrers/carrers-6.jpg",
+        "imageTitle": "More perks"
+      }
+    ]
+  },
+  "opportunity": {
+    "title": "OPPORTUNITIES WITH I'M",
+    "content": "Talk to us and get acquainted with our experienced management team and find out what career opportunities could be in your future. We are looking to hire a wide range of positions in various departments.",
+    "opportunities": [
+      {
+        "position": "Internal Audit Officer (Quality and Performance Analyst)",
+        "department": "HRD",
+        "employmentType": "Full time",
+        "description": "Reporting to the General Manager. The Internal Audit Officer will ensure that all business processes in I'M Hotel are risk-management compliant. The operating process includes assessing certain areas for compliance with relevant laws and evaluating how effective this department has been at creating and implementing its policies and procedures along with its practiced control measures."
+      },
+      {
+        "position": "PR & Marketing Assistant",
+        "department": "Marketing",
+        "employmentType": "Full time",
+        "description": "Assists Marketing Team to develop and implement tactical plans to promote the hotel and thereby support our sales efforts both room, Spa, Banquet and F&B and outlets. And ensure that the hotel's product image is professionally reflected in all communications to the hotel’s current and potential guests."
+      },
+      {
+        "position": "Graphic and Marketing Assistant",
+        "department": "Marketing",
+        "employmentType": "Full time",
+        "description": "As a graphic design assistant, it is your job to help the lead graphic designer complete all print, online, and electronic media projects. You prepare marketing materials, create print layouts, give creative input, develop logos and images, and design promotional tools."
+      },
+      {
+        "position": "Sous Chef",
+        "department": "Food & Beverage",
+        "employmentType": "Full time",
+        "description": "Reporting to the General Manager. The Sous Chef will provide a high standard of food production at all times and will ensure effective control of stock purchasing, receipt, storage, preparation, and recipe execution with regard to quality, quantity, and safety in accordance with the Corporate Executive Chef and Head Chef."
+      },
+      {
+        "position": "Security and Safety Manager",
+        "department": "Security",
+        "employmentType": "Full time",
+        "description": "Reporting to the General Manager. The Security & Safety Manager will be responsible for maintaining law and order and will ensure safe and crime free environment within the Hotel and its premises; safeguards customers, employees, and assets of the Hotel against fire and other hazard by implementing all applicable security methods and procedures and will ensure the compliance of all concerned."
+      },
+      {
+        "position": "IT Officer",
+        "department": "IT",
+        "employmentType": "Full time",
+        "description": "Reporting to the IT Head. The IT Officer will contribute to the achievement of company goals and objectives by providing the right options and right technology to improve services, company connectivity, productivity, and revenue of both internal and external customers."
+      },
+      {
+        "position": "Credit Officer",
+        "department": "Finance",
+        "employmentType": "Full time",
+        "description": "Reporting to the Financial Controller. The Credit Officer will ensure prompt collection and maintain collectability of company's Accounts Receivable ( In-House guest and send bill accounts)."
+      },
+      {
+        "position": "Income Auditor",
+        "department": "Finance",
+        "employmentType": "Full time",
+        "description": "Reporting to the Financial Controller. The Income Auditor will ensure that all revenues are properly accounted for and to verify if concessionaries billing are correct based on transfer prices per contract."
+      },
+      {
+        "position": "Front Office Manager",
+        "department": "Front Office",
+        "employmentType": "Full time",
+        "description": "Reporting to the General Manager. The Front Office Manager will be responsible for the general administration and profitability of the operation of the Front Office Department, including Front Desk, Concierge, Telephone and Bell Service."
+      },
+      {
+        "position": "Sales Executives",
+        "department": "Sales",
+        "employmentType": "Full time",
+        "description": "Reporting to the Sr. Sales Manager. With a minimum of 3 years relevant experience, the Sales Executive will solicit FIT/ group business for the hotel and promote accommodation, spa, banquet to maximize profits through creative and selective selling."
+      },
+      {
+        "position": "Sales Manager",
+        "department": "Sales",
+        "employmentType": "Full time",
+        "description": "Reporting to the Sr. Sales Manager. With a minimum of 5 years relevant experience, the Sales Manager will solicit FIT/ group business for the hotel and promote accommodation, spa, banquet to maximize profits through creative and selective selling."
+      },
+      {
+        "position": "Reservation Officers",
+        "department": "Reservations",
+        "employmentType": "Full time",
+        "description": "Reporting to the Reservations Manager. The Reservation Officer will assist the guests in planning, booking, and reserving according to their preferences in the EHORs. He/ She will receive and reply to all guests inquiries through emails, telephone calls and social network messages and will confirm payment through Bank transfer, Credit Cards, Checks or Cash and inputting in EHORs."
+      },
+      {
+        "position": "Executive Assistant",
+        "department": "Executive Office",
+        "employmentType": "Full time",
+        "description": "Reporting to the General Manager. The Executive Assistant will provide efficient and comprehensive admin and secretarial services to the Executive leader in order to meet her official needs."
+      }
+    ]
+  },
+  "joinUs": {
+    "title": "Join us and take your career to the next level.",
+    "content": [
+      "We stand at the ready to give you an excellent opportunity. Learn more about our company and how we can support your career.",
+      "If you are interested in a career with us, please send your resume to:"
+    ],
+    "image": "Carrers/careers-contact.jpg"
+  },
+  "internship": {
+    "title": "INTERNSHIP",
+    "content": "We offer internships across a diverse range of functions from different departments. With our diverse team, you’ll gain experience in all aspects of hospitality, from front office and back office roles to casual dining and fine dining experience. Our goal is to help you grow as a person outside of work as well as in it.",
+    "image": "Carrers/internship.jpg"
+  },
+  "review": {
+    "title": "REAL REVIEWS FROM OUR COLLEAGUES",
+    "content": [
+      {
+        "author": "Former Quality Analyst",
+        "reviewContent": "“Good” Fun, Open to Career Advancement"
+      },
+      {
+        "author": "Front Office Associate",
+        "reviewContent": "“Fun Working Environment” Free employee meals and very good working environment"
+      },
+      {
+        "author": "Housekeeping Supervisor",
+        "reviewContent": "Easy to work with other departments!"
+      }
+    ]
+  },
+  "note": [
+    "Please note that apart from our corporate Human Resources office, I’M Hotel only works with accredited agencies, namely Value Added Facility Management Services Inc. and Global Watch Security Services Inc. for our recruitment services. Any other agencies with the exception of the two mentioned do not have the authority to act on behalf of I’M Hotel.",
+    "Please note that I’M Hotel and its ancillary outlets’ recruitment process is done via official channels and email accounts only and without requiring placement fees at any time during the recruitment process.",
+    "If you have any questions, concerns, see suspicious job advertisements or received unofficial communications that reference I’M Hotel and its ancillary outlets, please email us at info@imhotel.com and hr@imhotel.com.",
+    "We strongly advise you to report to local authorities if you believe you are a victim of any fraudulent recruitment activity."
+  ],
+  "listCustomerRating": [
+    {
+      "name": "Jonh Forbes",
+      "avatar": "Customer Comment/avatar1.jpg",
+      "address": "Ohio America",
+      "comment": "This is the only place to stay in Catalia! I have stayed in the cheaper hotels and they were fine, but this is just the icing on the cake! After spending the day bike riding and hiking to come back and enjoy a glass of wire looking out your ocean view window and then to top it all off..."
+    },
+    {
+      "name": "Philip Nguyen",
+      "avatar": "Customer Comment/avatar2.jpg",
+      "address": "Liverpool England",
+      "comment": "The place was great, the staff was all nice and very accommodating. Looks small from the outside but is very spacious. Good food, and a good place. Cozy and pretty quiet since it's not located in a hectic area."
+    },
+    {
+      "name": "Kira Rose",
+      "avatar": "Customer Comment/avatar3.jpg",
+      "address": "Zwolle Poland",
+      "comment": "Good service, quality and food. So comfortable, I recommend you to stay here if you with your family and friends travel or trip to Bandung. California Hotel also has a strategic location in Bandung making it easier for you to find food, souvenir places and others."
+    }
+  ],
+  "listFaqs": [
+    {
+      "title": "General Hotel Information",
+      "content": [
+        {
+          "question": "What time can I check-in and check-out?",
+          "answer": "Standard check-in time is at 2 PM and check-out at 12 PM. Kindly note that check-in time may be shifted to 3:00 PM during high occupancy periods."
+        },
+        {
+          "question": "Can I request for wake up calls?",
+          "answer": "Make your way out of bed with our timely wake-up call. Please press service key “1” for assistance."
+        },
+        {
+          "question": "How can I talk to the Duty Manager?",
+          "answer": "Please dial service key “1” for assistance."
+        },
+        {
+          "question": "Can I request housekeeping?",
+          "answer": "Housekeeping services are available. Shoe shine service is offered to guests upon request. Please press the service key “1” for assistance."
+        },
+        {
+          "question": "Do you have wifi?",
+          "answer": "Stay connected during your stay with 40MB bandwidth internet service provided throughout our guestrooms and public areas. Please log-in with your username and password provided at check-in. User name is your room no. Password is *followed by room no. eg: USER NAME: 2803 PASSWORD: *2803."
+        },
+        {
+          "question": "Do you allow early check in and late check-out? ",
+          "answer": "Requests for early check-in and late check-out are honored but subject to availability. Allowable free-of-charge early check-in is from 12 PM and late check-out until 2 PM only. This privilege is extended to guests who book directly with us. Applicable charges will be billed for exceeding hours."
+        },
+        {
+          "question": "Can I store my bag?",
+          "answer": "Yes, we do offer luggage storage free of charge. I’M hotel reserves to right to deny storage of oversized and suspicious items."
+        },
+        {
+          "question": "Do you have an elevator?",
+          "answer": "We are equipped with six (6) guest elevators (3 high rise, 3 low rise elevators) and two (2) separate elevators serving the spa floors. Guest elevators are equipped with a high-level security feature that enables guests to access each designated floor using a keycard."
+        },
+        {
+          "question": "Can I bring my pet inside the hotel?",
+          "answer": "As much as we love pets, unfortunately, we are unable to accommodate them in our rooms or any of our common areas. We can refer you to the local pet house, while you choose to stay with us."
+        },
+        {
+          "question": "Do you offer parking slot for hotel guests?",
+          "answer": "Yes, however parking space is subject to availability. Registered hotel guests are entitled to one (1) complimentary parking slot per room."
+        },
+        {
+          "question": "Do you offer accommodation for the physically challenged?",
+          "answer": "Yes, we have PWD rooms specially available for senior citizens and persons with disabilities."
+        },
+        {
+          "question": "What is your linen & damage Policy?",
+          "answer": "Please note that additional charges are applicable for linen stains and other cleaning or damages caused intentionally or unintentionally. Penalties vary depending on the extent and severity of the damage. These include, but are not limited to, cleaning, repair, or replacement charges for stained walls, vomit, blood and food stain on linens, and broken furniture and fittings. The exact cost will be determined on a case-by-case basis by the Manager in charge. "
+        }
+      ]
+    },
+    {
+      "title": "Reservations & Cancellations",
+      "content": [
+        {
+          "question": "Can I cancel my booking?",
+          "answer": "Yes, but keep in mind that cancellations made less than three (3) days prior to arrival are subject to 100% charge."
+        },
+        {
+          "question": "Will a security deposit be required upon check-in?",
+          "answer": "The hotel requires an incidental deposit that may be settled through cash or credit card upon check-in. It is fully refundable if not used. If you are using a credit card, released upon check-out. Kindly note that it might take at least 7-14 banking days for your bank to activate the release."
+        },
+        {
+          "question": "What payment methods are accepted?",
+          "answer": "We accept cash and all major credit cards as payment."
+        }
+      ]
+    },
+    {
+      "title": "Reservation",
+      "content": [
+        {
+          "question": "Where can I make a reservation?",
+          "answer": "For room reservations at I’M Hotel, please email reservations@imhotel.com or visit www.imhotel.com. Direct bookers enjoy a best rate guarantee and other exclusive perks. "
+        }
+      ]
+    },
+    {
+      "title": "Rooms and Rates",
+      "content": [
+        {
+          "question": "Are smoking rooms available?",
+          "answer": "We are sorry, but I’M Hotel rooms are strictly non-smoking. There will be a cleaning fee of PHP 10,000 levied per incidence of smoking. For our guest’s comfort, there are designated smoking areas available at the 2nd floor, Mermaid Pool Bar."
+        },
+        {
+          "question": "Do kids stay free?",
+          "answer": "Yes, kids 12 years old and below are allowed to stay free-of-charge. The number of kids may vary depending on the room type."
+        },
+        {
+          "question": "Can I change my room type upon check-in?",
+          "answer": "Yes, but such requests are subject to room availability, applicable charges, and rate difference at the time of check-in."
+        },
+        {
+          "question": "Are extra beds available?",
+          "answer": "Yes, we offer extra beds should you require one. These are only available for the Indulgence room category and above and are offered at PHP 2,000 nett with a buffet breakfast for one (1)."
+        },
+        {
+          "question": "Are guests allowed in the hotel room?",
+          "answer": "Guests are allowed to visit the room. However, for overnight stays beyond the capacity of each room, there will be an extra person surcharge."
+        },
+        {
+          "question": "Do I have privacy in my room?",
+          "answer": "For rooms, we have an electronic “Do Not Disturb” button located by the door next to “Make up Room” button. For suites, a physical door tag is provided to hang outside your door to serve the same purpose. You may also request the front desk to take messages for you during this time."
+        }
+      ]
+    },
+    {
+      "title": "Hotel Amenities / Facilities",
+      "content": [
+        {
+          "question": "Is there a fitness center?",
+          "answer": "Yes, We have a fitness center available for all guests. Equipments are powered by Lifefitness"
+        },
+        {
+          "question": "Do you have Gym Facility?",
+          "answer": "Situated on the Mezzanine (M1) floor, our state-of-the-art gym facilities powered by Life Fitness. Operating Schedule: Daily, 6:00 AM to 12:00 MN "
+        },
+        {
+          "question": "How deep is the water in the pool?",
+          "answer": "Get ready to make your swimming an elevated and sensorial experience! Our acrylic-bottom swimming pool is located on the 2nd floor. Guests entering the hotel will be treated with the glistening water of the pool when they look up. Maximum depth of the pool is 4 feet."
+        }
+      ]
+    },
+    {
+      "title": "Meetings and Events",
+      "content": [
+        {
+          "question": "I would like to make an enquiry for an event. How should I go about this?",
+          "answer": "Kindly email sales@imhotel.com and a dedicated sales executive will assist you regarding your query within 24 hours."
+        },
+        {
+          "question": "Do you have a policy on filming & photoshoot?",
+          "answer": "Guests may shoot non-commercial photography or video for their personal use (with no professional equipment, lighting, etc.) in their guest room or on the property but must respect the privacy of other guests within the area. The use of DSLR/SLR cameras, drone, tri-pods, extensions, external flash units, and reflectors is not allowed. For professional photography, please send a letter of request to marketing@imhotel.com. Requests to use any area of our property for commercial shoots or filming as well as special occasions including but not limited to: weddings, debuts, anniversaries, should be coordinated to the Marketing Department. Such photo/video shoots are subject to applicable fees and schedule."
+        },
+        {
+          "question": "Do you offer caterings?",
+          "answer": "Should you be interested in viewing or booking our banquet spaces for your corporate or social events, please email sales@imhotel.com and a dedicated sales manager will get back to you regarding your request."
+        },
+        {
+          "question": "Do you have facilities for social events venues?",
+          "answer": "While with us, please do not hesitate to ask for an ocular visit to our Grand Ballroom and meeting rooms. Please dial “1” for assistance. Arrangements for the following event venues can be made in advance through our Sales Team. Please email sales@imhotel.com."
+        }
+      ]
+    }
+  ],
+  "listBooking": [
+    {
+      "id": 1,
+      "fullName": "Nguyen Van A",
+      "date": "1991-10-01",
+      "sex": "male",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nva@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "nameBranchVN": "Panorama Đà Nẵng",
+      "roomType": "Normal",
+      "typeR": "single bed room",
+      "numberRoom": 110,
+      "checkIn": "13h30 2023-01-01",
+      "checkOut": "13h30 2023-01-03",
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 2,
+      "fullName": "Nguyen Van B",
+      "date": "1991-10-01",
+      "sex": "female",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nvb@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Luxury",
+      "typeR": "single bed room",
+      "numberRoom": 310,
+      "checkIn": "13h30 2022-02-23",
+      "checkOut": "13h30 2022-02-23",
+      "confirm": true,
+      "paied": false,
+      "cancel": false
+    },
+    {
+      "id": 3,
+      "fullName": "Nguyen Van B",
+      "date": "1991-10-01",
+      "sex": "female",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nvb@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Luxury",
+      "typeR": "single bed room",
+      "numberRoom": 310,
+      "checkIn": "13h30 2022-02-23",
+      "checkOut": "13h30 2022-02-23",
+      "confirm": true,
+      "paied": false,
+      "cancel": false
+    }
+  ],
+  "listCustomers": [
+    {
+      "id": 1,
+      "fullname": "Nguyen Van A",
+      "Date": "01-10-1991",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905.234.234",
+      "email": "nva@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "rented": [
+        {
+          "id": 1,
+          "branch": "Da Nang",
+          "room": 324,
+          "roomType": "Vip",
+          "typeR": "single bed room",
+          "checkIn": "13h30 23-02-2022",
+          "checkOut": "13h30 23-05-2022",
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "bill": {
+            "roomPrice": "3150$",
+            "servicePrice": "1000$"
+          }
+        },
+        {
+          "id": 2,
+          "branch": "Da Lat",
+          "room": 224,
+          "roomType": "Luxury",
+          "typeR": "single bed room",
+          "checkIn": "13h30 23-06-2022",
+          "checkOut": "13h30 29-06-2022",
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "bill": {
+            "roomPrice": "3150$",
+            "servicePrice": "1000$"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullname": "Nguyen Van B",
+      "Date": "01-10-1991",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905.234.234",
+      "email": "nvb@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-06-2022",
+      "dateUpdated": "13h30 23-06-2022",
+      "rented": [
+        {
+          "id": 1,
+          "branch": "Da Lat",
+          "room": 234,
+          "roomType": "Vip",
+          "typeR": "single bed room",
+          "checkIn": "13h30 23-06-2022",
+          "checkOut": "13h30 29-06-2022",
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "bill": {
+            "roomPrice": "3150$",
+            "servicePrice": "1000$"
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fullname": "Nguyen Thi C",
+      "Date": "01-10-1991",
+      "sex": "female",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905.234.234",
+      "email": "ntc@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-06-2022",
+      "dateUpdated": "13h30 23-06-2022",
+      "rented": [
+        {
+          "id": 1,
+          "branch": "Da Lat",
+          "room": 201,
+          "roomType": "Normal",
+          "typeR": "single bed room",
+          "checkIn": "13h30 23-06-2022",
+          "checkOut": "13h30 29-06-2022",
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "bill": "3150$"
+        }
+      ]
+    }
+  ],
+  "listRooms": [
+    {
+      "id": 1,
+      "nameBranchEN": "Panorama Da Nang",
+      "nameBranchVN": "Panorama Đà Nẵng",
+      "phone": "2838121719",
+      "addressVN": "99 Ngô Quyền, An Hải Bắc, Sơn Trà, TP Đà Nẵng, Việt Nam",
+      "addressEN": "99 Ngo Quyen, An Hai Bac, Son Tra, TP Da Nang, VietNam",
+      "email": "info-danang@panoramacorp.vn",
+      "roomTotal": 100,
+      "manager": "Nguyen Van A",
+      "actived": true,
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "numberOfMember": [],
+      "roomType": [
+        {
+          "id": 1,
+          "type": "Normal",
+          "price": "1000",
+          "image": "Room type/rooms/room-1.jpg",
+          "imageOurRoom": "Room type/rooms-1.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-1.jpg",
+            "Room type/detail/Normal/roomDetail-2.jpg"
+          ],
+          "max_person": 3,
+          "introduction": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+          "roomTotal": 50,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": false,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "type": "Vip",
+          "price": "2000",
+          "image": "Room type/rooms/room-2.jpg",
+          "imageOurRoom": "Room type/rooms-2.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-2.jpg",
+            "Room type/detail/Vip/vip-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": false,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "type": "Luxury",
+          "price": "3000",
+          "image": "Room type/rooms/room-3.jpg",
+          "imageOurRoom": "Room type/rooms-3.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-3.jpg",
+            "Room type/detail/Luxury/luxury-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "type": "Family",
+          "price": "2500",
+          "image": "Room type/rooms/room-4.jpg",
+          "imageOurRoom": "Room type/rooms-4.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-4.jpg",
+            "Room type/detail/Family/family-2.jpg"
+          ],
+          "max_person": 6,
+          "introduction": "<p>It is a long ABC established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h43 16-02-2023",
+          "dateUpdated": "13h43 16-02-2023",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nameBranchEN": "Panorama Phu Quoc",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "phone": "2838121719",
+      "addressVN": "9 Búng Gội, Gành Gió, Phú Quốc, Kiên Giang, Việt Nam",
+      "addressEN": "9 Bung Goi, Ganh Gio, Phu Quoc, Kien Giang, Vietnam",
+      "email": "info-phuquoc@panoramacorp.vn",
+      "roomTotal": 100,
+      "manager": "Nguyen Van B",
+      "actived": true,
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "numberOfMember": [],
+      "roomType": [
+        {
+          "id": 1,
+          "type": "Normal",
+          "price": "1000",
+          "image": "Room type/rooms/room-1.jpg",
+          "imageOurRoom": "Room type/rooms-1.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-1.jpg",
+            "Room type/detail/Normal/roomDetail-2.jpg"
+          ],
+          "max_person": 3,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 50,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "type": "Vip",
+          "price": "2000",
+          "image": "Room type/rooms/room-2.jpg",
+          "imageOurRoom": "Room type/rooms-2.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-2.jpg",
+            "Room type/detail/Vip/vip-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": false,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "type": "Luxury",
+          "price": "3000",
+          "image": "Room type/rooms/room-3.jpg",
+          "imageOurRoom": "Room type/rooms-3.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-3.jpg",
+            "Room type/detail/Luxury/luxury-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nameBranchEN": "Panorama Nha Trang",
+      "nameBranchVN": "Panorama Nha Trang",
+      "phone": "0998889999",
+      "addressVN": "10 Trần Phú, Xương Huân, Nha Trang, Khánh Hòa, Việt Nam",
+      "addressEN": "10 Tran Phu, Xuong Huan, Nha Trang, Khanh Hoa, VietNam",
+      "email": "info-nhatrang@panoramacorp.vn",
+      "roomTotal": "1000",
+      "manager": "Mai Tan Tai",
+      "actived": false,
+      "dateCreated": "15h57 14-02-2023",
+      "dateUpdated": "15h57 14-02-2023",
+      "numberOfMember": [],
+      "roomType": [
+        {
+          "id": 1,
+          "type": "Normal",
+          "price": "1000",
+          "image": "Room type/rooms/room-1.jpg",
+          "imageOurRoom": "Room type/rooms-1.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-1.jpg",
+            "Room type/detail/Normal/roomDetail-2.jpg"
+          ],
+          "max_person": 3,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 50,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "type": "Vip",
+          "price": "2000",
+          "image": "Room type/rooms/room-2.jpg",
+          "imageOurRoom": "Room type/rooms-2.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-2.jpg",
+            "Room type/detail/Vip/vip-2.jpg"
+          ],
+          "max_person": 2,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": false,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "type": "Family",
+          "price": "2500",
+          "image": "Room type/rooms/room-4.jpg",
+          "imageOurRoom": "Room type/rooms-4.jpg",
+          "imageDetail": [
+            "Room type/rooms/room-4.jpg",
+            "Room type/detail/Family/family-2.jpg"
+          ],
+          "max_person": 6,
+          "introduction": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <b>more-or-less</b> normal <b>distribution</b> of letters.</p>",
+          "roomTotal": 25,
+          "dateCreated": "13h30 23-02-2022",
+          "dateUpdated": "13h30 23-02-2022",
+          "actived": true,
+          "typeR": [
+            {
+              "id": 1,
+              "name": "single bed room",
+              "roomTotal": 30,
+              "emptyRooms": 10,
+              "price": "1050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 101,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 102,
+                  "price": "1050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "twin bed room",
+              "roomTotal": 20,
+              "emptyRooms": 0,
+              "price": "2050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 201,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 202,
+                  "price": "2050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "name": "double bed room",
+              "roomTotal": 10,
+              "emptyRooms": 20,
+              "price": "3050",
+              "dateCreated": "13h30 23-02-2022",
+              "dateUpdated": "13h30 23-02-2022",
+              "actived": true,
+              "numberOfRoom": [
+                {
+                  "id": 1,
+                  "numberRoom": 301,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": false
+                },
+                {
+                  "id": 2,
+                  "numberRoom": 302,
+                  "price": "3050",
+                  "dateCreated": "13h30 23-02-2022",
+                  "dateUpdated": "13h30 23-02-2022",
+                  "actived": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "listUser": [
+    {
+      "id": 1,
+      "fullName": "Nguyen A",
+      "date": "1991-01-10",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nva@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "actived": true,
+      "userName": "nguyena123",
+      "password": "Maitantai1610@a",
+      "role": "Admin",
+      "branch": "Panorama Da Nang"
+    },
+    {
+      "id": 2,
+      "fullName": "Phan B",
+      "date": "1992-10-23",
+      "sex": "female",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nvb@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "actived": true,
+      "userName": "nguyenb123",
+      "password": "nguyenb123",
+      "role": "Admin",
+      "branch": "Panorama Nha Trang"
+    },
+    {
+      "id": 3,
+      "fullName": "Tran C",
+      "date": "1991-11-19",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nvc@gmail.com",
+      "address": "abc strees",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "actived": false,
+      "userName": "nguyenc123",
+      "password": "nguyenc123",
+      "role": "Super Admin",
+      "branch": "Panorama Nha Trang"
+    },
+    {
+      "id": 4,
+      "fullName": "M T ",
+      "date": "2023-02-09",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "7895689494",
+      "nationality": "Viet Nam",
+      "phone": "0799393875",
+      "email": "mtai0905@gmail.com",
+      "address": "1000 hoa bac ",
+      "dateCreated": "22h26 10-02-2023",
+      "dateUpdated": "22h26 10-02-2023",
+      "actived": false,
+      "userName": "Taidn99",
+      "password": "fsdfad",
+      "role": "Admin",
+      "branch": "Panorama Da Nang"
+    },
+    {
+      "id": 9,
+      "fullName": "M T",
+      "date": "2023-02-23",
+      "sex": "male",
+      "avatar": "URL",
+      "identityCard": "7895689494",
+      "nationality": "Viet Nam",
+      "phone": "0799393875",
+      "email": "mtai0905@gmail.com",
+      "address": "1000 hoa bac",
+      "dateCreated": "9h13 11-02-2023",
+      "dateUpdated": "9h13 11-02-2023",
+      "actived": false,
+      "userName": "Taidn99",
+      "password": "a",
+      "role": "Admin",
+      "branch": "Panorama Da Nang"
+    }
+  ],
+  "news_home": [
+    {
+      "date": 25,
+      "month": "JANUARY",
+      "year": 2023,
+      "time": "12:30 Pm, Wed 25 Jan 2023",
+      "content": "Update menu food in Panorama Hote"
+    },
+    {
+      "date": 22,
+      "month": "JANUARY",
+      "year": 2023,
+      "time": "15:30 Pm, Sun 25 Jan 2023",
+      "content": "Las Maquinas on Tragamonedas"
+    },
+    {
+      "date": 25,
+      "month": "FEBRUARY",
+      "year": 2023,
+      "time": "9:30 Pm, Wed 25 Feb 2023",
+      "content": "Mother Earth Hosts Our Travels"
+    }
+  ],
+  "events_home": [
+    {
+      "name": "Beach Sports",
+      "image": "Event/homePage/Our-Events-1.jpg"
+    },
+    {
+      "name": "Wedding Day",
+      "image": "Event/homePage/Our-Events-2.jpg"
+    },
+    {
+      "name": "Golf Cup 2023",
+      "image": "Event/homePage/Our-Events-3.jpg"
+    }
+  ],
+  "news_recent": [
+    {
+      "id": 1,
+      "name": "RELAXING & TRAVEL IN OUR HOTEL",
+      "time": "12:30",
+      "date": "01",
+      "month": "OCTOBER",
+      "monthNumber": "10",
+      "year": 2023,
+      "image": "Event/navigation/recent/event-recent-1.jpg",
+      "imageMain": "Event/body/content/blog-1.jpg",
+      "imageSup": "Event/body/content/blog-1.1.jpg",
+      "author": "Jonatha Owens",
+      "actived": true,
+      "tags": [
+        "Food Dinner",
+        "Relax",
+        "Tralvel"
+      ],
+      "content": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+        "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+      ],
+      "comment": [
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar1.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        },
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar2.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": [
+            {
+              "name": "Jessica Anba",
+              "avatar": "Event/body/comment/avatar4.jpg",
+              "title": "Lorem Ipsum is simply dummy text of the printing",
+              "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College.",
+              "time": "20PM 15 Oct 2022"
+            }
+          ]
+        },
+        {
+          "avatar": "Event/body/comment/avatar3.jpg",
+          "name": "Jonatha Owens",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "NEW KIND OF CHICKEN FOOD FOR DINNER",
+      "time": "12:30, Thu 01 January   2023",
+      "date": "01",
+      "month": "JANUARY",
+      "monthNumber": "01",
+      "year": 2023,
+      "image": "Event/navigation/recent/event-recent-2.jpg",
+      "imageMain": "Event/body/content/blog-2.jpg",
+      "imageSup": "Event/body/content/blog-2.2.jpg",
+      "author": "Luis Jubica",
+      "actived": true,
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
+      "content": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+        "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+      ],
+      "comment": [
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar1.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        },
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar2.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": [
+            {
+              "name": "Jessica Anba",
+              "avatar": "Event/body/comment/avatar4.jpg",
+              "title": "Lorem Ipsum is simply dummy text of the printing",
+              "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College.",
+              "time": "20PM 15 Oct 2022"
+            }
+          ]
+        },
+        {
+          "avatar": "Event/body/comment/avatar3.jpg",
+          "name": "Jonatha Owens",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ONE NIGHT WEDDING WITH JESSIA & ROBET",
+      "time": "12:30, Mon 01 May        2023",
+      "date": "15",
+      "month": "MAY",
+      "monthNumber": "05",
+      "year": 2023,
+      "image": "Event/navigation/recent/event-recent-3.jpg",
+      "imageMain": "Event/body/content/blog-3.jpg",
+      "imageSup": "Event/body/content/blog-3.3.jpg",
+      "author": "David Mora",
+      "actived": true,
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
+      "content": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+        "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+      ],
+      "comment": [
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar1.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        },
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar2.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": [
+            {
+              "name": "Jessica Anba",
+              "avatar": "Event/body/comment/avatar4.jpg",
+              "title": "Lorem Ipsum is simply dummy text of the printing",
+              "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College.",
+              "time": "20PM 15 Oct 2022"
+            }
+          ]
+        },
+        {
+          "avatar": "Event/body/comment/avatar3.jpg",
+          "name": "Jonatha Owens",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "FISHING WITH SKYLINE HOTEL",
+      "time": "09:30, Fri 20 May        2023",
+      "date": "20",
+      "month": "JANUARY",
+      "monthNumber": "01",
+      "year": 2023,
+      "image": "Event/navigation/recent/event-recent-4.jpg",
+      "imageMain": "Event/body/content/blog-4.jpg",
+      "imageSup": "Event/body/content/blog-4.4.jpg",
+      "author": "Philip Anato",
+      "actived": true,
+      "tags": [
+        "Food Dinner",
+        "Tralvel"
+      ],
+      "content": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+        "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+      ],
+      "comment": [
+        {
+          "name": "Jonatha Owens",
+          "avatar": "Event/body/comment/avatar1.jpg",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        },
+        {
+          "avatar": "Event/body/comment/avatar3.jpg",
+          "name": "Jonatha Owens",
+          "title": "Lorem Ipsum is simply dummy text of the printing",
+          "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
+          "time": "20PM 15 Oct 2022",
+          "reply": []
+        }
+      ]
+    }
+  ],
+  "listSlider": [
+    {
+      "name": "slide1",
+      "image": "Slider/image1.jpg",
+      "content": "Wellcome to Panorama",
+      "active": true
+    },
+    {
+      "name": "slide2",
+      "image": "Slider/image2.jpg",
+      "content": "Enjoy a Luxury Experience",
+      "active": true
+    },
+    {
+      "name": "slide3",
+      "image": "Slider/image3.jpg",
+      "content": "Book Your Vacation",
+      "active": true
+    },
+    {
+      "name": "slide4",
+      "image": "Slider/image4.jpg",
+      "content": "Touch The Sea",
+      "active": true
+    }
+  ],
+  "listTerm": [
+    {
+      "title": "Article 1（Scope of Application)",
+      "content": [
+        {
+          "content_LV1": "These Terms and Conditions shall govern any accommodation agreements or any other related contracts entered into between the hotel and the guest（including daytime guests using rooms for teleworking, etc.; the same shall apply hereinafter）, and any matters not stipulated in the Terms and Conditions shall be governed by law and generally established customs.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "Any usage guidelines and precautions（hereinafter collectively referred to as “Rules”）presented by the hotel in connection with these Terms and Conditions shall, in addition to the Hotel Rules and Regulations established by the hotel and kept in guestrooms, constitute a part of these Terms and Conditions.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "Notwithstanding the preceding paragraph, any special agreements provided by the hotel within the scope permitted by law and customs shall take precedence.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 2（Application for an Accommodation Agreement",
+      "content": [
+        {
+          "content_LV1": "Those applying for an accommodation agreement at the hotel shall provide the hotel with the following information.",
+          "content_LV2": [
+            "Guest name and telephone number.",
+            "The date of stay and estimated time of arrival.",
+            "Accommodation fees（generally based on the Basic Accommodation Fees in Appendix 1.",
+            "Other information the hotel deems necessary"
+          ]
+        },
+        {
+          "content_LV1": "In the event that a guest requests to extend their stay beyond the date listed in（2）of the preceding paragraph, an application for a new accommodation agreement is deemed to have been made at the time the request was made.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 3（Establishment of the Accommodation Agreement）",
+      "content": [
+        {
+          "content_LV1": "The accommodation agreement shall be established when the hotel accepts the application set forth in the preceding paragraph. However, this does not apply when the hotel proves it has not accepted the application.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "When an accommodation agreement has been established as per the provisions of the preceding paragraph, the guest must pay a deposit set by the hotel by the deadline designated by the hotel.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "The deposit shall first be allocated to room charges ultimately payable by the guest, then allocated to fines followed by compensation for damages in the event that the provisions of Articles 6 and 21 apply; any remaining deposit shall be returned at the time of payment in accordance with Article 13.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "The accommodation agreement shall cease to be effective when the guest fails to pay the deposit set forth in Paragraph 2 by the deadline designated by the hotel. However, this is limited to cases in which the hotel notifies guests of a deposit deadline.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 4（Special Agreements Not Requiring a Deposit）",
+      "content": [
+        {
+          "content_LV1": "Notwithstanding the provisions of Paragraph 2 of the preceding article, the hotel may accept special agreements that do not require payment of a deposit.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "The preceding paragraph on special agreements shall apply when the hotel does not request payment of the deposit set forth in Paragraph 2 of the preceding article or does not specify a deposit payment deadline when accepting applications for an accommodation agreement.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 5（Refusal of Accommodation Agreements）",
+      "content": [
+        {
+          "content_LV1": "This hotel may refuse to enter into an accommodation agreement in the following cases:",
+          "content_LV2": [
+            "When the accommodation application violates the stipulations of these Terms and Conditions",
+            "When guestrooms are fully booked",
+            "When a potential guest is deemed likely to break the law, disrupt public order, or act contrary to public morals during their stay.",
+            "When the potential guest’s behavior poses a significant nuisance to other guests.",
+            "When the potential guest clearly has a contagious disease.",
+            "When the potential guest uses violence, threats, blackmail, or intimidation to make unjust or unreasonable demands against the hotel or its employees, or is deemed to have engaged in any similar acts in the past.",
+            "When the hotel is unable to accommodate guests due to natural disaster, facility malfunction, or other inevitable circumstances.",
+            "When the potential guest is intoxicated, exhibits or has exhibited extremely abnormal behavior that may pose a nuisance to other guests, or in cases that fall under the provisions of prefectural ordinances.",
+            "When the potential guest is extremely unsanitary or is wearing extremely dirty clothes that may cause a nuisance to other guests.",
+            "When the potential guest conceals the fact that they have reserved a guestroom within the hotel for the purpose of making a profit, either for themselves or for a third party, by selling goods, etc.",
+            "When the potential guest does not comply with these Terms and Conditions or with cancellation and payment policies when making a reservation."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Article 6（The Guest’s Right to Terminate the Accommodation Agreement）",
+      "content": [
+        {
+          "content_LV1": "Guests may request that the hotel terminate the accommodation agreement.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "If the accommodation agreement is terminated in full or in part for reasons attributable to the guest, the hotel shall charge a penalty in accordance with the provisions of Attached Table 2 （only in cases where the hotel specifies a deposit payment deadline and requests payment as stipulated in Article 3（2）and excludes cases in which the guest cancels the accommodation agreement prior to such payment）. However, in the event that the hotel accepts a special agreement as stipulated in Article 4（1）, guests are only required to pay a penalty for terminating the accommodation agreement when they have been notified of this obligation.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "If the guest does not arrive by 10 pm or two hours after a scheduled arrival time arranged in advance on the day of their stay without contacting the hotel, the accommodation agreement may be deemed to have been terminated by the guest.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 7（The Hotel’s Right to Terminate the Accommodation Agreement）",
+      "content": [
+        {
+          "content_LV1": "The hotel may terminate the accommodation agreement in the following cases",
+          "content_LV2": [
+            "When the guest is deemed likely to break the law, disrupt public order, or act contrary to public morals, or has engaged in such acts, during their stay.",
+            "When the guest’s behavior poses a significant nuisance to other guests."
+          ]
+        },
+        {
+          "content_LV1": "When the hotel cancels the accommodation agreement in accordance with the provisions of the preceding paragraph, the guest will not be charged for services not yet provided.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 8（Guest Registration）",
+      "content": [
+        {
+          "content_LV1": "Guests must register the following information at the front desk on the day of their stay.",
+          "content_LV2": [
+            "Guest name, age, gender, address, contact telephone number, and occupation",
+            "eparture date and planned departure time",
+            "Other information deemed necessary by the hotel"
+          ]
+        },
+        {
+          "content_LV1": "International guests who do not have an address in Japan are required to present a scan or copy of their passport and register their nationality, passport number, port of entry, and immigration date in addition to the information listed above.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "Guests who wish to pay the fees stipulated in Article 13 using traveler’s checks, hotel vouchers, credit cards, or any other alternative for currency must present this in advance when registering the information above. Be aware currency payment will not be accepted if the hotel has notified the guest in advance that currency is not accepted.",
+          "content_LV2": []
+        }
+      ]
+    },
+    {
+      "title": "Article 9（Guestroom Hours）",
+      "content": [
+        {
+          "content_LV1": "Guestrooms may be used from 3 pm to 11 am the following day. However, for extended stays, guests may use the guestroom for the entire day excluding arrival and departure dates.",
+          "content_LV2": []
+        },
+        {
+          "content_LV1": "Notwithstanding the provisions of the preceding paragraph, the hotel may allow guests to use guestrooms outside the hours specified above. In doing so, the following extension fees will be charged:",
+          "content_LV2": [
+            "Until 2:00 pm: ¥1,000 per hour per guestroom",
+            "After 2:00 pm: Full room rate"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Article 10（Compliance with the Hotel Rules and Regulations）",
+      "content": [
+        {
+          "content_LV1": "Guests shall comply with these Terms and Conditions as well as Rules while staying at the hotel.",
+          "content_LV2": []
+        }
+      ]
+    }
+  ]
+}

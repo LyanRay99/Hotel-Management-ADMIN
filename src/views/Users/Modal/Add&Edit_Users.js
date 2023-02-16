@@ -1,15 +1,13 @@
 //* Library
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Api from "src/Api/axiosConfig";
 
-//* Data
-import roomData from "../../../Data/list_room.json";
+//* Function feature
+import { blockInvalidChar } from "src/components/Others/others";
 
 //* CORE UI + React Bootstrap
 import {
-  CRow,
-  CCard,
-  CCardHeader,
-  CCardBody,
   CButton,
   CModal,
   CModalBody,
@@ -18,10 +16,7 @@ import {
   CCol,
   CFormInput,
   CFormSelect,
-  CFormSwitch,
 } from "@coreui/react";
-import { Table, Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 
 export const AddAndEdit = ({
   addVisible,
@@ -30,9 +25,24 @@ export const AddAndEdit = ({
   setUser,
   objUser,
   setObjUser,
+  indexUser,
+  getDataUser,
 }) => {
   //* Setup to binding data for Select Branch
-  const [room, setRoom] = useState(roomData.listRooms);
+  const [room, setRoom] = useState([]);
+
+  //* Get data Branch
+  useEffect(() => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setRoom(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   const branchName = room.map((item, index) => ({
     label: item.nameBranchVN,
     value: item.nameBranchEN,
@@ -40,8 +50,7 @@ export const AddAndEdit = ({
   branchName.unshift("choose");
 
   //* Completed: Add User
-
-  //* 2 - Get info user
+  //* 1 - Get info user
   const getInfo = (e) => {
     if (e.target.name === "fullName") {
       setObjUser({ ...objUser, fullName: e.target.value });
@@ -50,7 +59,9 @@ export const AddAndEdit = ({
     } else if (e.target.name === "sex") {
       setObjUser({ ...objUser, sex: e.target.value });
     } else if (e.target.name === "identityCard") {
+      // if (/^\d+$/.test(e.target.value)) {
       setObjUser({ ...objUser, identityCard: e.target.value });
+      // }
     } else if (e.target.name === "nationality") {
       setObjUser({ ...objUser, nationality: e.target.value });
     } else if (e.target.name === "email") {
@@ -116,83 +127,99 @@ export const AddAndEdit = ({
     checkTextEmpty();
     checkTextSpace();
 
-    //* Push into Array + Reset objUser
-    if (checkEmpty && checkSpace) {
+    //* Check invalid CheckEmpty + CheckSpace + CheckEmail
+    if (
+      checkEmpty &&
+      checkSpace &&
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objUser.email)
+    ) {
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
       setObjUser({ ...objUser, id: user.length + 1 });
 
       //* Add objUser into User
-      setUser([...user, objUser]);
+      Api.post("/listUser", objUser)
+        .then(() => {
+          //* Get lại data
+          getDataUser();
 
-      //* Close Modal
-      setAddVisible(false);
+          //* Close Modal
+          setAddVisible(false);
 
-      //* Reset objUser
-      setObjUser({
-        id: 0,
-        fullName: "",
-        date: "",
-        sex: "",
-        avatar: "URL",
-        identityCard: "",
-        nationality: "",
-        phone: "",
-        email: "",
-        address: "",
-        dateCreated: "",
-        dateUpdated: "",
-        actived: true,
-        userName: "",
-        password: "",
-        role: "",
-        branch: "",
-      });
+          //* Reset objUser
+          setObjUser({
+            id: 0,
+            fullName: "",
+            date: "",
+            sex: "",
+            avatar: "URL",
+            identityCard: "",
+            nationality: "",
+            phone: "",
+            email: "",
+            address: "",
+            dateCreated: "",
+            dateUpdated: "",
+            actived: true,
+            userName: "",
+            password: "",
+            role: "",
+            branch: "",
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else if (!checkEmpty) {
       alert("input khônng được trống");
     } else if (!checkSpace) {
       alert("input chứa toàn khoảng trắng");
+    } else if (
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objUser.email) == false
+    ) {
+      alert("Email không hợp lệ");
     }
   };
 
   //* Completed: Edit User
   //* Update state
   const editUser = () => {
+    console.log(objUser);
     //* set item editted
-    setUser(
-      user.map((item) => {
-        if (item.id === objUser.id) {
-          item = objUser;
-        }
-        return item;
+    Api.put(`/listUser/${user[indexUser].id}`, objUser)
+      .then(() => {
+        //* Get lại data
+        getDataUser();
+
+        //* Reset objUser
+        setObjUser({
+          id: 0,
+          fullName: "",
+          date: "",
+          sex: "",
+          avatar: "URL",
+          identityCard: "",
+          nationality: "",
+          phone: "",
+          email: "",
+          address: "",
+          dateCreated: "",
+          dateUpdated: "",
+          actived: true,
+          userName: "",
+          password: "",
+          role: "",
+          branch: "",
+        });
+
+        //* Close Modal
+        setAddVisible(false);
       })
-    );
-
-    //* Reset objUser
-    setObjUser({
-      id: 0,
-      fullName: "",
-      date: "",
-      sex: "",
-      avatar: "URL",
-      identityCard: "",
-      nationality: "",
-      phone: "",
-      email: "",
-      address: "",
-      dateCreated: "",
-      dateUpdated: "",
-      actived: true,
-      userName: "",
-      password: "",
-      role: "",
-      branch: "",
-    });
-
-    //* Close Modal
-    setAddVisible(false);
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
-  //* Reset ObjUser khi click Cancel
+  //* Reset ObjUser khi click Cancel (phòng khi user click change password nhưng lại đổi ý nhấn close)
   const cancelEdit = () => {
     //* Reset objUser
     setObjUser({
@@ -270,6 +297,7 @@ export const AddAndEdit = ({
                 name="identityCard"
                 value={objUser.identityCard}
                 onChange={getInfo}
+                onKeyDown={blockInvalidChar}
               />
             </CCol>
             <CCol md={4}>
@@ -313,6 +341,7 @@ export const AddAndEdit = ({
                 name="phone"
                 value={objUser.phone}
                 onChange={getInfo}
+                onKeyDown={blockInvalidChar}
               />
             </CCol>
             <CCol md={6}>

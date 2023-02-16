@@ -1,5 +1,5 @@
-import React from 'react'
-import { CCard, CCardHeader, CCardBody } from '@coreui/react'
+import React from "react";
+import { CCard, CCardHeader, CCardBody } from "@coreui/react";
 
 const ListReportRating = () => {
   return (
@@ -11,7 +11,7 @@ const ListReportRating = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default ListReportRating
+export default ListReportRating;

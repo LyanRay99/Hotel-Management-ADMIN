@@ -145,13 +145,7 @@
     }
 
     .formSelect {
-      &__form {
-        option {
-          padding: 5px;
-          margin: 10px;
-          font-size: 2em;
-        }
-      }
+      width: 150px;
     }
   }
 
@@ -261,6 +255,36 @@ td {
     top: 8px;
     right: 20px;
   }
+}
+
+.sort {
+  cursor: pointer;
+}
+
+//* Remove dấu mũi tên trong input number
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+//* Custom size image
+#td_image {
+  width: 10%;
+
+  img {
+    width: 100%;
+  }
+}
+
+//* Custom select in list News
+.modal-dialog-scrollable .modal-content,
+.modal-body {
+  overflow: visible !important;
 }
 
 //* Footer
