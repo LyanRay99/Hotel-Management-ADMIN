@@ -1675,7 +1675,7 @@
   "listUser": [
     {
       "id": 1,
-      "fullName": "Nguyen As",
+      "fullName": "Nguyen A",
       "date": "1991-01-10",
       "sex": "male",
       "avatar": "URL",
@@ -1810,7 +1810,7 @@
     {
       "id": 1,
       "name": "RELAXING & TRAVEL IN OUR HOTEL",
-      "time": "12:30 Pm, Thu 01 October   2023",
+      "time": "12:30",
       "date": "01",
       "month": "OCTOBER",
       "monthNumber": "10",
@@ -1821,6 +1821,7 @@
       "author": "Jonatha Owens",
       "tags": [
         "Food Dinner",
+        "Relax",
         "Tralvel"
       ],
       "content": [
@@ -1868,7 +1869,7 @@
     {
       "id": 2,
       "name": "NEW KIND OF CHICKEN FOOD FOR DINNER",
-      "time": "12:30 Pm, Thu 01 January   2023",
+      "time": "12:30, Thu 01 January   2023",
       "date": "01",
       "month": "JANUARY",
       "monthNumber": "01",
@@ -1926,7 +1927,7 @@
     {
       "id": 3,
       "name": "ONE NIGHT WEDDING WITH JESSIA & ROBET",
-      "time": "12:30 Pm, Mon 01 May        2023",
+      "time": "12:30, Mon 01 May        2023",
       "date": "15",
       "month": "MAY",
       "monthNumber": "05",
@@ -1984,7 +1985,7 @@
     {
       "id": 4,
       "name": "FISHING WITH SKYLINE HOTEL",
-      "time": "09:30 Pm, Fri 20 May        2023",
+      "time": "09:30, Fri 20 May        2023",
       "date": "20",
       "month": "JANUARY",
       "monthNumber": "01",

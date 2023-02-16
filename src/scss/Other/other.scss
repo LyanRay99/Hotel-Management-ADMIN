@@ -281,6 +281,12 @@ input[type="number"] {
   }
 }
 
+//* Custom select in list News
+.modal-dialog-scrollable .modal-content,
+.modal-body {
+  overflow: visible !important;
+}
+
 //* Footer
 .accordion-button {
   display: flex;

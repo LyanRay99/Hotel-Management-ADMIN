@@ -25,7 +25,7 @@ export const toNonAccentVietnamese = (str) => {
   return str;
 };
 
-//* Custom size React-Select
+//* Custom size React-Select (list users)
 export const customStyles = {
   control: (provided) => ({
     ...provided,
