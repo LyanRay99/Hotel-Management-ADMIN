@@ -102,6 +102,45 @@ const News = () => {
     setShowDlt(true);
   };
 
+  //* Completed: Active
+  const activeNews = (NEWS, e) => {
+    NEWS.actived = e.target.checked;
+    Api.put(`/news_recent/${NEWS.id}`, NEWS)
+      .then(() => {
+        getDataNews();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  //* Completed: Search News
+  const [searchNews, setSearchNews] = useState("");
+  const getInfoNews = (e) => {
+    setSearchNews(() => e.target.value);
+
+    if (e.target.value == "") {
+      getDataNews();
+    } else {
+      Api.get("/news_recent")
+        .then((response) => response.data)
+        .then((news) => {
+          setNews([
+            ...news.filter((item) => {
+              if (
+                item.name.toLowerCase().includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+
   return (
     <>
       <CCard className="mb-4">
@@ -125,6 +164,7 @@ const News = () => {
                     placeholder="News..."
                     aria-label="Type String..."
                     aria-describedby="basic-addon1"
+                    onChange={getInfoNews}
                   />
                 </div>
               </div>
@@ -177,8 +217,8 @@ const News = () => {
                         <td>{news.content[0]}</td>
                         <td>
                           <CFormSwitch
-                          // checked={user.actived}
-                          // onChange={(e) => activeUser(user, e)}
+                            checked={news.actived}
+                            onChange={(e) => activeNews(news, e)}
                           />
                         </td>
                         <td className="tdAction">

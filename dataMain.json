@@ -1819,6 +1819,7 @@
       "imageMain": "Event/body/content/blog-1.jpg",
       "imageSup": "Event/body/content/blog-1.1.jpg",
       "author": "Jonatha Owens",
+      "actived": true,
       "tags": [
         "Food Dinner",
         "Relax",
@@ -1878,6 +1879,7 @@
       "imageMain": "Event/body/content/blog-2.jpg",
       "imageSup": "Event/body/content/blog-2.2.jpg",
       "author": "Luis Jubica",
+      "actived": true,
       "tags": [
         "Food Dinner",
         "Tralvel"
@@ -1936,6 +1938,7 @@
       "imageMain": "Event/body/content/blog-3.jpg",
       "imageSup": "Event/body/content/blog-3.3.jpg",
       "author": "David Mora",
+      "actived": true,
       "tags": [
         "Food Dinner",
         "Tralvel"
@@ -1994,6 +1997,7 @@
       "imageMain": "Event/body/content/blog-4.jpg",
       "imageSup": "Event/body/content/blog-4.4.jpg",
       "author": "Philip Anato",
+      "actived": true,
       "tags": [
         "Food Dinner",
         "Tralvel"
