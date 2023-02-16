@@ -12,53 +12,50 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const ConfirmDelete = ({
+export const DeleteRoomType = ({
   showDlt,
   setShowDlt,
-  indexUser,
-  user,
-  setUser,
-  getDataUser,
+  branch,
+  RoomTYPE,
+  indexBranch,
+  getDataRoomType,
 }) => {
-  //* Completed: Delete User
-  const deleteUser = () => {
-    Api.delete(`/listUser/${indexUser}`).catch((err) => {
-      console.error(err);
+  //* Completed: Delete RoomType
+  const deleteRoomType = () => {
+    //* Get info to delete
+    const RoomTypeObj = branch[indexBranch].roomType.filter((item) => {
+      return item.type !== RoomTYPE.nameRoomType.type;
     });
 
-    //* Get lại data
-    getDataUser();
+    const BranchObj = { ...branch[indexBranch], roomType: RoomTypeObj };
 
-    //* close modal
-    setShowDlt(false);
+    Api.put(`/listRooms/${branch[indexBranch].id}`, BranchObj)
+      .then(() => {
+        //* Get lại data
+        getDataRoomType();
+
+        //* close modal
+        setShowDlt(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
-
-  //* Get fullName of user
-  var user_fullName = "";
-  user.map((item) => {
-    if (item.id === indexUser) {
-      return (user_fullName = item.fullName);
-    }
-  });
 
   return (
     <React.Fragment>
       {/* Completed: Modal to change password User */}
-      <CModal
-        scrollable
-        visible={showDlt}
-        backdrop="static"
-        onClose={() => setShowDlt(false)}
-      >
+      <CModal scrollable visible={showDlt} backdrop="static">
         <CModalHeader>
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete User <strong>{user_fullName}</strong>{" "}
-          ?
+          Are you sure you want to delete Room Type{" "}
+          <strong>{RoomTYPE.nameRoomType.type}</strong> of Branch{" "}
+          <strong>{RoomTYPE.nameBranch}</strong>?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteUser()}>
+          <CButton className="btnSubmit" onClick={() => deleteRoomType()}>
             Confirm
           </CButton>
 

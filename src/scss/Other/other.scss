@@ -272,6 +272,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+//* Custom size image
+#td_image {
+  width: 10%;
+
+  img {
+    width: 100%;
+  }
+}
+
 //* Footer
 .accordion-button {
   display: flex;

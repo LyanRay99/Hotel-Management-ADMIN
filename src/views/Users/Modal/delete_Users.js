@@ -22,15 +22,17 @@ export const ConfirmDelete = ({
 }) => {
   //* Completed: Delete User
   const deleteUser = () => {
-    Api.delete(`/listUser/${indexUser}`).catch((err) => {
-      console.error(err);
-    });
+    Api.delete(`/listUser/${indexUser}`)
+      .then(() => {
+        //* Get lại data
+        getDataUser();
 
-    //* Get lại data
-    getDataUser();
-
-    //* close modal
-    setShowDlt(false);
+        //* close modal
+        setShowDlt(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   //* Get fullName of user

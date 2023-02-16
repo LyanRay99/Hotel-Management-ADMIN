@@ -22,15 +22,17 @@ export const DeleteBranch = ({
 }) => {
   //* Completed: Delete User
   const deleteUser = () => {
-    Api.delete(`/listRooms/${idBranch}`).catch((err) => {
-      console.error(err);
-    });
+    Api.delete(`/listRooms/${idBranch}`)
+      .then(() => {
+        //* Get lại data
+        getDataBranch();
 
-    //* Get lại data
-    getDataBranch();
-
-    //* close modal
-    setShowDlt(false);
+        //* close modal
+        setShowDlt(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   //* Get fullName of user

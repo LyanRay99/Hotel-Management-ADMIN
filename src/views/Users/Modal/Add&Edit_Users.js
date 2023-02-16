@@ -137,36 +137,38 @@ export const AddAndEdit = ({
       setObjUser({ ...objUser, id: user.length + 1 });
 
       //* Add objUser into User
-      Api.post("/listUser", objUser).catch((err) => {
-        console.error(err);
-      });
+      Api.post("/listUser", objUser)
+        .then(() => {
+          //* Get lại data
+          getDataUser();
 
-      //* Get lại data
-      getDataUser();
+          //* Close Modal
+          setAddVisible(false);
 
-      //* Close Modal
-      setAddVisible(false);
-
-      //* Reset objUser
-      setObjUser({
-        id: 0,
-        fullName: "",
-        date: "",
-        sex: "",
-        avatar: "URL",
-        identityCard: "",
-        nationality: "",
-        phone: "",
-        email: "",
-        address: "",
-        dateCreated: "",
-        dateUpdated: "",
-        actived: true,
-        userName: "",
-        password: "",
-        role: "",
-        branch: "",
-      });
+          //* Reset objUser
+          setObjUser({
+            id: 0,
+            fullName: "",
+            date: "",
+            sex: "",
+            avatar: "URL",
+            identityCard: "",
+            nationality: "",
+            phone: "",
+            email: "",
+            address: "",
+            dateCreated: "",
+            dateUpdated: "",
+            actived: true,
+            userName: "",
+            password: "",
+            role: "",
+            branch: "",
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else if (!checkEmpty) {
       alert("input khônng được trống");
     } else if (!checkSpace) {
@@ -183,36 +185,38 @@ export const AddAndEdit = ({
   const editUser = () => {
     console.log(objUser);
     //* set item editted
-    Api.put(`/listUser/${user[indexUser].id}`, objUser).catch((err) => {
-      console.error(err);
-    });
+    Api.put(`/listUser/${user[indexUser].id}`, objUser)
+      .then(() => {
+        //* Get lại data
+        getDataUser();
 
-    //* Get lại data
-    getDataUser();
+        //* Reset objUser
+        setObjUser({
+          id: 0,
+          fullName: "",
+          date: "",
+          sex: "",
+          avatar: "URL",
+          identityCard: "",
+          nationality: "",
+          phone: "",
+          email: "",
+          address: "",
+          dateCreated: "",
+          dateUpdated: "",
+          actived: true,
+          userName: "",
+          password: "",
+          role: "",
+          branch: "",
+        });
 
-    //* Reset objUser
-    setObjUser({
-      id: 0,
-      fullName: "",
-      date: "",
-      sex: "",
-      avatar: "URL",
-      identityCard: "",
-      nationality: "",
-      phone: "",
-      email: "",
-      address: "",
-      dateCreated: "",
-      dateUpdated: "",
-      actived: true,
-      userName: "",
-      password: "",
-      role: "",
-      branch: "",
-    });
-
-    //* Close Modal
-    setAddVisible(false);
+        //* Close Modal
+        setAddVisible(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   //* Reset ObjUser khi click Cancel (phòng khi user click change password nhưng lại đổi ý nhấn close)

@@ -355,17 +355,20 @@ const ListUser = () => {
                             onClick={() => getInfoCP(index)}
                           />
                         </span>
-                        <span onClick={() => getInfoEdit(user, index)}>
-                          <FontAwesomeIcon icon={faPen} className="icon pen" />
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faPen}
+                            className="icon pen"
+                            onClick={() => getInfoEdit(user, index)}
+                          />
                         </span>
-                        <span
-                          onClick={() => {
-                            getInfoDelete(user.id);
-                          }}
-                        >
+                        <span>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
+                            onClick={() => {
+                              getInfoDelete(user.id);
+                            }}
                           />
                         </span>
                       </td>

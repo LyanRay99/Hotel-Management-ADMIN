@@ -209,13 +209,18 @@ const Branch = () => {
                         />
                       </td>
                       <td className="tdAction">
-                        <span onClick={() => getInfoEdit(branch, index)}>
-                          <FontAwesomeIcon icon={faPen} className="icon pen" />
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faPen}
+                            className="icon pen"
+                            onClick={() => getInfoEdit(branch, index)}
+                          />
                         </span>
-                        <span onClick={() => showDeleteBranch(branch.id)}>
+                        <span>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
+                            onClick={() => showDeleteBranch(branch.id)}
                           />
                         </span>
                       </td>

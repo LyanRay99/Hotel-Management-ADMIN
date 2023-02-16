@@ -4,6 +4,10 @@ import Api from "src/Api/axiosConfig";
 import Select from "react-select";
 import { customStyles } from "src/components/Others/others";
 
+//* Components
+import { AddAndEditRoomType } from "./Modal/Add&Edit_RoomType";
+import { DeleteRoomType } from "./Modal/delete_RoomType";
+
 //* CORE UI + React Bootstrap
 import {
   CRow,
@@ -22,6 +26,10 @@ const RoomType = () => {
   //* Get + binding data
   const [roomType, setRoomType] = useState([]);
   const [branch, setBranch] = useState([]);
+  const [ROOMTYPE, setROOMTYPE] = useState({
+    index: "",
+    type: "",
+  });
 
   //* Call Api to binding data
   useEffect(() => {
@@ -46,8 +54,71 @@ const RoomType = () => {
       .catch((err) => {
         console.error(err);
       });
+  };
 
-    console.log("ok");
+  //* Modal Add and Edit User
+  const [addVisible, setAddVisible] = useState(false);
+
+  //* Completed: Create Object empty to handle Add + Edit User
+  const [objUser, setObjUser] = useState({
+    id: 0,
+    type: "",
+    price: "",
+    image: "",
+    imageOurRoom: "",
+    imageDetail: [],
+    max_person: "",
+    introduction: "",
+    roomTotal: "",
+    dateCreated: "",
+    dateUpdated: "",
+    actived: true,
+    typeR: [],
+  });
+
+  //* Completed: Get info to Edit User
+  const getInfoEdit = (roomType, index) => {
+    //* Open Modal
+    setAddVisible(true);
+
+    //* Get index Room Type
+    setROOMTYPE({
+      index: index,
+      type: roomType,
+    });
+
+    console.log(roomType);
+    //* Binding data of user to edit
+    setObjUser({
+      id: roomType.id,
+      type: roomType.type,
+      price: roomType.price,
+      image: roomType.image,
+      imageOurRoom: roomType.imageOurRoom,
+      imageDetail: roomType.imageDetail,
+      max_person: roomType.max_person,
+      introduction: roomType.introduction.replace(/<[^>]+>/g, ""),
+      roomTotal: roomType.roomTotal,
+      dateCreated: roomType.dateCreated,
+      dateUpdated: roomType.dateUpdated,
+      actived: roomType.actived,
+      typeR: roomType.typeR,
+    });
+  };
+
+  //* Completed: Get info to Delete User
+  const [showDlt, setShowDlt] = useState(false);
+  const [RoomTYPE, setRoomTYPE] = useState({
+    nameBranch: "",
+    nameRoomType: "",
+  });
+
+  const getInfoDelete = (ROOMTYPE) => {
+    setRoomTYPE({
+      nameBranch: branch[indexBranch].nameBranchVN,
+      nameRoomType: ROOMTYPE,
+    });
+    setShowDlt(true);
   };
 
   //* Completed: Active RoomType
@@ -141,7 +212,7 @@ const RoomType = () => {
             <div className="control">
               <div className="select">
                 <div className="btn">
-                  <Button variant="info">
+                  <Button variant="info" onClick={() => setAddVisible(true)}>
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
@@ -189,7 +260,16 @@ const RoomType = () => {
                       <td>{index + 1}</td>
                       <td>{roomType.type}</td>
                       <td>{branch[indexBranch].nameBranchVN}</td>
-                      <td>{roomType.image}</td>
+                      <td id="td_image">
+                        {roomType.image.slice(0, 9) === "Room type" ? (
+                          <img
+                            src={require(`../../assets/${roomType.image}`)}
+                            alt={roomType.image}
+                          ></img>
+                        ) : (
+                          roomType.image
+                        )}
+                      </td>
                       <td>{roomType.price}</td>
                       <td>{roomType.max_person}</td>
                       <td>{roomType.roomTotal}</td>
@@ -201,12 +281,19 @@ const RoomType = () => {
                       </td>
                       <td className="tdAction">
                         <span>
-                          <FontAwesomeIcon icon={faPen} className="icon pen" />
+                          <FontAwesomeIcon
+                            icon={faPen}
+                            className="icon pen"
+                            onClick={() => getInfoEdit(roomType, index)}
+                          />
                         </span>
                         <span>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
+                            onClick={() => {
+                              getInfoDelete(roomType);
+                            }}
                           />
                         </span>
                       </td>
@@ -218,6 +305,28 @@ const RoomType = () => {
           </CRow>
         </CCardBody>
       </CCard>
+
+      {/* Completed: Modal Add + Edit RoomType*/}
+      <AddAndEditRoomType
+        addVisible={addVisible}
+        setAddVisible={setAddVisible}
+        objUser={objUser}
+        setObjUser={setObjUser}
+        branch={branch}
+        indexBranch={indexBranch}
+        getDataRoomType={getDataRoomType}
+        ROOMTYPE={ROOMTYPE}
+      />
+
+      {/* Completed: Modal Confirm RoomType */}
+      <DeleteRoomType
+        showDlt={showDlt}
+        setShowDlt={setShowDlt}
+        branch={branch}
+        RoomTYPE={RoomTYPE}
+        indexBranch={indexBranch}
+        getDataRoomType={getDataRoomType}
+      />
     </>
   );
 };
