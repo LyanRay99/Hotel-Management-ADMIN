@@ -12,27 +12,20 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const DeleteRoomType = ({
+export const ConfirmDelete = ({
   showDlt,
   setShowDlt,
-  branch,
-  RoomTYPE,
-  indexBranch,
-  getDataRoomType,
+  indexUser,
+  user,
+  setUser,
+  getDataUser,
 }) => {
-  //* Completed: Delete RoomType
-  const deleteRoomType = () => {
-    //* Get info to delete
-    const RoomTypeObj = branch[indexBranch].roomType.filter((item) => {
-      return item.type !== RoomTYPE.nameRoomType.type;
-    });
-
-    const BranchObj = { ...branch[indexBranch], roomType: RoomTypeObj };
-
-    Api.put(`/listRooms/${branch[indexBranch].id}`, BranchObj)
+  //* Completed: Delete User
+  const deleteUser = () => {
+    Api.delete(`/listUser/${indexUser}`)
       .then(() => {
         //* Get lại data
-        getDataRoomType();
+        getDataUser();
 
         //* close modal
         setShowDlt(false);
@@ -42,20 +35,32 @@ export const DeleteRoomType = ({
       });
   };
 
+  //* Get fullName of user
+  var user_fullName = "";
+  user.map((item) => {
+    if (item.id === indexUser) {
+      return (user_fullName = item.fullName);
+    }
+  });
+
   return (
     <React.Fragment>
       {/* Completed: Modal to change password User */}
-      <CModal scrollable visible={showDlt} backdrop="static">
+      <CModal
+        scrollable
+        visible={showDlt}
+        backdrop="static"
+        onClose={() => setShowDlt(false)}
+      >
         <CModalHeader>
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete Room Type{" "}
-          <strong>{RoomTYPE.nameRoomType.type}</strong> of Branch{" "}
-          <strong>{RoomTYPE.nameBranch}</strong>?
+          Are you sure you want to delete User <strong>{user_fullName}</strong>{" "}
+          ?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteRoomType()}>
+          <CButton className="btnSubmit" onClick={() => deleteUser()}>
             Confirm
           </CButton>
 

@@ -12,21 +12,20 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const DeleteNews = ({
+export const DeleteBanner = ({
   showDlt,
   setShowDlt,
-  news,
-  getDataNews,
-  indexNews,
+  idBanner,
+  slider,
+  setSlider,
+  getDataSlider,
 }) => {
-  //* Completed: Delete RoomType
-  const deleteNews = () => {
-    //* Get info to delete
-
-    Api.delete(`/news_recent/${news[indexNews].id}`)
+  //* Completed: Delete User
+  const deleteSlider = () => {
+    Api.delete(`/listSlider/${idBanner}`)
       .then(() => {
         //* Get lại data
-        getDataNews();
+        getDataSlider();
 
         //* close modal
         setShowDlt(false);
@@ -36,24 +35,30 @@ export const DeleteNews = ({
       });
   };
 
-  var nameNews = "";
-  news.map((item, index) => {
-    if (index === indexNews) {
-      return (nameNews = item.name);
+  //* Get fullName of user
+  var nameSlider = "";
+  slider.map((item) => {
+    if (item.id === idBanner) {
+      return (nameSlider = item.name);
     }
   });
 
   return (
     <React.Fragment>
-      <CModal scrollable visible={showDlt} backdrop="static">
+      <CModal
+        scrollable
+        visible={showDlt}
+        backdrop="static"
+        onClose={() => setShowDlt(false)}
+      >
         <CModalHeader>
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete News <strong>{nameNews}</strong>
+          Are you sure you want to delete <strong>{nameSlider}</strong> ?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteNews()}>
+          <CButton className="btnSubmit" onClick={() => deleteSlider()}>
             Confirm
           </CButton>
 

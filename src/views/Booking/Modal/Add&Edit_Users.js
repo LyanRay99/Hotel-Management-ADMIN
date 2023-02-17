@@ -1,5 +1,6 @@
 //* Library
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Api from "src/Api/axiosConfig";
 
 //* Function feature
@@ -58,7 +59,9 @@ export const AddAndEdit = ({
     } else if (e.target.name === "sex") {
       setObjUser({ ...objUser, sex: e.target.value });
     } else if (e.target.name === "identityCard") {
+      // if (/^\d+$/.test(e.target.value)) {
       setObjUser({ ...objUser, identityCard: e.target.value });
+      // }
     } else if (e.target.name === "nationality") {
       setObjUser({ ...objUser, nationality: e.target.value });
     } else if (e.target.name === "email") {
@@ -82,7 +85,6 @@ export const AddAndEdit = ({
       var hour = today.getHours();
       var minutes = today.getMinutes();
       today = `${hour}h${minutes} ${day}-${month}-${year}`;
-
       setObjUser({
         ...objUser,
         dateCreated: today,
@@ -181,6 +183,7 @@ export const AddAndEdit = ({
   //* Completed: Edit User
   //* Update state
   const editUser = () => {
+    console.log(objUser);
     //* set item editted
     Api.put(`/listUser/${user[indexUser].id}`, objUser)
       .then(() => {
