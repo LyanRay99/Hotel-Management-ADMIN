@@ -431,8 +431,14 @@
       "roomType": "Normal",
       "typeR": "single bed room",
       "numberRoom": 110,
-      "checkIn": "13h30 2023-01-01",
-      "checkOut": "13h30 2023-01-03",
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
       "confirm": true,
       "paied": true,
       "cancel": false
@@ -453,32 +459,128 @@
       "roomType": "Luxury",
       "typeR": "single bed room",
       "numberRoom": 310,
-      "checkIn": "13h30 2022-02-23",
-      "checkOut": "13h30 2022-02-23",
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
       "confirm": true,
-      "paied": false,
+      "paied": true,
       "cancel": false
     },
     {
       "id": 3,
-      "fullName": "Nguyen Van B",
+      "fullName": "Nguyen Van Thông",
       "date": "1991-10-01",
-      "sex": "female",
+      "sex": "male",
       "identityCard": "201793356",
       "nationality": "Viet Nam",
       "phone": "0905234234",
       "email": "nvb@gmail.com",
-      "address": "abc strees",
+      "address": "TGE",
       "dateCreated": "13h30 23-02-2022",
       "dateUpdated": "13h30 23-02-2022",
+      "nameBranchVN": "Panorama Nha Trang",
+      "roomType": "Normal ABC",
+      "typeR": "double bed room",
+      "numberRoom": 310,
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 4,
+      "fullName": "Mai Tấn Tài",
+      "date": "1999-10-16",
+      "sex": "male",
+      "identityCard": "201804425",
+      "nationality": "USA",
+      "phone": "0799393875",
+      "email": "mttai161099@gmail.com",
+      "address": "99 Vũ Lăng",
+      "dateCreated": "16h6 18-02-2023",
+      "dateUpdated": "16h6 18-02-2023",
       "nameBranchVN": "Panorama Phú Quốc",
       "roomType": "Luxury",
+      "typeR": "twin bed room",
+      "numberRoom": 310,
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 5,
+      "fullName": "M T",
+      "date": "2023-02-15",
+      "sex": "Choose",
+      "identityCard": "7895689494",
+      "nationality": "Viet Nam",
+      "phone": "0799393875",
+      "email": "mtai0905@gmail.com",
+      "address": "1000 hoa bac",
+      "dateCreated": "16h12 18-02-2023",
+      "dateUpdated": "16h12 18-02-2023",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Normal MTT",
+      "typeR": "twin bed room",
+      "numberRoom": 310,
+      "checkIn": {
+        "time": "18:12",
+        "date": "2023-02-01"
+      },
+      "checkOut": {
+        "time": "16:16",
+        "date": "2023-02-10"
+      },
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 6,
+      "fullName": "M T",
+      "date": "2023-02-09",
+      "sex": "male",
+      "identityCard": "7895689494",
+      "nationality": "USA",
+      "phone": "0799393875",
+      "email": "mtai0905@gmail.com",
+      "address": "1000 hoa bac",
+      "dateCreated": "01h01 09-02-2023",
+      "dateUpdated": "01h01 09-02-2023",
+      "nameBranchVN": "Panorama Đà Nẵng",
+      "roomType": "Normal",
       "typeR": "single bed room",
       "numberRoom": 310,
-      "checkIn": "13h30 2022-02-23",
-      "checkOut": "13h30 2022-02-23",
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
       "confirm": true,
-      "paied": false,
+      "paied": true,
       "cancel": false
     }
   ],
@@ -1036,7 +1138,7 @@
       "roomType": [
         {
           "id": 1,
-          "type": "Normal",
+          "type": "Normal MTT",
           "price": "1000",
           "image": "Room type/rooms/room-1.jpg",
           "imageOurRoom": "Room type/rooms-1.jpg",
@@ -1184,34 +1286,6 @@
             },
             {
               "id": 2,
-              "name": "twin bed room",
-              "roomTotal": 20,
-              "emptyRooms": 0,
-              "price": "2050",
-              "dateCreated": "13h30 23-02-2022",
-              "dateUpdated": "13h30 23-02-2022",
-              "actived": true,
-              "numberOfRoom": [
-                {
-                  "id": 1,
-                  "numberRoom": 201,
-                  "price": "2050",
-                  "dateCreated": "13h30 23-02-2022",
-                  "dateUpdated": "13h30 23-02-2022",
-                  "actived": true
-                },
-                {
-                  "id": 2,
-                  "numberRoom": 202,
-                  "price": "2050",
-                  "dateCreated": "13h30 23-02-2022",
-                  "dateUpdated": "13h30 23-02-2022",
-                  "actived": true
-                }
-              ]
-            },
-            {
-              "id": 3,
               "name": "double bed room",
               "roomTotal": 10,
               "emptyRooms": 20,
@@ -1312,34 +1386,6 @@
                   "actived": true
                 }
               ]
-            },
-            {
-              "id": 3,
-              "name": "double bed room",
-              "roomTotal": 10,
-              "emptyRooms": 20,
-              "price": "3050",
-              "dateCreated": "13h30 23-02-2022",
-              "dateUpdated": "13h30 23-02-2022",
-              "actived": true,
-              "numberOfRoom": [
-                {
-                  "id": 1,
-                  "numberRoom": 301,
-                  "price": "3050",
-                  "dateCreated": "13h30 23-02-2022",
-                  "dateUpdated": "13h30 23-02-2022",
-                  "actived": false
-                },
-                {
-                  "id": 2,
-                  "numberRoom": 302,
-                  "price": "3050",
-                  "dateCreated": "13h30 23-02-2022",
-                  "dateUpdated": "13h30 23-02-2022",
-                  "actived": true
-                }
-              ]
             }
           ]
         }
@@ -1362,7 +1408,7 @@
       "roomType": [
         {
           "id": 1,
-          "type": "Normal",
+          "type": "Normal ABC",
           "price": "1000",
           "image": "Room type/rooms/room-1.jpg",
           "imageOurRoom": "Room type/rooms-1.jpg",

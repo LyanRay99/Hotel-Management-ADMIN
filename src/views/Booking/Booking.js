@@ -1,10 +1,12 @@
 //* Library
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Api from "src/Api/axiosConfig";
+import Select from "react-select";
+import { customStyles } from "src/components/Others/others";
 
-//* Data
-import listBookData from "../../Data/list_booking.json";
-import roomData from "../../Data/list_room";
+//* Components
+import { AddAndEditBooking } from "./Modal/Add&Edit_Booking";
+import { DeleteBooking } from "./Modal/delete_booking";
 
 //* CORE UI + React Bootstrap
 import {
@@ -20,44 +22,40 @@ import {
   CCol,
   CFormInput,
   CFormSelect,
-  CFormCheck,
+  CFormSwitch,
 } from "@coreui/react";
 import { Table, Button } from "react-bootstrap";
 
 //* Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faKey,
-  faPen,
-  faPlus,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ListBooking = () => {
-  //* Get + binding data
-  // const [booking, setBooking] = useState([]);
-  const [booking, setBooking] = useState(listBookData.listBooking);
+  const [booking, setBooking] = useState([]);
 
-  //* Setup to binding data for Select Branch + roomType + roomKind
-  const [room, setRoom] = useState(roomData.listRooms);
-  const branchName = room.map((item) => ({
-    label: item.nameBranchVN,
-    value: item.nameBranchVN,
-  }));
+  //* Call Api to binding data
+  useEffect(() => {
+    Api.get("/listBooking")
+      .then((response) => response.data)
+      .then((data) => {
+        setBooking(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
-  const roomTypes = room[0].roomType.map((item) => ({
-    label: item.type,
-    value: item.type,
-  }));
-
-  const roomKinds = room[0].roomType[0].typeR.map((item) => ({
-    label: item.name,
-    value: item.name,
-  }));
-
-  branchName.unshift("choose");
-  roomTypes.unshift("choose");
-  roomKinds.unshift("choose");
+  //* Function GET data Users
+  const getDataBooking = () => {
+    Api.get("/listBooking")
+      .then((response) => response.data)
+      .then((data) => {
+        setBooking(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   //* Open + Close Modal
   const [addVisible, setAddVisible] = useState(false);
@@ -80,169 +78,33 @@ const ListBooking = () => {
     roomType: "",
     typeR: "",
     numberRoom: 310,
-    checkIn: "",
-    checkOut: "",
-    confirm: true,
-    paied: true,
+    checkIn: {
+      time: "",
+      date: "",
+    },
+    checkOut: {
+      time: "",
+      date: "",
+    },
+    confirm: false,
+    paied: false,
     cancel: false,
   });
 
-  //* Custom data checkin + checkout
-  var [checkIn, setCheckIn] = useState({
-    date: objBooking.checkIn.slice(6, 16),
-    time: `${objBooking.checkIn.slice(0, 2)}:${objBooking.checkIn.slice(3, 5)}`,
+  //* Completed: Get info to Edit User
+  const [lockSelectBook, setLockSelectBook] = useState({
+    type: true,
+    kind: true,
   });
 
-  var [checkOut, setCheckOut] = useState({
-    date: objBooking.checkOut.slice(6, 16),
-    time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(
-      3,
-      5
-    )}`,
-  });
-
-  //* 2 - Get info user
-  const getInfo = (e) => {
-    if (e.target.name === "fullName") {
-      setObjBooking({ ...objBooking, fullName: e.target.value });
-    } else if (e.target.name === "birth") {
-      setObjBooking({ ...objBooking, date: e.target.value });
-    } else if (e.target.name === "sex") {
-      setObjBooking({ ...objBooking, sex: e.target.value });
-    } else if (e.target.name === "identityCard") {
-      setObjBooking({ ...objBooking, identityCard: e.target.value });
-    } else if (e.target.name === "nationality") {
-      setObjBooking({ ...objBooking, nationality: e.target.value });
-    } else if (e.target.name === "email") {
-      setObjBooking({ ...objBooking, email: e.target.value });
-    } else if (e.target.name === "address") {
-      setObjBooking({ ...objBooking, address: e.target.value });
-    } else if (e.target.name === "phone") {
-      setObjBooking({ ...objBooking, phone: e.target.value });
-    } else if (e.target.name === "branch") {
-      setObjBooking({ ...objBooking, nameBranchVN: e.target.value });
-    } else if (e.target.name === "type") {
-      setObjBooking({ ...objBooking, roomType: e.target.value });
-    } else if (e.target.name === "kind") {
-      setObjBooking({ ...objBooking, typeR: e.target.value });
-    } else if (e.target.name === "date check in") {
-      setCheckIn({ ...checkIn, date: e.target.value });
-    } else if (e.target.name === "time check in") {
-      setCheckIn({ ...checkIn, time: e.target.value });
-    } else if (e.target.name === "date check out") {
-      setCheckOut({ ...checkOut, date: e.target.value });
-    } else if (e.target.name === "time check out") {
-      setCheckOut({ ...checkOut, time: e.target.value });
-    }
-
-    // console.log(objBooking)
-  };
-
-  //* Check Text Empty ?
-  var checkEmpty = true;
-  const checkTextEmpty = () => {
-    for (const key in objBooking) {
-      if (objBooking[key] === "") {
-        return (checkEmpty = false);
-      } else {
-        checkEmpty = true;
-      }
-    }
-  };
-
-  //* Check text chứa toàn khoảng trắng
-  var checkSpace = true;
-  const checkTextSpace = () => {
-    for (const key in objBooking) {
-      var check = String(objBooking[key]).replace(/\s/g, "").length;
-      if (!check) {
-        console.log("loi");
-        return (checkSpace = false);
-      } else {
-        checkSpace = true;
-      }
-    }
-  };
-
-  //* 3 - Add User
-  const addBooking = () => {
-    //* Hoàn thiện data của objUser
-    var today = new Date();
-    var day = String(today.getDate()).padStart(2, "0");
-    var month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var year = today.getFullYear();
-    var hour = today.getHours();
-    var minutes = today.getMinutes();
-    today = `${hour}h${minutes} ${day}-${month}-${year}`;
-
-    setObjBooking({
-      ...objBooking,
-      dateCreated: today,
-      dateUpdated: today,
-      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${
-        checkIn.date
-      }`,
-      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${
-        checkOut.date
-      }`,
-    });
-
-    // console.log(objBooking)
-    checkTextEmpty();
-    checkTextSpace();
-
-    //* Push into Array + Reset objUser
-    if (checkEmpty && checkSpace) {
-      // //* Custom date checkin + checkout
-      // var [yearIN, monthIN, dayIN] = objBooking.checkIn.split('-')
-      // var [yearOUT, monthOUT, dayOUT] = objBooking.checkIn.split('-')
-      // setObjBooking({
-      //   ...objBooking,
-      //   checkIn: `${hour}h${minutes} ${yearIN}-${monthIN}-${dayIN}`,
-      //   checkOut: `${hour}h${minutes} ${yearOUT}-${monthOUT}-${dayOUT}`,
-      // })
-
-      //* Bây giờ mới set ID để thay đổi UI button trong Modal
-      setObjBooking({ ...objBooking, id: booking.length + 1 });
-
-      //* Add objUser into User
-      setBooking([...booking, objBooking]);
-
-      //* Close Modal
-      setAddVisible(false);
-
-      //* Reset objUser
-      setObjBooking({
-        id: 0,
-        fullName: "",
-        date: "",
-        sex: "",
-        identityCard: "",
-        nationality: "",
-        phone: "",
-        email: "",
-        address: "",
-        dateCreated: "",
-        dateUpdated: "",
-        nameBranchVN: "",
-        roomType: "",
-        typeR: "",
-        numberRoom: 310,
-        checkIn: "",
-        checkOut: "",
-        confirm: true,
-        paied: true,
-        cancel: false,
-      });
-    } else {
-      console.log("error");
-    }
-  };
-
-  //* Completed: Edit User
   const getInfoEdit = (booking) => {
     //* Open Modal
     setAddVisible(true);
+
+    setLockSelectBook({
+      type: false,
+      kind: false,
+    });
 
     //* Binding data of user to edit
     setObjBooking({
@@ -260,136 +122,143 @@ const ListBooking = () => {
       nameBranchVN: booking.nameBranchVN,
       roomType: booking.roomType,
       typeR: booking.typeR,
-      numberRoom: 310,
-      checkIn: booking.checkIn,
-      checkOut: booking.checkOut,
+      numberRoom: booking.numberRoom,
+      checkIn: {
+        time: booking.checkIn.time,
+        date: booking.checkIn.date,
+      },
+      checkOut: {
+        time: booking.checkOut.time,
+        date: booking.checkOut.date,
+      },
       confirm: booking.confirm,
       paied: booking.paied,
       cancel: booking.cancel,
     });
-
-    setCheckIn({
-      date: booking.checkIn.slice(6, 16),
-      time: `${booking.checkIn.slice(0, 2)}:${booking.checkIn.slice(3, 5)}`,
-    });
-
-    setCheckOut({
-      date: booking.checkOut.slice(6, 16),
-      time: `${booking.checkOut.slice(0, 2)}:${booking.checkOut.slice(3, 5)}`,
-    });
   };
 
-  const editBooking = () => {
-    //* set lại checkin + checkout
-    setObjBooking({
-      ...objBooking,
-      checkIn: `${checkIn.time.slice(0, 2)}h${checkIn.time.slice(3, 5)} ${
-        checkIn.date
-      }`,
-      checkOut: `${checkOut.time.slice(0, 2)}h${checkOut.time.slice(3, 5)} ${
-        checkOut.date
-      }`,
-    });
+  //* Completed: Get info to Delete User
+  const [showDlt, setShowDlt] = useState(false);
+  const [idBooking, setIdBooking] = useState(0);
+  const getInfoDelete = (bookingID) => {
+    setIdBooking(bookingID);
+    setShowDlt(true);
+  };
 
-    console.log(objBooking.checkIn);
+  //* Completed: Sort Branch (Select)
+  //* 1 - Create State
+  const options = [
+    {
+      value: "Select All",
+      label: "Select All",
+    },
+  ];
 
-    //* set item sau khi editted
-    setBooking(
-      booking.map((item) => {
-        if (item.id === objBooking.id) {
-          console.log(item);
-          item = objBooking;
-        }
-        return item;
+  const [selectBranch, setSelectBranch] = useState(options[0]);
+  const [branch, setBranch] = useState([]);
+
+  useEffect(() => {
+    Api.get("/listRooms")
+      .then((response) => response.data)
+      .then((data) => {
+        setBranch(data);
       })
-    );
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
-    //* Reset objUser
-    setObjBooking({
-      id: 0,
-      fullName: "",
-      date: "",
-      sex: "",
-      identityCard: "",
-      nationality: "",
-      phone: "",
-      email: "",
-      address: "",
-      dateCreated: "",
-      dateUpdated: "",
-      nameBranchVN: "",
-      roomType: "",
-      typeR: "",
-      numberRoom: 310,
-      checkIn: "",
-      checkOut: "",
-      confirm: true,
-      paied: true,
-      cancel: false,
+  //* 2 - Get data Branch to binding in select
+  branch.map((item, index) => {
+    options.push({
+      value: item.nameBranchVN,
+      label: item.nameBranchVN,
     });
+  });
 
-    //* Close Modal
-    setAddVisible(false);
+  //* Filter to setState booking (by Name Branch)
+  const SelectBranchs = (selectedOption) => {
+    setSelectBranch(selectedOption);
+    if (selectedOption.value !== "Select All") {
+      Api.get("/listBooking")
+        .then((response) => {
+          response.data;
+          setBooking([
+            ...response.data.filter((item) => {
+              return item.nameBranchVN === selectedOption.label;
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      getDataBooking();
+    }
   };
 
-  const resetCheckIn_Out = () => {
-    console.log(objBooking.checkIn);
-    //* Reset state Checkin + checkout
-    setCheckIn({
-      date: objBooking.checkIn.slice(6, 16),
-      time: `${objBooking.checkIn.slice(0, 2)}:${objBooking.checkIn.slice(
-        3,
-        5
-      )}`,
-    });
+  //* Completed: Search User Name
+  const [searchFullName, setSearchFullName] = useState("");
+  const getInfoFullName = (e) => {
+    setSearchFullName(() => e.target.value);
 
-    setCheckOut({
-      date: objBooking.checkOut.slice(6, 16),
-      time: `${objBooking.checkOut.slice(0, 2)}:${objBooking.checkOut.slice(
-        3,
-        5
-      )}`,
-    });
-    console.log(objBooking.checkIn);
+    if (e.target.value == "") {
+      getDataBooking();
+    } else {
+      Api.get("/listBooking")
+        .then((response) => response.data)
+        .then((user) => {
+          setBooking([
+            ...user.filter((item) => {
+              if (
+                item.fullName
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
+              ) {
+                return item;
+              }
+            }),
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+
+    //* Reset Select (Select All)
+    // setSelectRole(options[0]);
   };
 
-  //* Reset Modal khi click Cancel
-  const cancelEdit = () => {
-    //* Reset objUser
-    setObjBooking({
-      id: 0,
-      fullName: "",
-      date: "",
-      sex: "",
-      identityCard: "",
-      nationality: "",
-      phone: "",
-      email: "",
-      address: "",
-      dateCreated: "",
-      dateUpdated: "",
-      nameBranchVN: "",
-      roomType: "",
-      typeR: "",
-      numberRoom: 310,
-      checkIn: "",
-      checkOut: "",
-      confirm: true,
-      paied: true,
-      cancel: false,
-    });
-
-    //* Close Modal
-    setAddVisible(false);
+  //* Completed: Active Confirm
+  const activeConfirm = (BOOKING, e) => {
+    if (!BOOKING.paied) {
+      BOOKING.confirm = e.target.checked;
+      Api.put(`/listBooking/${BOOKING.id}`, BOOKING)
+        .then(() => {
+          getDataBooking();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      alert(`User ${BOOKING.fullName} Paied`);
+    }
   };
 
-  //* Completed: Delete User
-  const deleteBooking = (indexS) => {
-    setBooking([
-      ...booking.filter((booking, index) => {
-        return index !== indexS;
-      }),
-    ]);
+  //* Completed: Active Pay
+  const activePay = (BOOKING, e) => {
+    if (BOOKING.confirm) {
+      BOOKING.paied = e.target.checked;
+      Api.put(`/listBooking/${BOOKING.id}`, BOOKING)
+        .then(() => {
+          getDataBooking();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      alert(`User ${BOOKING.fullName} not confirm`);
+    }
   };
 
   return (
@@ -405,6 +274,15 @@ const ListBooking = () => {
                     Add <FontAwesomeIcon icon={faPlus} />
                   </Button>
                 </div>
+
+                <div className="formSelect">
+                  <Select
+                    value={selectBranch}
+                    onChange={SelectBranchs}
+                    options={options}
+                    styles={customStyles}
+                  />
+                </div>
               </div>
 
               <div className="input-group mb-3 search">
@@ -414,6 +292,8 @@ const ListBooking = () => {
                   placeholder="Booking"
                   aria-label="Type String..."
                   aria-describedby="basic-addon1"
+                  value={searchFullName}
+                  onChange={getInfoFullName}
                 />
               </div>
             </div>
@@ -452,35 +332,33 @@ const ListBooking = () => {
                       <td>{booking.nameBranchVN}</td>
                       <td>{booking.roomType}</td>
                       <td>{booking.typeR}</td>
-                      <td>{booking.checkIn}</td>
-                      <td>{booking.checkOut}</td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input type="checkbox" id="check" />
-                            <span></span>
-                          </label>
-                        </span>
+                        {booking.checkIn.time} {booking.checkIn.date}
                       </td>
                       <td>
-                        <span className="tdAction__active">
-                          <label className="container">
-                            <input type="checkbox" id="check" />
-                            <span></span>
-                          </label>
-                        </span>
+                        {booking.checkOut.time} {booking.checkOut.date}
+                      </td>
+                      <td>
+                        <CFormSwitch
+                          checked={booking.confirm}
+                          onChange={(e) => activeConfirm(booking, e)}
+                        />
+                      </td>
+                      <td>
+                        <CFormSwitch
+                          checked={booking.paied}
+                          onChange={(e) => activePay(booking, e)}
+                        />
                       </td>
                       <td className="tdAction">
-                        <span>
-                          <FontAwesomeIcon icon={faKey} className="icon key" />
-                        </span>
                         <span onClick={() => getInfoEdit(booking)}>
                           <FontAwesomeIcon icon={faPen} className="icon pen" />
                         </span>
-                        <span onClick={() => deleteBooking(index)}>
+                        <span>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="icon trash"
+                            onClick={() => getInfoDelete(booking.id)}
                           />
                         </span>
                       </td>
@@ -493,195 +371,29 @@ const ListBooking = () => {
         </CCardBody>
       </CCard>
 
-      {/* Completed: Modal to get info and Add Booking */}
-      <CModal
-        scrollable
-        visible={addVisible}
-        backdrop="static"
-        size="xl"
-        onClose={() => setAddVisible(false)}
-      >
-        <CModalBody>
-          <CForm className="row g-3">
-            <CCol md={4}>
-              <CFormInput
-                type="text"
-                label="Full Name"
-                name="fullName"
-                value={objBooking.fullName}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormInput
-                type="date"
-                label="Birth"
-                name="birth"
-                value={objBooking.date}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormSelect
-                label="Sex"
-                aria-label="Default select example"
-                name="sex"
-                value={objBooking.sex}
-                onChange={getInfo}
-                options={[
-                  "Choose",
-                  { label: "Male", value: "male" },
-                  { label: "Female", value: "female" },
-                ]}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormInput
-                type="number"
-                label="Identity Card"
-                name="identityCard"
-                value={objBooking.identityCard}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormSelect
-                label="Nationality"
-                aria-label="Default select example"
-                name="nationality"
-                value={objBooking.nationality}
-                onChange={getInfo}
-                options={[
-                  "Choose",
-                  { label: "Viet Nam", value: "Viet Nam" },
-                  { label: "USA", value: "USA" },
-                  { label: "France", value: "France" },
-                  { label: "Italia", value: "Italia" },
-                ]}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormInput
-                type="email"
-                label="Email"
-                name="email"
-                value={objBooking.email}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={6}>
-              <CFormInput
-                type="text"
-                label="Address"
-                name="address"
-                value={objBooking.address}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={6}>
-              <CFormInput
-                type="number"
-                label="Phone Number"
-                name="phone"
-                value={objBooking.phone}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormSelect
-                label="Branch"
-                aria-label="Default select example"
-                name="branch"
-                value={objBooking.nameBranchVN}
-                onChange={getInfo}
-                options={branchName}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormSelect
-                label="Type"
-                aria-label="Default select example"
-                name="type"
-                value={objBooking.roomType}
-                onChange={getInfo}
-                options={roomTypes}
-              />
-            </CCol>
-            <CCol md={4}>
-              <CFormSelect
-                label="Kind"
-                aria-label="Default select example"
-                name="kind"
-                value={objBooking.typeR}
-                onChange={getInfo}
-                options={roomKinds}
-              />
-            </CCol>
-            <CCol md={3}>
-              <CFormInput
-                type="date"
-                label="Date Check in"
-                name="date check in"
-                value={checkIn.date}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={3}>
-              <CFormInput
-                type="time"
-                label="Time Check In"
-                name="time check in"
-                value={checkIn.time}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={3}>
-              <CFormInput
-                type="date"
-                label="Date Check out"
-                name="date check out"
-                value={checkOut.date}
-                onChange={getInfo}
-              />
-            </CCol>
-            <CCol md={3}>
-              <CFormInput
-                type="time"
-                label="Time Check out"
-                name="time check out"
-                value={checkOut.time}
-                onChange={getInfo}
-              />
-            </CCol>
-          </CForm>
-        </CModalBody>
-        <CModalFooter>
-          <CButton
-            className="btnCancel"
-            onClick={() => {
-              cancelEdit();
-              resetCheckIn_Out();
-            }}
-          >
-            Cancel
-          </CButton>
-          {objBooking.id == false ? (
-            <CButton
-              color="primary"
-              className="btnAdd"
-              onClick={() => {
-                addBooking();
-              }}
-            >
-              Aplly
-            </CButton>
-          ) : (
-            <CButton className="btnEdit" onClick={() => editBooking()}>
-              Edit
-            </CButton>
-          )}
-        </CModalFooter>
-      </CModal>
+      {/* Completed: Modal Add + Edit User*/}
+      <AddAndEditBooking
+        addVisible={addVisible}
+        setAddVisible={setAddVisible}
+        booking={booking}
+        setBooking={setBooking}
+        objBooking={objBooking}
+        setObjBooking={setObjBooking}
+        idBooking={idBooking}
+        getDataBooking={getDataBooking}
+        lockSelectBook={lockSelectBook}
+        setLockSelectBook={setLockSelectBook}
+      />
+
+      {/* Completed: Modal Confirm Delete */}
+      <DeleteBooking
+        showDlt={showDlt}
+        setShowDlt={setShowDlt}
+        idBooking={idBooking}
+        booking={booking}
+        setBooking={setBooking}
+        getDataBooking={getDataBooking}
+      />
     </>
   );
 };

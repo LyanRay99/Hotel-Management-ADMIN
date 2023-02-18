@@ -30,7 +30,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const ListUser = () => {
-  //* Get + binding data
   const [user, setUser] = useState([]);
 
   //* Call Api to binding data
@@ -118,7 +117,7 @@ const ListUser = () => {
     setShowDlt(true);
   };
 
-  //* Completed: Sort Role
+  //* Completed: Sort Role (Select)
   const options = [
     { value: "Select All", label: "Select All" },
     { value: "Admin", label: "Admin" },

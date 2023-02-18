@@ -39,9 +39,9 @@ export const AddAndEditBanner = ({
       var today = new Date();
       var day = String(today.getDate()).padStart(2, "0");
       var month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var year = today.getFullYear();
-      var hour = today.getHours();
-      var minutes = today.getMinutes();
+      var year = String(today.getFullYear());
+      var hour = String(today.getHours()).padStart(2, "0");
+      var minutes = String(today.getMinutes()).padStart(2, "0");
       today = `${hour}h${minutes} ${day}-${month}-${year}`;
       setObjUser({
         ...objUser,

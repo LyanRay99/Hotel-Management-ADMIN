@@ -12,20 +12,20 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const ConfirmDelete = ({
+export const DeleteBooking = ({
   showDlt,
   setShowDlt,
-  indexUser,
-  user,
-  setUser,
-  getDataUser,
+  idBooking,
+  booking,
+  setBooking,
+  getDataBooking,
 }) => {
   //* Completed: Delete User
-  const deleteUser = () => {
-    Api.delete(`/listUser/${indexUser}`)
+  const deleteBooking = () => {
+    Api.delete(`/listBooking/${idBooking}`)
       .then(() => {
         //* Get lại data
-        getDataUser();
+        getDataBooking();
 
         //* close modal
         setShowDlt(false);
@@ -37,15 +37,14 @@ export const ConfirmDelete = ({
 
   //* Get fullName of user
   var user_fullName = "";
-  user.map((item) => {
-    if (item.id === indexUser) {
+  booking.map((item) => {
+    if (item.id === idBooking) {
       return (user_fullName = item.fullName);
     }
   });
 
   return (
     <React.Fragment>
-      {/* Completed: Modal to change password User */}
       <CModal
         scrollable
         visible={showDlt}
@@ -56,11 +55,11 @@ export const ConfirmDelete = ({
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete User <strong>{user_fullName}</strong>{" "}
-          ?
+          Are you sure you want to delete booking of{" "}
+          <strong>{user_fullName}</strong> ?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteUser()}>
+          <CButton className="btnSubmit" onClick={() => deleteBooking()}>
             Confirm
           </CButton>
 
