@@ -21,7 +21,7 @@ const Language = React.lazy(() => import('./views/Language/Language'))
 
 //* SUPPORT
 const AboutUs = React.lazy(() => import('./views/Support/AboutUs'))
-const TermsOfService = React.lazy(() => import('./views/Support/TemrOfService'))
+// const TermsOfService = React.lazy(() => import('./views/Support/TemrOfService'))
 const FAQs = React.lazy(() => import('./views/Support/FAQs'))
 
 const routes = [

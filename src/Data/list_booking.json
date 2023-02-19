@@ -12,12 +12,18 @@
       "address": "abc strees",
       "dateCreated": "13h30 23-02-2022",
       "dateUpdated": "13h30 23-02-2022",
-      "nameBranchVN": "Panorama Đà Nẵng",
-      "roomType": "Normal",
-      "typeR": "single bed room",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Vip",
+      "typeR": "double bed room",
       "numberRoom": 110,
-      "checkIn": "13h30 2023-01-01",
-      "checkOut": "13h30 2023-01-03",
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-04"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
       "confirm": true,
       "paied": true,
       "cancel": false
@@ -38,32 +44,100 @@
       "roomType": "Luxury",
       "typeR": "single bed room",
       "numberRoom": 310,
-      "checkIn": "13h30 2022-02-23",
-      "checkOut": "13h30 2022-02-23",
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-01"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
       "confirm": true,
-      "paied": false,
+      "paied": true,
       "cancel": false
     },
     {
       "id": 3,
-      "fullName": "Nguyen Van B",
+      "fullName": "Nguyen Van Thông",
       "date": "1991-10-01",
-      "sex": "female",
+      "sex": "male",
       "identityCard": "201793356",
       "nationality": "Viet Nam",
       "phone": "0905234234",
       "email": "nvb@gmail.com",
+      "address": "TGE",
+      "dateCreated": "13h30 23-02-2022",
+      "dateUpdated": "13h30 23-02-2022",
+      "nameBranchVN": "Panorama Nha Trang",
+      "roomType": "Normal ABC",
+      "typeR": "double bed room",
+      "numberRoom": 310,
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 4,
+      "fullName": "Mai Tấn Tài",
+      "date": "1999-10-16",
+      "sex": "male",
+      "identityCard": "201804425",
+      "nationality": "USA",
+      "phone": "0799393875",
+      "email": "mttai161099@gmail.com",
+      "address": "99 Vũ Lăng",
+      "dateCreated": "16h6 18-02-2023",
+      "dateUpdated": "16h6 18-02-2023",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Luxury",
+      "typeR": "twin bed room",
+      "numberRoom": 310,
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-09"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-06"
+      },
+      "confirm": true,
+      "paied": true,
+      "cancel": false
+    },
+    {
+      "id": 5,
+      "fullName": "Nguyen Van A",
+      "date": "1991-10-01",
+      "sex": "male",
+      "identityCard": "201793356",
+      "nationality": "Viet Nam",
+      "phone": "0905234234",
+      "email": "nva@gmail.com",
       "address": "abc strees",
       "dateCreated": "13h30 23-02-2022",
       "dateUpdated": "13h30 23-02-2022",
       "nameBranchVN": "Panorama Phú Quốc",
-      "roomType": "Luxury",
-      "typeR": "single bed room",
-      "numberRoom": 310,
-      "checkIn": "13h30 2022-02-23",
-      "checkOut": "13h30 2022-02-23",
+      "roomType": "Vip",
+      "typeR": "double bed room",
+      "numberRoom": 110,
+      "checkIn": {
+        "time": "13:04",
+        "date": "2023-02-01"
+      },
+      "checkOut": {
+        "time": "01:04",
+        "date": "2023-02-03"
+      },
       "confirm": true,
-      "paied": false,
+      "paied": true,
       "cancel": false
     }
   ]
