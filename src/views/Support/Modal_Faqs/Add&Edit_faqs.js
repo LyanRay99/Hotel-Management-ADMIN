@@ -17,27 +17,40 @@ import {
   CFormSelect,
 } from "@coreui/react";
 
-export const AddAndEditAbout = ({
+export const AddAndEditFaqs = ({
   addVisible,
   setAddVisible,
-  about,
-  setAbout,
+  faqs,
+  setFaqs,
   objUser,
   setObjUser,
-  idAbout,
-  getDataAbout,
+  idFaqs,
+  getDataFaqs,
 }) => {
-  //* Completed: Add User
-  //* 1 - Get info user
+  //* Completed: Add
+  //* 1 - Get info
   const getInfo = (e) => {
     if (e.target.name === "title") {
       setObjUser({ ...objUser, title: e.target.value });
-    } else if (e.target.name === "image") {
-      setObjUser({ ...objUser, image: e.target.value });
-    } else if (e.target.name === "content") {
+    } else if (e.target.name === "question") {
       setObjUser({
         ...objUser,
-        content: e.target.value,
+        content: [
+          {
+            question: e.target.value,
+            answer: objUser.content[0].answer,
+          },
+        ],
+      });
+    } else if (e.target.name === "answer") {
+      setObjUser({
+        ...objUser,
+        content: [
+          {
+            question: objUser.content[0].question,
+            answer: e.target.value,
+          },
+        ],
       });
     }
   };
@@ -47,7 +60,6 @@ export const AddAndEditAbout = ({
   const checkTextEmpty = () => {
     for (const key in objUser) {
       if (objUser[key] === "") {
-        // console.log(objUser[key])
         return (checkEmpty = false);
       } else {
         checkEmpty = true;
@@ -69,8 +81,8 @@ export const AddAndEditAbout = ({
     }
   };
 
-  //* 3 - Add User
-  const addAbout = () => {
+  //* 3 - Add Faqs
+  const addFaqs = () => {
     //* Run function check
     checkTextEmpty();
     checkTextSpace();
@@ -78,13 +90,13 @@ export const AddAndEditAbout = ({
     //* Check invalid CheckEmpty + CheckSpace + CheckEmail
     if (checkEmpty && checkSpace) {
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
-      setObjUser({ ...objUser, id: about.length + 1 });
+      setObjUser({ ...objUser, id: faqs.length + 1 });
 
       //* Add objUser into User
-      Api.post("/aboutUs_Page", objUser)
+      Api.post("/listFaqs", objUser)
         .then(() => {
           //* Get lại data
-          getDataAbout();
+          getDataFaqs();
 
           //* Close Modal
           setAddVisible(false);
@@ -93,9 +105,12 @@ export const AddAndEditAbout = ({
           setObjUser({
             id: 0,
             title: "",
-            content: "",
-            image: "",
-            actived: true,
+            content: [
+              {
+                question: "",
+                answer: "",
+              },
+            ],
           });
         })
         .catch((err) => {
@@ -111,18 +126,21 @@ export const AddAndEditAbout = ({
   //* Update state
   const editAbout = () => {
     //* set item editted
-    Api.put(`/aboutUs_Page/${idAbout}`, objUser)
+    Api.put(`/listFaqs/${objUser.id}`, objUser)
       .then(() => {
         //* Get lại data
-        getDataAbout();
+        getDataFaqs();
 
         //* Reset objUser
         setObjUser({
-          id: 1,
+          id: 0,
           title: "",
-          content: "",
-          image: "",
-          actived: true,
+          content: [
+            {
+              question: "",
+              answer: "",
+            },
+          ],
         });
 
         //* Close Modal
@@ -139,9 +157,12 @@ export const AddAndEditAbout = ({
     setObjUser({
       id: 0,
       title: "",
-      content: "",
-      image: "",
-      actived: true,
+      content: [
+        {
+          question: "",
+          answer: "",
+        },
+      ],
     });
 
     //* Close Modal
@@ -151,10 +172,10 @@ export const AddAndEditAbout = ({
   return (
     <React.Fragment>
       {/* Completed: Modal to get info, Add and Edit */}
-      <CModal scrollable visible={addVisible} backdrop="static" size="xl">
+      <CModal scrollable visible={addVisible} backdrop="static" size="lg">
         <CModalBody>
           <CForm className="row g-3">
-            <CCol md={4}>
+            <CCol md={12}>
               <CFormInput
                 type="text"
                 label="Title"
@@ -163,21 +184,21 @@ export const AddAndEditAbout = ({
                 onChange={getInfo}
               />
             </CCol>
-            <CCol md={4}>
+            <CCol md={12}>
               <CFormInput
-                type={objUser.image ? "text" : "file"}
-                label="Image"
-                name="image"
-                value={objUser.image}
+                type="text"
+                label="Question"
+                name="question"
+                value={objUser.content[0].question}
                 onChange={getInfo}
               />
             </CCol>
-            <CCol md={4}>
+            <CCol md={12}>
               <CFormInput
                 type="text"
-                label="Content"
-                name="content"
-                value={objUser.content}
+                label="Answer"
+                name="answer"
+                value={objUser.content[0].answer}
                 onChange={getInfo}
               />
             </CCol>
@@ -188,7 +209,7 @@ export const AddAndEditAbout = ({
             <CButton
               color="primary"
               className="btnAdd"
-              onClick={() => addAbout()}
+              onClick={() => addFaqs()}
             >
               Aplly
             </CButton>
