@@ -2,22 +2,22 @@
   "listUser": [
     {
       "id": 1,
-      "fullName": "Nguyen A",
+      "fullName": "Tai",
       "date": "1991-01-10",
-      "sex": "male",
+      "sex": "female",
       "avatar": "URL",
       "identityCard": "201793356",
-      "nationality": "Viet Nam",
-      "phone": "0905234234",
+      "nationality": "USA",
+      "phone": "0",
       "email": "nva@gmail.com",
-      "address": "abc strees",
-      "dateCreated": "13h30 23-02-2022",
+      "address": "abc streess",
+      "dateCreated": "9h14 17-02-2023",
       "dateUpdated": "13h30 23-02-2022",
-      "actived": true,
+      "actived": false,
       "userName": "nguyena123",
       "password": "Maitantai1610@a",
       "role": "Admin",
-      "branch": "Panorama Da Nang"
+      "branch": "Panorama Phu Quoc"
     },
     {
       "id": 2,

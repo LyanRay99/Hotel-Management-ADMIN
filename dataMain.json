@@ -2257,5 +2257,15 @@
         }
       ]
     }
+  ],
+  "authentication": [
+    {
+      "username": "taimarce99",
+      "password": "taimarce99"
+    },
+    {
+      "username": "maitantai1999",
+      "password": "maitantai1999"
+    }
   ]
 }

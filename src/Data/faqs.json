@@ -1,6 +1,7 @@
 {
   "listFaqs": [
     {
+      "id": 1,
       "title": "General Hotel Information",
       "content": [
         {
@@ -54,6 +55,7 @@
       ]
     },
     {
+      "id": 2,
       "title": "Reservations & Cancellations",
       "content": [
         {
@@ -71,6 +73,7 @@
       ]
     },
     {
+      "id": 3,
       "title": "Reservation",
       "content": [
         {
@@ -80,6 +83,7 @@
       ]
     },
     {
+      "id": 4,
       "title": "Rooms and Rates",
       "content": [
         {
@@ -109,6 +113,7 @@
       ]
     },
     {
+      "id": 5,
       "title": "Hotel Amenities / Facilities",
       "content": [
         {
@@ -126,6 +131,7 @@
       ]
     },
     {
+      "id": 6,
       "title": "Meetings and Events",
       "content": [
         {

@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 async function loginUser(credentials) {
-  return fetch('https://photo.azurecloud.vn/api/v1/login', {
-    method: 'POST',
+  return fetch("http://localhost:8080/login", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(credentials),
-  }).then((data) => data.json())
+  }).then((data) => data.json());
 }
 
 export const Login = ({ setToken }) => {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const token = await loginUser({
       email,
       password,
-    })
-    setToken(token)
-  }
+    });
+    setToken(token);
+  };
 
   return (
     <div className="login__OverContainer">
@@ -37,7 +37,10 @@ export const Login = ({ setToken }) => {
 
           <label className="password">
             <p>Password</p>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} />
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
 
           <label className="rememberMe">
@@ -47,7 +50,7 @@ export const Login = ({ setToken }) => {
 
           <div
             style={{
-              display: 'flex',
+              display: "flex",
             }}
           >
             <div className="sumnitLogin">
@@ -60,9 +63,9 @@ export const Login = ({ setToken }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Login.propTypes = {
   setToken: PropTypes.func.isRequired,
-}
+};
