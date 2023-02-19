@@ -34,6 +34,7 @@ export const AddAndEditBooking = ({
   //* Get data Room to set index Branch, Type ,Kind
   const [roomData, setRoomData] = useState([]);
   const [roomDataType, setRoomDataType] = useState([]);
+  const [roomDataKind, setRoomDataKind] = useState([]);
 
   //* Setup to binding data for Select Branch
   const [room, setRoom] = useState({
@@ -45,6 +46,7 @@ export const AddAndEditBooking = ({
   const [indexSelected, setIndexSelected] = useState({
     branch: 0,
     type: 0,
+    kind: 0,
   });
 
   //* Set or Reset index of Branch selected
@@ -82,6 +84,22 @@ export const AddAndEditBooking = ({
     }
   }, [objBooking.roomType]);
 
+  //* Set or Reset index of Room Kind selected
+  useEffect(() => {
+    if (objBooking.typeR === "choose" && objBooking.typeR === "") {
+      setIndexSelected({
+        ...indexSelected,
+        kind: 0,
+      });
+    } else {
+      roomDataKind.map((item, index) => {
+        if (item.name === objBooking.typeR) {
+          setIndexSelected({ ...indexSelected, kind: index });
+        }
+      });
+    }
+  }, [objBooking.typeR]);
+
   //* Get data to select Branch + Room Type + Room Kind (re-run when index of branch or roomType changed)
   useEffect(() => {
     Api.get("/listRooms")
@@ -90,6 +108,9 @@ export const AddAndEditBooking = ({
         //* Get data list room
         setRoomData(data);
         setRoomDataType(data[indexSelected.branch].roomType);
+        setRoomDataKind(
+          data[indexSelected.branch].roomType[indexSelected.type].typeR
+        );
 
         //* Get info RoomType
         let BRANCH = ["choose"];
@@ -338,20 +359,55 @@ export const AddAndEditBooking = ({
     ].typeR.some((item) => item.name === objBooking.typeR && item.actived);
   };
 
-  // TODO: check room amount ?
-  //* Nếu đủ phòng trống thì add booking. Ngược lại, check tiếp date
-  // TODO: check date in listBooking
+  //* 7 - check room amount
+  const checkRoomAmount = () => {
+    return (
+      roomData[indexSelected.branch].roomType[indexSelected.type].typeR[
+        indexSelected.kind
+      ].emptyRooms >= 1
+    );
+  };
+
+  //* 8 - check date if not enough room empty
+  var checkListBooking = false;
+  const checkDateInListBook = () => {
+    //* 8.1 - Map listBooking to check branch, type, kind
+    booking.map((item, index) => {
+      if (
+        item.nameBranchVN === objBooking.nameBranchVN &&
+        item.roomType === objBooking.roomType &&
+        item.typeR === objBooking.typeR
+      ) {
+        //* 8.2 - check date invalid
+        if (checkDate(objBooking.checkIn.date, item.checkIn.date)) {
+          if (checkDate(objBooking.checkOut.date, item.checkIn.date)) {
+            console.log("CON PHONG");
+            checkListBooking = true;
+          } else {
+            console.log("HET PHONG");
+            checkListBooking = false;
+          }
+        } else {
+          if (checkDate(objBooking.checkIn.date, item.checkOut.date)) {
+            console.log("HET PHONG");
+            checkListBooking = false;
+          } else {
+            console.log("CON PHONG");
+            checkListBooking = true;
+          }
+        }
+      }
+    });
+  };
 
   //* III - Add Booking
   const addBooking = () => {
     //* Run function check
     checkTextEmpty();
     checkTextSpace();
+    checkDateInListBook();
 
-    console.log(checkBranch());
-    // TODO: Check còn phòng không
-
-    //* Check invalid CheckEmpty + CheckSpace + CheckEmail
+    //* Check invalid to add
     if (
       checkEmpty &&
       checkSpace &&
@@ -359,7 +415,8 @@ export const AddAndEditBooking = ({
       checkDateInvalid() &&
       checkBranch() &&
       checkRoomType() &&
-      checkRoomKind()
+      checkRoomKind() &&
+      (checkRoomAmount() || checkListBooking)
     ) {
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
       setObjBooking({ ...objBooking, id: booking.length + 1 });
@@ -423,54 +480,92 @@ export const AddAndEditBooking = ({
       alert(`Room Type ${objBooking.roomType} not actived`);
     } else if (!checkRoomKind()) {
       alert(`Room Kind ${objBooking.typeR} not actived`);
+    } else if (!checkRoomAmount() && !checkListBooking) {
+      alert(`Not enough room empty`);
     }
   };
 
   //* Completed: Edit Booking
   //* Update state
   const editBooking = () => {
-    //* set item editted
-    Api.put(`/listBooking/${objBooking.id}`, objBooking)
-      .then(() => {
-        //* Get lại data
-        getDataBooking();
+    //* Run function check
+    checkTextEmpty();
+    checkTextSpace();
+    checkDateInListBook();
 
-        //* Reset objBooking
-        setObjBooking({
-          id: 0,
-          fullName: "",
-          date: "",
-          sex: "",
-          identityCard: "",
-          nationality: "",
-          phone: "",
-          email: "",
-          address: "",
-          dateCreated: "",
-          dateUpdated: "",
-          nameBranchVN: "",
-          roomType: "",
-          typeR: "",
-          numberRoom: 310,
-          checkIn: {
-            time: "",
+    //* Check invalid to edit
+    if (
+      checkEmpty &&
+      checkSpace &&
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objBooking.email) &&
+      checkDateInvalid() &&
+      checkBranch() &&
+      checkRoomType() &&
+      checkRoomKind() &&
+      (checkRoomAmount() || checkListBooking)
+    ) {
+      //* set item editted
+      Api.put(`/listBooking/${objBooking.id}`, objBooking)
+        .then(() => {
+          //* Get lại data
+          getDataBooking();
+
+          //* Reset objBooking
+          setObjBooking({
+            id: 0,
+            fullName: "",
             date: "",
-          },
-          checkOut: {
-            time: "",
-            date: "",
-          },
-          confirm: false,
-          paied: false,
-          cancel: false,
+            sex: "",
+            identityCard: "",
+            nationality: "",
+            phone: "",
+            email: "",
+            address: "",
+            dateCreated: "",
+            dateUpdated: "",
+            nameBranchVN: "",
+            roomType: "",
+            typeR: "",
+            numberRoom: 310,
+            checkIn: {
+              time: "",
+              date: "",
+            },
+            checkOut: {
+              time: "",
+              date: "",
+            },
+            confirm: false,
+            paied: false,
+            cancel: false,
+          });
+
+          //* Close Modal
+          setAddVisible(false);
+        })
+        .catch((err) => {
+          console.error(err);
         });
-
-        //* Close Modal
-        setAddVisible(false);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    } else if (!checkEmpty) {
+      alert("input khônng được trống");
+    } else if (!checkSpace) {
+      alert("input chứa toàn khoảng trắng");
+    } else if (
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objBooking.email) ==
+      false
+    ) {
+      alert(`Email: ${objBooking.email} invalid`);
+    } else if (!checkDateInvalid()) {
+      alert("date invalid");
+    } else if (!checkBranch()) {
+      alert(`Branch ${objBooking.nameBranchVN} not actived`);
+    } else if (!checkRoomType()) {
+      alert(`Room Type ${objBooking.roomType} not actived`);
+    } else if (!checkRoomKind()) {
+      alert(`Room Kind ${objBooking.typeR} not actived`);
+    } else if (!checkRoomAmount() && !checkListBooking) {
+      alert(`Not enough room empty`);
+    }
   };
 
   //* Reset ObjUser khi click Cancel (phòng khi user click change password nhưng lại đổi ý nhấn close)
@@ -671,9 +766,6 @@ export const AddAndEditBooking = ({
           </CForm>
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnCancel" onClick={() => cancelEdit()}>
-            Cancel
-          </CButton>
           {objBooking.id == false ? (
             <CButton
               color="primary"
@@ -687,6 +779,10 @@ export const AddAndEditBooking = ({
               Edit
             </CButton>
           )}
+
+          <CButton className="btnCancel" onClick={() => cancelEdit()}>
+            Cancel
+          </CButton>
         </CModalFooter>
       </CModal>
     </React.Fragment>
