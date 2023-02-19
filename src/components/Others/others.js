@@ -47,3 +47,8 @@ export const customStyles = {
   //   fontSize: "25px", // set the font size of the selected value
   // }),
 };
+
+//* Check date ivalid (ktr xem ngày A có đứng trước ngày B không)
+export const checkDate = (date1, date2) => {
+  return date1 < date2;
+};

@@ -427,9 +427,9 @@
       "address": "abc strees",
       "dateCreated": "13h30 23-02-2022",
       "dateUpdated": "13h30 23-02-2022",
-      "nameBranchVN": "Panorama Đà Nẵng",
-      "roomType": "Normal",
-      "typeR": "single bed room",
+      "nameBranchVN": "Panorama Phú Quốc",
+      "roomType": "Vip",
+      "typeR": "double bed room",
       "numberRoom": 110,
       "checkIn": {
         "time": "13:04",
@@ -760,7 +760,7 @@
               "price": "2050",
               "dateCreated": "13h30 23-02-2022",
               "dateUpdated": "13h30 23-02-2022",
-              "actived": true,
+              "actived": false,
               "numberOfRoom": [
                 {
                   "id": 1,
@@ -1161,7 +1161,7 @@
               "price": "1050",
               "dateCreated": "13h30 23-02-2022",
               "dateUpdated": "13h30 23-02-2022",
-              "actived": true,
+              "actived": false,
               "numberOfRoom": [
                 {
                   "id": 1,

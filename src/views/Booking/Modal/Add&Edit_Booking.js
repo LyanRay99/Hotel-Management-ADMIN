@@ -4,6 +4,7 @@ import Api from "src/Api/axiosConfig";
 
 //* Function feature
 import { blockInvalidChar } from "src/components/Others/others";
+import { checkDate } from "src/components/Others/others";
 
 //* CORE UI + React Bootstrap
 import {
@@ -16,6 +17,7 @@ import {
   CFormInput,
   CFormSelect,
 } from "@coreui/react";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export const AddAndEditBooking = ({
   addVisible,
@@ -128,7 +130,7 @@ export const AddAndEditBooking = ({
   }, [indexSelected.branch, indexSelected.type]);
 
   //* Completed: Add User
-  //* 1 - Get info user
+  //* I - Get info user
   const getInfo = (e) => {
     if (e.target.name === "fullName") {
       setObjBooking({
@@ -190,11 +192,15 @@ export const AddAndEditBooking = ({
           typeR: "",
         });
       } else {
-        setLockSelectBook({ ...lockSelectBook, type: false });
-        setObjBooking({
-          ...objBooking,
-          nameBranchVN: e.target.value,
-        });
+        if (objBooking.nameBranchVN !== e.target.value) {
+          setLockSelectBook({ ...lockSelectBook, type: false, kind: true });
+          setObjBooking({
+            ...objBooking,
+            nameBranchVN: e.target.value,
+            roomType: "",
+            typeR: "",
+          });
+        }
       }
     } else if (e.target.name === "type") {
       //* Get select roomType
@@ -275,7 +281,8 @@ export const AddAndEditBooking = ({
     }
   };
 
-  //* Check Text Empty ?
+  //* II - Check Booking
+  //* 1 - Check Text Empty ?
   var checkEmpty = true;
   const checkTextEmpty = () => {
     for (const key in objBooking) {
@@ -287,7 +294,7 @@ export const AddAndEditBooking = ({
     }
   };
 
-  //* Check text chứa toàn khoảng trắng
+  //* 2 - Check text chứa toàn khoảng trắng
   var checkSpace = true;
   const checkTextSpace = () => {
     for (const key in objBooking) {
@@ -301,17 +308,58 @@ export const AddAndEditBooking = ({
     }
   };
 
-  //* 3 - Add Booking
+  // FIXME:
+  //* 3 - check date invalid
+  const checkDateInvalid = () => {
+    return checkDate(objBooking.checkIn.date, objBooking.checkOut.date)
+      ? true
+      : false;
+  };
+
+  //* 4 - check Branch actived ?
+  const checkBranch = () => {
+    return roomData.some(
+      (branch) =>
+        branch.nameBranchVN === objBooking.nameBranchVN && branch.actived
+    );
+  };
+
+  //* 5 - check RoomType actived ?
+  const checkRoomType = () => {
+    return roomData[indexSelected.branch].roomType.some(
+      (item) => item.type === objBooking.roomType && item.actived
+    );
+  };
+
+  //* 6 - check RoomKind actived ?
+  const checkRoomKind = () => {
+    return roomData[indexSelected.branch].roomType[
+      indexSelected.type
+    ].typeR.some((item) => item.name === objBooking.typeR && item.actived);
+  };
+
+  // TODO: check room amount ?
+  //* Nếu đủ phòng trống thì add booking. Ngược lại, check tiếp date
+  // TODO: check date in listBooking
+
+  //* III - Add Booking
   const addBooking = () => {
     //* Run function check
     checkTextEmpty();
     checkTextSpace();
 
+    console.log(checkBranch());
+    // TODO: Check còn phòng không
+
     //* Check invalid CheckEmpty + CheckSpace + CheckEmail
     if (
       checkEmpty &&
       checkSpace &&
-      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objBooking.email)
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objBooking.email) &&
+      checkDateInvalid() &&
+      checkBranch() &&
+      checkRoomType() &&
+      checkRoomKind()
     ) {
       //* Bây giờ mới set ID để thay đổi UI button trong Modal
       setObjBooking({ ...objBooking, id: booking.length + 1 });
@@ -366,7 +414,15 @@ export const AddAndEditBooking = ({
       /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(objBooking.email) ==
       false
     ) {
-      alert("Email không hợp lệ");
+      alert(`Email: ${objBooking.email} invalid`);
+    } else if (!checkDateInvalid()) {
+      alert("date invalid");
+    } else if (!checkBranch()) {
+      alert(`Branch ${objBooking.nameBranchVN} not actived`);
+    } else if (!checkRoomType()) {
+      alert(`Room Type ${objBooking.roomType} not actived`);
+    } else if (!checkRoomKind()) {
+      alert(`Room Kind ${objBooking.typeR} not actived`);
     }
   };
 
