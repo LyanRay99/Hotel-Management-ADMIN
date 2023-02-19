@@ -36,7 +36,7 @@ const routes = [
   { path: '/Banner', name: 'Banner', element: Banner },
   { path: '/Language', name: 'Language', element: Language },
   { path: '/About-us', name: 'About Us', element: AboutUs },
-  { path: '/Terms-of-service', name: 'Terms Of Service', element: TermsOfService },
+  // { path: '/Terms-of-service', name: 'Terms Of Service', element: TermsOfService },
   { path: '/FAQs', name: 'FAQs', element: FAQs },
 ]
 

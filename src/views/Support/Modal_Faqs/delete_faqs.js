@@ -12,21 +12,20 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const DeleteNews = ({
+export const DeleteFaqs = ({
   showDlt,
   setShowDlt,
-  news,
-  getDataNews,
-  indexNews,
+  faqs,
+  setFaqs,
+  idFaqs,
+  getDataFaqs,
 }) => {
-  //* Completed: Delete RoomType
-  const deleteNews = () => {
-    //* Get info to delete
-
-    Api.delete(`/news_recent/${news[indexNews].id}`)
+  //* Completed: Delete User
+  const deleteFaqs = () => {
+    Api.delete(`/listFaqs/${idFaqs}`)
       .then(() => {
         //* Get lại data
-        getDataNews();
+        getDataFaqs();
 
         //* close modal
         setShowDlt(false);
@@ -36,10 +35,11 @@ export const DeleteNews = ({
       });
   };
 
-  var nameNews = "";
-  news.map((item, index) => {
-    if (index === indexNews) {
-      return (nameNews = item.name);
+  //* Get fullName of user
+  var nameFaqs = "";
+  faqs.map((item) => {
+    if (item.id === idFaqs) {
+      return (nameFaqs = item.title);
     }
   });
 
@@ -50,10 +50,10 @@ export const DeleteNews = ({
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete News <strong>{nameNews}</strong>
+          Are you sure you want to delete title: <strong>{nameFaqs}</strong> ?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteNews()}>
+          <CButton className="btnSubmit" onClick={() => deleteFaqs()}>
             Confirm
           </CButton>
 

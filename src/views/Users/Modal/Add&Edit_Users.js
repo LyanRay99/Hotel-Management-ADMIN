@@ -1,6 +1,5 @@
 //* Library
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Api from "src/Api/axiosConfig";
 
 //* Function feature
@@ -57,21 +56,35 @@ export const AddAndEdit = ({
     } else if (e.target.name === "birth") {
       setObjUser({ ...objUser, date: e.target.value });
     } else if (e.target.name === "sex") {
-      setObjUser({ ...objUser, sex: e.target.value });
+      if (e.target.value === "choose") {
+        setObjUser({ ...objUser, sex: "" });
+      } else {
+        setObjUser({ ...objUser, sex: e.target.value });
+      }
     } else if (e.target.name === "identityCard") {
-      // if (/^\d+$/.test(e.target.value)) {
       setObjUser({ ...objUser, identityCard: e.target.value });
-      // }
     } else if (e.target.name === "nationality") {
-      setObjUser({ ...objUser, nationality: e.target.value });
+      if (e.target.value === "choose") {
+        setObjUser({ ...objUser, nationality: "" });
+      } else {
+        setObjUser({ ...objUser, nationality: e.target.value });
+      }
     } else if (e.target.name === "email") {
       setObjUser({ ...objUser, email: e.target.value });
     } else if (e.target.name === "address") {
       setObjUser({ ...objUser, address: e.target.value });
     } else if (e.target.name === "role") {
-      setObjUser({ ...objUser, role: e.target.value });
+      if (e.target.value === "choose") {
+        setObjUser({ ...objUser, role: "" });
+      } else {
+        setObjUser({ ...objUser, role: e.target.value });
+      }
     } else if (e.target.name === "branch") {
-      setObjUser({ ...objUser, branch: e.target.value });
+      if (e.target.value === "choose") {
+        setObjUser({ ...objUser, branch: "" });
+      } else {
+        setObjUser({ ...objUser, branch: e.target.value });
+      }
     } else if (e.target.name === "userName") {
       setObjUser({ ...objUser, userName: e.target.value });
     } else if (e.target.name === "password") {
@@ -81,10 +94,11 @@ export const AddAndEdit = ({
       var today = new Date();
       var day = String(today.getDate()).padStart(2, "0");
       var month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var year = today.getFullYear();
-      var hour = today.getHours();
-      var minutes = today.getMinutes();
+      var year = String(today.getFullYear());
+      var hour = String(today.getHours()).padStart(2, "0");
+      var minutes = String(today.getMinutes()).padStart(2, "0");
       today = `${hour}h${minutes} ${day}-${month}-${year}`;
+
       setObjUser({
         ...objUser,
         dateCreated: today,
@@ -183,7 +197,6 @@ export const AddAndEdit = ({
   //* Completed: Edit User
   //* Update state
   const editUser = () => {
-    console.log(objUser);
     //* set item editted
     Api.put(`/listUser/${user[indexUser].id}`, objUser)
       .then(() => {
@@ -249,13 +262,7 @@ export const AddAndEdit = ({
   return (
     <React.Fragment>
       {/* Completed: Modal to get info, Add and Edit User */}
-      <CModal
-        scrollable
-        visible={addVisible}
-        backdrop="static"
-        size="xl"
-        onClose={() => setAddVisible(false)}
-      >
+      <CModal scrollable visible={addVisible} backdrop="static" size="xl">
         <CModalBody>
           <CForm className="row g-3">
             <CCol md={4}>
@@ -366,7 +373,6 @@ export const AddAndEdit = ({
                 value={objUser.branch}
                 onChange={getInfo}
                 options={branchName}
-                disabled={objUser.role === "" ? true : false}
               />
             </CCol>
             <CCol md={6}>

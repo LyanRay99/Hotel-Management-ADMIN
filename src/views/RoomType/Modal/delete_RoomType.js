@@ -44,7 +44,6 @@ export const DeleteRoomType = ({
 
   return (
     <React.Fragment>
-      {/* Completed: Modal to change password User */}
       <CModal scrollable visible={showDlt} backdrop="static">
         <CModalHeader>
           <CModalTitle>Notification</CModalTitle>

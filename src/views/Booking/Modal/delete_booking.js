@@ -12,21 +12,20 @@ import {
   CButton,
 } from "@coreui/react";
 
-export const DeleteNews = ({
+export const DeleteBooking = ({
   showDlt,
   setShowDlt,
-  news,
-  getDataNews,
-  indexNews,
+  idBooking,
+  booking,
+  setBooking,
+  getDataBooking,
 }) => {
-  //* Completed: Delete RoomType
-  const deleteNews = () => {
-    //* Get info to delete
-
-    Api.delete(`/news_recent/${news[indexNews].id}`)
+  //* Completed: Delete User
+  const deleteBooking = () => {
+    Api.delete(`/listBooking/${idBooking}`)
       .then(() => {
         //* Get lại data
-        getDataNews();
+        getDataBooking();
 
         //* close modal
         setShowDlt(false);
@@ -36,24 +35,31 @@ export const DeleteNews = ({
       });
   };
 
-  var nameNews = "";
-  news.map((item, index) => {
-    if (index === indexNews) {
-      return (nameNews = item.name);
+  //* Get fullName of user
+  var user_fullName = "";
+  booking.map((item) => {
+    if (item.id === idBooking) {
+      return (user_fullName = item.fullName);
     }
   });
 
   return (
     <React.Fragment>
-      <CModal scrollable visible={showDlt} backdrop="static">
+      <CModal
+        scrollable
+        visible={showDlt}
+        backdrop="static"
+        onClose={() => setShowDlt(false)}
+      >
         <CModalHeader>
           <CModalTitle>Notification</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          Are you sure you want to delete News <strong>{nameNews}</strong>
+          Are you sure you want to delete booking of{" "}
+          <strong>{user_fullName}</strong> ?
         </CModalBody>
         <CModalFooter>
-          <CButton className="btnSubmit" onClick={() => deleteNews()}>
+          <CButton className="btnSubmit" onClick={() => deleteBooking()}>
             Confirm
           </CButton>
 

@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import Api from "src/Api/axiosConfig";
 
+//* Function feature
+import { blockInvalidChar } from "src/components/Others/others";
+
 //* CORE UI + React Bootstrap
 import {
   CButton,
@@ -57,9 +60,9 @@ export const AddAndEditBranch = ({
       var today = new Date();
       var day = String(today.getDate()).padStart(2, "0");
       var month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var year = today.getFullYear();
-      var hour = today.getHours();
-      var minutes = today.getMinutes();
+      var year = String(today.getFullYear());
+      var hour = String(today.getHours()).padStart(2, "0");
+      var minutes = String(today.getMinutes()).padStart(2, "0");
       today = `${hour}h${minutes} ${day}-${month}-${year}`;
 
       setObjUser({
@@ -240,6 +243,7 @@ export const AddAndEditBranch = ({
                 name="phone"
                 value={objUser.phone}
                 onChange={getInfo}
+                onKeyDown={blockInvalidChar}
               />
             </CCol>
             <CCol md={6}>
@@ -267,6 +271,7 @@ export const AddAndEditBranch = ({
                 name="roomTotal"
                 value={objUser.roomTotal}
                 onChange={getInfo}
+                onKeyDown={blockInvalidChar}
               />
             </CCol>
             <CCol md={6}>

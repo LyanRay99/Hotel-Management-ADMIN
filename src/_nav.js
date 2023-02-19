@@ -1,5 +1,5 @@
-import React from 'react'
-import CIcon from '@coreui/icons-react'
+import React from "react";
+import CIcon from "@coreui/icons-react";
 import {
   cilBank,
   cilBarChart,
@@ -13,110 +13,110 @@ import {
   cilTask,
   cilUser,
   cilViewColumn,
-} from '@coreui/icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+} from "@coreui/icons";
+import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react";
 
 const _nav = [
   //TODO: PERMISSION MANAGEMENT
   {
     component: CNavTitle,
-    name: 'PERMISSION MANAGEMENT',
+    name: "PERMISSION MANAGEMENT",
   },
   {
     component: CNavItem,
-    name: 'User',
-    to: '/Users',
+    name: "User",
+    to: "/Users",
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
 
   //TODO: HOTEL MANAGEMENT
   {
     component: CNavTitle,
-    name: 'HOTEL MANAGEMENT',
+    name: "HOTEL MANAGEMENT",
   },
   {
     component: CNavItem,
-    name: 'Branch',
-    to: '/Branch',
+    name: "Branch",
+    to: "/Branch",
     icon: <CIcon icon={cilList} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Room Type',
-    to: '/RoomType',
+    name: "Room Type",
+    to: "/RoomType",
     icon: <CIcon icon={cilList} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'List Booking',
-    to: '/ListBooking',
+    name: "List Booking",
+    to: "/ListBooking",
     icon: <CIcon icon={cilBank} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Report Rating',
-    to: '/ReportRating',
+    name: "Report Rating",
+    to: "/ReportRating",
     icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
   },
 
   // TODO: MANAGE NEWS
   {
     component: CNavTitle,
-    name: 'MANAGE NEWS & Event',
+    name: "MANAGE NEWS & Event",
   },
   {
     component: CNavItem,
-    name: 'News',
-    to: '/News',
+    name: "News",
+    to: "/News",
     icon: <CIcon icon={cilViewColumn} customClassName="nav-icon" />,
   },
 
   // TODO: BANNER MANAGEMENT
   {
     component: CNavTitle,
-    name: 'BANNER MANAGEMENT',
+    name: "BANNER MANAGEMENT",
   },
   {
     component: CNavItem,
-    name: 'Banner',
-    to: '/Banner',
+    name: "Banner",
+    to: "/Banner",
     icon: <CIcon icon={cilViewColumn} customClassName="nav-icon" />,
   },
 
   //TODO: LANGUAGE MANAGEMENT
   {
     component: CNavTitle,
-    name: 'LANGUAGE MANAGEMENT',
+    name: "LANGUAGE MANAGEMENT",
   },
   {
     component: CNavItem,
-    name: 'Language',
-    to: '/Language',
+    name: "Language",
+    to: "/Language",
     icon: <CIcon icon={cilLanguage} customClassName="nav-icon" />,
   },
 
   {
     component: CNavGroup,
-    name: 'Support',
+    name: "Support",
     icon: <CIcon icon={cilLightbulb} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'FAQs',
-        to: '/FAQs',
+        name: "FAQs",
+        to: "/FAQs",
       },
       {
         component: CNavItem,
-        name: 'About Us',
-        to: '/About-us',
+        name: "About Us",
+        to: "/About-us",
       },
-      {
-        component: CNavItem,
-        name: 'Terms Of Service',
-        to: '/Terms-of-service',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Terms Of Service',
+      //   to: '/Terms-of-service',
+      // },
     ],
   },
-]
+];
 
-export default _nav
+export default _nav;

@@ -40,7 +40,7 @@
     {
       "id": 1,
       "name": "RELAXING & TRAVEL IN OUR HOTEL",
-      "time": "12:30 Pm, Thu 01 October   2023",
+      "time": "12:30",
       "date": "01",
       "month": "OCTOBER",
       "monthNumber": "10",
@@ -49,7 +49,8 @@
       "imageMain": "Event/body/content/blog-1.jpg",
       "imageSup": "Event/body/content/blog-1.1.jpg",
       "author": "Jonatha Owens",
-      "tags": ["Food Dinner", "Tralvel"], 
+      "actived": true,
+      "tags": ["Food Dinner", "Relax", "Tralvel"],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
         "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -95,7 +96,7 @@
     {
       "id": 2,
       "name": "NEW KIND OF CHICKEN FOOD FOR DINNER",
-      "time": "12:30 Pm, Thu 01 January   2023",
+      "time": "12:30, Thu 01 January   2023",
       "date": "01",
       "month": "JANUARY",
       "monthNumber": "01",
@@ -104,6 +105,7 @@
       "imageMain": "Event/body/content/blog-2.jpg",
       "imageSup": "Event/body/content/blog-2.2.jpg",
       "author": "Luis Jubica",
+      "actived": true,
       "tags": ["Food Dinner", "Tralvel"],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
@@ -150,7 +152,7 @@
     {
       "id": 3,
       "name": "ONE NIGHT WEDDING WITH JESSIA & ROBET",
-      "time": "12:30 Pm, Mon 01 May        2023",
+      "time": "12:30, Mon 01 May        2023",
       "date": "15",
       "month": "MAY",
       "monthNumber": "05",
@@ -159,6 +161,7 @@
       "imageMain": "Event/body/content/blog-3.jpg",
       "imageSup": "Event/body/content/blog-3.3.jpg",
       "author": "David Mora",
+      "actived": true,
       "tags": ["Food Dinner", "Tralvel"],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
@@ -205,7 +208,7 @@
     {
       "id": 4,
       "name": "FISHING WITH SKYLINE HOTEL",
-      "time": "09:30 Pm, Fri 20 May        2023",
+      "time": "09:30, Fri 20 May        2023",
       "date": "20",
       "month": "JANUARY",
       "monthNumber": "01",
@@ -214,6 +217,7 @@
       "imageMain": "Event/body/content/blog-4.jpg",
       "imageSup": "Event/body/content/blog-4.4.jpg",
       "author": "Philip Anato",
+      "actived": true,
       "tags": ["Food Dinner", "Tralvel"],
       "content": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
