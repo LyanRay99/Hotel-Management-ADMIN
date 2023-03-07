@@ -42,12 +42,12 @@ const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 
 function App() {
   //* Completed: Login
-  const { token, setToken } = useToken();
+  // const { token, setToken } = useToken();
 
   // const token = getToken();
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
+  // if (!token) {
+  //   return <Login setToken={setToken} />;
+  // }
 
   return (
     <HashRouter>
